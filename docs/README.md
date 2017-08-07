@@ -4,10 +4,11 @@
 
 [heroku]:
 
-## Minimum Viable Product
+## Background and Overview
 
-Ka-Ching is a mobile application allowing users to sell and buy items either near their geolocation and browse from an index of categorized items. This application will be built using React Native in the front-end, and Node.js along with Express and Mongodb, Mongoose, and Mocha for testing on the back-end. By the beginning of week 12, this app will, at a minimum will satisfy the following criteria with smooth, bug-free navigation, adequate seed data and
-sufficient CSS styling.
+Ka-Ching is a mobile application allowing users to sell and buy items either near their geolocation and browse from an index of categorized items. By the beginning of week 12, this app will, at a minimum will satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling.
+
+## Minimum Viable Product
 
 - [ ] Have a Demo Page
 - [ ] Production README
@@ -16,6 +17,28 @@ sufficient CSS styling.
 - [ ] Interests
 - [ ] Google Map Api
 
+## Technologies
+
+- React Native: Front-end
+- Node.js: Language for back-end
+- Express: Node.js web application framework
+- Mongodb: Database
+- Mongoose: Connects server to the database
+- Mocha: Testing database
+- Google API
+
+## Technical Challenges
+
+- Connecting the front-end to the back-end
+- Utilizing Google API to track user and item locations
+- Building mobile app with whole new stack
+
+## Things Accomplished Over the Weekend
+
+- Completed front-end and back-end authentication
+- Log In with Facebook and Google
+- Research technologies required
+- Planning for the week
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -61,6 +84,13 @@ sufficient CSS styling.
 **Objective:** Howard, Andrew, Joey, Terrence: Finishing styling
 
 **Objective:** Howard, Andrew, Joey, Terrence: Making Demo Page
+
+## Plan for getting users and reviews
+
+- Family and Friends
+- Facebook
+- Instagram
+- Twitter
 
 ### Bonus Features (TBD)
 - [ ] Notifications
