@@ -1,0 +1,3 @@
+rootProject.name = 'todoListAuth2'
+
+include ':app'
