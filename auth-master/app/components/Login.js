@@ -12,13 +12,32 @@ import {
 import {loginUser, signupUser , addAlert} from '../actions';
 
 var Login = React.createClass({
+  getInitialState: function() {
+    return {
+      loading: false
+    };
+  },
   onSignIn: function(){
     var {dispatch, fields: {email, password}} = this.props;
-    dispatch(loginUser(email.value, password.value));
+    this.setState({
+      loading: true
+    });
+    dispatch(loginUser(email.value, password.value)).then(()=>{
+      this.setState({
+        loading: false
+      });
+    });
   },
   onSignUp: function(){
     var {dispatch, fields: {email, password}} = this.props;
-    dispatch(signupUser(email.value, password.value));
+    this.setState({
+      loading: true
+    });
+    dispatch(signupUser(email.value, password.value)).then(()=>{
+      this.setState({
+        loading: false
+      });
+    });
   },
   render() {
     var {fields: {email, password}} = this.props;
@@ -29,45 +48,56 @@ var Login = React.createClass({
         );
       }
     };
-    return (
-      <View style={styles.container}>
-        <View style={styles.titleContainer}>
-        <Text style={styles.title}>
-          Ka-Ching!
-        </Text>
-      </View>
-      <View style={styles.field}>
-        <TextInput
-          {...email}
-          placeholder="Email"
-          style={styles.textInput}/>
-        <View>
-          {renderError(email)}
+
+    if (this.state.loading){
+      return (
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Text>
+          Loading...
+          </Text>
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <View style={styles.titleContainer}>
+          <Text style={styles.title}>
+            Ka-Ching!
+          </Text>
+        </View>
+        <View style={styles.field}>
+          <TextInput
+            {...email}
+            placeholder="Email"
+            style={styles.textInput}/>
+          <View>
+            {renderError(email)}
+          </View>
+        </View>
+        <View style={styles.field}>
+          <TextInput
+            {...password}
+            placeholder="Password"
+            style={styles.textInput}/>
+            <View>
+              {renderError(password)}
+            </View>
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity  onPress={this.onSignIn}>
+            <Text style={styles.button}>
+              Sign In
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.onSignUp}>
+            <Text style={styles.button}>
+              Sign Up
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.field}>
-        <TextInput
-          {...password}
-          placeholder="Password"
-          style={styles.textInput}/>
-          <View>
-            {renderError(password)}
-          </View>
-      </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity  onPress={this.onSignIn}>
-          <Text style={styles.button}>
-            Sign In
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onSignUp}>
-          <Text style={styles.button}>
-            Sign Up
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-    );
+      );
+    }
   }
 });
 
