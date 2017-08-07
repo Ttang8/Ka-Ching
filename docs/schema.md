@@ -29,8 +29,8 @@ location    | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, indexed
-item_id     | integer   | not null, indexed
+user_id     | integer   | not null, 
+item_id     | integer   | not null, 
 
 ## Feedback
 column name | data type | details
