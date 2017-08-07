@@ -1,27 +1,21 @@
-# ISO100
+# Ka-Ching
 
 [Heroku link][heroku]
 
-[heroku]: https://iso100.herokuapp.com
-
-[Trello Link][trello]
-
-[trello]: https://trello.com/b/phMZ0OQp/flickr-clone
+[heroku]:
 
 ## Minimum Viable Product
 
-ISO100 is a web application inspired by Flickr built using Ruby on Rails
-and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
-following criteria with smooth, bug-free navigation, adequate seed data and
-sufficient CSS styling:
+Ka-Ching is a mobile application allowing users to sell and buy items either near their geolocation and browse from an index of categorized items. This application will be built using React Native in the front-end, and Node.js along with Express and Mongodb, Mongoose, and Mocha for testing on the back-end. By the beginning of week 12, this app will, at a minimum will satisfy the following criteria with smooth, bug-free navigation, adequate seed data and
+sufficient CSS styling.
 
-- [ ] Hosting on Heroku
+- [ ] Have a Demo Page
 - [ ] Production README
-- [ ] Authentication
-- [ ] Photos
-- [ ] Albums
-- [ ] Comments
-- [ ] Tags
+- [ ] Authentication(with new techs)
+- [ ] Upload Items to sell
+- [ ] Interests
+- [ ] Google Map Api
+
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -38,33 +32,40 @@ sufficient CSS styling:
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+### Day1:
 
-**Objective:** Functioning rails project with front-end Authentication
+**Objective:** Joey, Terrence: back-end Authentication
 
-### Phase 2: Photos Model, API, and components (2 days)
+**Objective:** Howard, Andrew: front-end Authentication
 
-**Objective:** Photos can be created, read, edited and destroyed through
-the API.
+### Day2:
 
-### Phase 3: Albums (2 days)
+**Objective:** Joey, Terrence: Items back-end
 
-**Objective:** Photos belong to Albums that can be created, read, edited and destroyed through the API.
+**Objective:** Howard, Andrew: Items front-end
 
-### Phase 4: Comments (1 day)
+### Day3:
 
-**Objective:** Photos have comments that can be created, read, edited and destroyed through the API.
+**Objective:** Joey, Terrence: Interest back-end
 
-### Phase 5: Tags (1 day)
+**Objective:** Howard, Andrew: Interest front-end
 
-**Objective:** Tags can be tagged with multiple tags, and tags are searchable.
+### Day4:
 
+**Objective:** Joey, Terrence: Google Api back-end
 
-### Phase 6: - Finishing Up styling and loose ends (1 day)
+**Objective:** Howard, Andrew: Google Api front-end
 
-**Objective:** Add infinite scroll to Notes Index
+### Day5:
+
+**Objective:** Howard, Andrew, Joey, Terrence: Finishing styling
+
+**Objective:** Howard, Andrew, Joey, Terrence: Making Demo Page
 
 ### Bonus Features (TBD)
-- [ ] Infinite scrolling of photos
-- [ ] Favorites
-- [ ] Follows
+- [ ] Notifications
+- [ ] Categories
+- [ ] Feedback
+- [ ] Chat(communication between seller and buyer)
+- [ ] Search(items by category)
+- [ ] Cart(to purchase items)
