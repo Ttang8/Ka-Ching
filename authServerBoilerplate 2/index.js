@@ -7,6 +7,7 @@ const router = require('./services/router');
 const app = express();
 
 
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:introToAuth/introToAuth');
 
 app.use(morgan('combined'));
