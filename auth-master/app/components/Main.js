@@ -47,12 +47,14 @@ var Main = React.createClass({
     return (
       <Swiper style={styles.wrapper} index={1} showsPagination={false} loop={false} showsButtons={false}>
         <View style={styles.slide1}>
+          {/*render user profile component here  */}
           <Text style={styles.text}>User profile page</Text>
         </View>
         <View style={styles.slide2}>
           <Items />
         </View>
         <View style={styles.slide3}>
+          {/*render user interest component here  */}
           <Text style={styles.text}>Interest component</Text>
         </View>
       </Swiper>
