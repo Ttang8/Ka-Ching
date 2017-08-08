@@ -11,164 +11,57 @@ import {
 
 import FontAwesome, { Icons } from 'react-native-fontawesome'
 import { unauthUser } from '../actions';
+import Items from './item/items';
+
+import Swiper from 'react-native-swiper';
+
+var styles = StyleSheet.create({
+  wrapper: {
+  },
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    flex:1,
+    backgroundColor: '#97CAE5',
+    alignSelf: 'stretch'
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  }
+})
 
 var Main = React.createClass({
-  // onLogout: function() {
-  //   this.props.dispatch(unauthUser);
-  // },
-  toUserProfile: function(){
-    console.log('render user profile component');
-  },
-
-  toUserInterest: function(){
-    console.log('render user interest component');
-  },
-
-  addToInterest: function(){
-    console.log('create association with user and interest table')
-  },
-
-  next: function(){
-    console.log('next iteration through list of items')
-  },
-
-  render() {
-    const tempItem = {
-      image_url: {},
-      price: "$10.00",
-      title: "Dallas",
-      location: "San Francisco",
-      description: "smart as f***"
-    }
+  render: function () {
     return (
-      <View style={styles.container}>
-        {/* left this part so that we can implement in our user profile page  */}
-        {/* <TouchableOpacity onPress={this.onLogout}> */}
-        {/* <Text>
-            Logout
-          </Text> */}
-        {/* </TouchableOpacity> */}
-        <View style={styles.navContainer}>
-          <View>
-            <TouchableOpacity onPress={this.toUserProfile}>
-              <Text>
-                user
-            </Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <Text>
-              kaching
-            </Text>
-          </View>
-          <View>
-            <TouchableOpacity onPress={this.toUserInterest}>
-              <Text>
-                interest
-            </Text>
-            </TouchableOpacity>
-          </View>
+      <Swiper style={styles.wrapper} index={1} showsPagination={false} loop={false} showsButtons={false}>
+        <View style={styles.slide1}>
+          {/*render user profile component here  */}
+          <Text style={styles.text}>User profile page</Text>
         </View>
-        <Image source={require('../images/dallas.jpg')} style={styles.itemImage} resizeMode={Image.resizeMode.cover}>
-          <TouchableOpacity>
-            <View style={styles.itemsContainer}>
-              <View style={styles.itemsDetail}>
-                <Text style={styles.itemDescription}>
-                  {tempItem.title}
-                </Text>
-                <Text style={styles.itemDescription}>
-                  {tempItem.description}
-                </Text>
-                <Text style={styles.itemDescription}>
-                  {tempItem.price}
-                </Text>
-                <Text style={styles.itemDescription}>
-                  {tempItem.location}
-                </Text>
-              </View>
-              <View style={styles.more}>
-                <Text style={styles.itemDescription}>
-                  details
-                </Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-        </Image>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.addToInterest}>
-            <Text>
-              yes
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.next}>
-            <Text>
-              no
-            </Text>
-          </TouchableOpacity>
+        <View style={styles.slide2}>
+          <Items />
         </View>
-
-      </View>
-    );
+        <View style={styles.slide3}>
+          {/*render user interest component here  */}
+          <Text style={styles.text}>Interest component</Text>
+        </View>
+      </Swiper>
+    )
   }
-});
+})
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 16,
-    paddingBottom: 10,
-    paddingLeft: 6,
-    paddingRight: 6,
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
 
-  },
-  navContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignSelf: 'stretch',
-    paddingBottom: 10,
-    paddingTop: 10
-  },
-  itemImage: {
-    marginTop: 10,
-    flex: 4.5,
-    width: null,
-    height: null,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    borderRadius: 8,
-  },
-  itemsContainer: {
-    flexDirection: 'row',
-    alignSelf: 'stretch',
-    backgroundColor: 'transparent',
-    padding: 10
-  },
-  more: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    alignSelf: 'stretch'
-  },
-  itemsDetail: {
-
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    alignSelf: 'stretch'
-  },
-  itemDescription: {
-    color: 'white',
-    fontWeight: 'bold'
-  }
-});
 
 module.exports = connect()(Main);

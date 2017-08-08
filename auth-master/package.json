@@ -12,6 +12,7 @@
     "react-addons-update": "^15.6.0",
     "react-native": "0.47.1",
     "react-native-fontawesome": "^5.7.0",
+    "react-native-swiper": "^1.5.5",
     "react-redux": "^3.1.2",
     "redux": "^3.7.2",
     "redux-form": "^5.3.2",
