@@ -6,10 +6,12 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  NavigatorIOS
 } from 'react-native';
 
-import FontAwesome, { Icons } from 'react-native-fontawesome'
+import TodoList from './TodoList';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { unauthUser } from '../actions';
 import Items from './item/items';
 import UserProfile from './user/userProfile';
@@ -29,21 +31,20 @@ var styles = StyleSheet.create({
   },
   slide3: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#92BBD9',
+    alignSelf: 'stretch',
+    backgroundColor: 'white'
   },
   text: {
     color: '#fff',
     fontSize: 30,
     fontWeight: 'bold',
   }
-})
+});
 
 var Main = React.createClass({
   render: function () {
     return (
-      <Swiper style={styles.wrapper} index={1} showsPagination={false} loop={false} showsButtons={false}>
+      <Swiper style={styles.wrapper} index={2} showsPagination={false} loop={false} showsButtons={false}>
         <View style={styles.slide1}>
           <UserProfile />
         </View>
@@ -51,13 +52,12 @@ var Main = React.createClass({
           <Items />
         </View>
         <View style={styles.slide3}>
-          {/*render user interest component here  */}
-          <Text style={styles.text}>Interest component</Text>
+          <TodoList/>
         </View>
       </Swiper>
-    )
+    );
   }
-})
+});
 
 
 
