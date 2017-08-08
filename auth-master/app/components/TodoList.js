@@ -59,7 +59,7 @@ var TodoList = React.createClass({
               <Icon name='x' size={20} color='white'/>
             </TouchableOpacity>
             <Text style={styles.title}>
-          To-Do List
+          Interests
           </Text>
           <TouchableOpacity onPress={this.addNewTodo}>
             <Icon name='plus' size={20} color='white'/>
