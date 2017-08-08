@@ -107,14 +107,16 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'stretch',
     paddingTop: 20,
-    backgroundColor: '#aaa'
+    backgroundColor: '#2ecc71'
   },
   titleContainer: {
     padding: 10
   },
   title: {
     color: 'white',
-    fontSize: 35
+    fontSize: 35,
+    marginTop: 20,
+    marginBottom: 20
   },
   field: {
     borderRadius: 5,
