@@ -9,12 +9,41 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     lowercase: true,
-    required: "Email address is required",
-    validate: [validateEmail, "Please enter a valid email"]
+    required: [true, "Email address is required"],
+    validate: {
+      validator: validateEmail,
+      message: "Please enter a valid email"
+    }
   },
   password: {
     type: String
-  }
+  },
+  username: {
+    type: String,
+    required: [true, "Username is required"],
+    validate: {
+      validator: (username) => username.length > 2,
+      message: 'Username must be longer than 2 characters'
+    }
+  },
+  firstName: {
+    type: String
+  },
+  lastName: {
+    type: String
+  },
+  image: {
+    type: Schema.Types.ObjectId,
+    ref: 'image'
+  },
+  sell: [{
+    type: Schema.Types.ObjectId,
+    ref: 'item'
+  }],
+  buy: [{
+    type: Schema.Types.ObjectId,
+    ref: 'item'
+  }]
 });
 
 userSchema.pre("save", function(next) {
