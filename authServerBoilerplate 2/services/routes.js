@@ -8,6 +8,6 @@ module.exports = (app) => {
   // app.delete('/api/items/:id', ItemsController.delete);
 
   app.get('/api/users', UsersController.getUsers);
-  app.get('/api/user/:id', UsersController.getUser);
+  app.get('/api/users/:id', UsersController.getUser);
   app.put('/api/users/:id', UsersController.updateUser);
 };
