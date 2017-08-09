@@ -19,5 +19,13 @@ module.exports = {
       .then(() => User.findById({ _id: userId }))
       .then(user => res.send(user))
       .catch(next);
+  },
+
+  deleteUser(req, res, next) {
+    const userId = req.params.id;
+
+    User.findByIdAndRemove({_id: userId})
+    .then(user => res.status(402).send(user))
+    .catch(next);
   }
 };
