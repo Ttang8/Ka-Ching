@@ -5,4 +5,7 @@ module.exports = (app) => {
   app.post('/api/items', ItemsController.create);
   app.put('/api/items/:id', ItemsController.edit);
   app.delete('/api/items/:id', ItemsController.delete);
+
+  app.get('/api/user/:id', UsersController.getUser);
+  app.put('/api/users/:id', UsersController.updateUser);
 };
