@@ -14,6 +14,7 @@ import TodoList from './TodoList';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { unauthUser } from '../actions';
 import Items from './item/items';
+import UserProfile from './user/userProfile';
 
 import Swiper from 'react-native-swiper';
 
@@ -22,13 +23,10 @@ var styles = StyleSheet.create({
   },
   slide1: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB',
+    alignSelf: 'stretch'
   },
   slide2: {
     flex:1,
-    backgroundColor: '#97CAE5',
     alignSelf: 'stretch'
   },
   slide3: {
@@ -48,8 +46,7 @@ var Main = React.createClass({
     return (
       <Swiper style={styles.wrapper} index={2} showsPagination={false} loop={false} showsButtons={false}>
         <View style={styles.slide1}>
-          {/*render user profile component here  */}
-          <Text style={styles.text}>User profile page</Text>
+          <UserProfile />
         </View>
         <View style={styles.slide2}>
           <Items />
