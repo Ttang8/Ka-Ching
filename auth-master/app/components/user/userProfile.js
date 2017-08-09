@@ -24,14 +24,14 @@ class UserProfile extends React.Component{
     return(
       <View style={styles.container}>
         <View style={styles.navContainer}>
-          <View>
+          <View style={styles.whitespace}>
           </View>
-          <View>
+          <View style={styles.userIcon}>
             <Text>
               user
             </Text>
           </View>
-          <View>
+          <View style={styles.kachingIcon}>
             <TouchableOpacity>
               <Text>
                 kaching
@@ -89,7 +89,17 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     alignSelf: 'stretch',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  whitespace: {
+    flex:1
+  },
+  userIcon: {
+    flex: 1
+  },
+  kachingIcon: {
+    flex: 1
   },
   userInfoContainer: {
     flex: 11,
