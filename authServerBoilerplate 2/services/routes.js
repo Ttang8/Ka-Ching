@@ -2,10 +2,11 @@ const ItemsController = require('../controllers/items_controller');
 const UsersController = require('../controllers/users_controller');
 
 module.exports = (app) => {
-  app.get('/api/items', ItemsController.index);
-  app.post('/api/items', ItemsController.create);
-  app.put('/api/items/:id', ItemsController.edit);
-  app.delete('/api/items/:id', ItemsController.delete);
+  app.get('/api/items', ItemsController.indexItems);
+  app.get('/api/items/:id', ItemsController.indexItem);
+  app.post('/api/items', ItemsController.createItem);
+  app.put('/api/items/:id', ItemsController.editItem);
+  app.delete('/api/items/:id', ItemsController.deleteItem);
 
   app.get('/api/users', UsersController.getUsers);
   app.get('/api/users/:id', UsersController.getUser);

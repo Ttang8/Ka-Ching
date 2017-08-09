@@ -2,12 +2,12 @@ const Item = require('../models/item');
 
 module.exports = {
 
-  index(req, res, next) {
+  indexItems(req, res, next) {
     const { lng, lat } = req.query;
 
     Item.geoNear(
       { type: 'Point', coordinates: [parseFloat(lng), parseFloat(lat)]},
-      { spherical: true, maxDistance: 100000000}
+      { spherical: true, maxDistance: 8000}
     )
       .then(items => {
         res.send(items);
@@ -15,7 +15,15 @@ module.exports = {
       .catch(next);
   },
 
-  create(req, res, next) {
+  indexItem(req, res, next) {
+    const itemId = req.params.id;
+
+    Item.findOne({ _id: itemId })
+      .then(user => res.send(user))
+      .catch(next);
+  },
+
+  createItem(req, res, next) {
     const itemProps = req.body;
 
     Item.create(itemProps)
@@ -23,7 +31,7 @@ module.exports = {
       .catch(next);
   },
 
-  edit(req, res, next) {
+  editItem(req, res, next) {
     const itemId = req.params.id;
     const itemProps = req.body;
 
@@ -33,7 +41,7 @@ module.exports = {
       .catch(next);
   },
 
-  delete(req, res, next) {
+  deleteItem(req, res, next) {
     const itemId = req.params.id;
 
     Item.findByIdAndRemove({ _id: itemId})

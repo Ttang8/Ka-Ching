@@ -20,10 +20,7 @@ exports.signin = function(req, res, next) {
 
 exports.signup = function(req, res, next) {
   const email = req.body.email;
-<<<<<<< HEAD
   const password = req.body.password;
-=======
->>>>>>> 958c5981434af5e34df9fc87b2b1c746ba83ed31
   const userProps = req.body;
 
   //Check if user already exists, send error if they do
@@ -35,12 +32,6 @@ exports.signup = function(req, res, next) {
       return res.status(422).json({ error: "Email taken" });
     }
 
-<<<<<<< HEAD
-      User.create(userProps)
-        .then(user => res.send(user))
-        .catch(next);
-=======
     User.create(userProps).then(user => res.send(user)).catch(next);
->>>>>>> 958c5981434af5e34df9fc87b2b1c746ba83ed31
   });
 };
