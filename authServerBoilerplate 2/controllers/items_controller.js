@@ -1,14 +1,17 @@
 const Item = require('../models/item');
 
 module.exports = {
+
   index(req, res, next) {
     const { lng, lat } = req.query;
 
     Item.geoNear(
       { type: 'Point', coordinates: [parseFloat(lng), parseFloat(lat)]},
-      { spherical: true, maxDistance: 8000}
+      { spherical: true, maxDistance: 100000000}
     )
-      .then(items => res.send(items))
+      .then(items => {
+        res.send(items);
+      })
       .catch(next);
   },
 
@@ -21,7 +24,7 @@ module.exports = {
   },
 
   edit(req, res, next) {
-    const itemId = res.params.id;
+    const itemId = req.params.id;
     const itemProps = req.body;
 
     Item.findByIdAndUpdate({ _id: itemId}, itemProps)

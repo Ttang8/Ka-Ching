@@ -1,4 +1,4 @@
-const ItemsController = require('../controllers/item_controller');
+const ItemsController = require('../controllers/items_controller');
 
 module.exports = (app) => {
   app.get('/api/items', ItemsController.index);
