@@ -46,3 +46,21 @@ export const createItem = item => dispatch => (
     )
   )
 );
+
+export const deleteItem = id => dispatch => (
+  APIUtil.deleteItem(id)
+    .then(() => (
+      dispatch(deleteItem(id))
+    ))
+    .then(() => (
+      dispatch(receiveItem(null))
+    ))
+);
+
+export const editItem = item => dispatch => (
+  APIUtil.editItem(item)
+    .then(item => (
+      dispatch(receiveItem(item))
+    )
+  )
+)

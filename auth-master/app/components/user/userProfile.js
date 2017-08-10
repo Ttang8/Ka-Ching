@@ -10,10 +10,24 @@ import {
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Octicons'
 import Swiper from 'react-native-swiper';
+import axios from 'axios';
+import {createItem} from '../../actions/itemActions';
+
+// import {createItem} from '../../api/api_util_items';
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
+    this.handlePress = this.handlePress.bind(this);
+  }
+
+  handlePress(){
+    this.props.createItem({
+      "title": "items",
+      "description": "i want to cry",
+      "price": 50,
+      "seller": "598cba08d17f5164b5ba71a2",
+    })
   }
 
   render() {
@@ -36,7 +50,7 @@ class UserProfile extends React.Component {
             </Text>
           </View>
 
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={this.handlePress}>
             <View style={styles.kachingIcon}>
               <Text>
                 kaching
@@ -137,4 +151,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default UserProfile;
+export default connect(null, { createItem })(UserProfile);

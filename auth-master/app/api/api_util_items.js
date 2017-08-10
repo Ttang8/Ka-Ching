@@ -12,21 +12,36 @@ import axios from 'axios'
 export const fetchItems = () => (
   axios({
     method: 'GET',
-    url: '/api/items',
+    url: 'http://localhost:3000/api/items',
   })
 );
 
 export const fetchItem = id => (
   axios({
     method: 'GET',
-    url: `/api/items/${id}`
+    url: `http://localhost:3000/api/items/${id}`
   })
 );
 
 export const createItem = item => (
   axios({
     method: 'POST',
-    url: '/api/items',
-    data: { item }
+    url: 'http://localhost:3000/api/items',
+    data: item 
   })
 );
+
+export const deleteItem = id => (
+  axios({
+    method: 'DELETE',
+    url: `http://localhost:3000/api/items/${id}`
+  })
+);
+
+export const editItem = item => (
+  axios({
+    method: 'PUT',
+    url: `http://localhost:3000/api/items/${item.id}`,
+    data: item
+  })
+)
