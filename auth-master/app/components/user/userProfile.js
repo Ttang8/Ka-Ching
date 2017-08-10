@@ -4,43 +4,48 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableWithoutFeedback
 } from 'react-native';
 import { connect } from 'react-redux'
-
+import Icon from 'react-native-vector-icons/Octicons'
 import Swiper from 'react-native-swiper';
 
-class UserProfile extends React.Component{
-   constructor(props){
+class UserProfile extends React.Component {
+  constructor(props) {
     super(props);
   }
 
-  render(){
-    const tempUser={
+  render() {
+    const tempUser = {
       name: "dallas",
       age: 30
     }
-  
-    return(
+
+    return (
       <View style={styles.container}>
+
         <View style={styles.navContainer}>
+
           <View style={styles.whitespace}>
           </View>
+
           <View style={styles.userIcon}>
             <Text>
-              user
+              <Icon name='person' size={30} color='grey' />
             </Text>
           </View>
-          <View style={styles.kachingIcon}>
-            <TouchableOpacity>
+
+          <TouchableWithoutFeedback>
+            <View style={styles.kachingIcon}>
               <Text>
                 kaching
               </Text>
-            </TouchableOpacity>
-          </View>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
         <View style={styles.userInfoContainer}>
-          <View style={styles.user}> 
+          <View style={styles.user}>
             <Image source={require('../../images/dallas.jpg')} style={styles.userImage} />
             <Text>
               {tempUser.name}, {tempUser.age}
@@ -65,7 +70,7 @@ class UserProfile extends React.Component{
 
         </View>
         <View style={styles.functionContainer}>
-          
+
         </View>
       </View>
     );
@@ -76,7 +81,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 16,
     paddingBottom: 10,
-    flex:1,
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -89,17 +94,21 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     alignSelf: 'stretch',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center'
   },
   whitespace: {
-    flex:1
+    flex: 1,
+    backgroundColor: 'green'
   },
   userIcon: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   kachingIcon: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   userInfoContainer: {
     flex: 11,
