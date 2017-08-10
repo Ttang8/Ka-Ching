@@ -10,6 +10,11 @@ import {
 } from 'react-native';
 
 import {loginUser, signupUser , addAlert} from '../actions';
+import Swiper from 'react-native-swiper';
+import Greeting from './Greeting';
+import Greeting2 from './Greeting2';
+import Greeting3 from './Greeting3';
+
 
 var Login = React.createClass({
   getInitialState: function() {
@@ -65,6 +70,21 @@ var Login = React.createClass({
             Ka-Ching!
           </Text>
         </View>
+
+        <View style={styles.swiped}>
+          <Swiper style={styles.wrapper} index={0} loop={false} activeDotColor={'white'} showsButtons={false}>
+            <View style={styles.slide1}>
+              <Greeting/>
+            </View>
+            <View style={styles.slide2}>
+              <Greeting2/>
+            </View>
+            <View style={styles.slide3}>
+              <Greeting3/>
+            </View>
+          </Swiper>
+        </View>
+
         <View style={styles.field}>
           <TextInput
             {...email}
@@ -104,11 +124,12 @@ var Login = React.createClass({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'flex-start',
+    flex: 2,
+    justifyContent: 'center',
     alignItems: 'stretch',
-    paddingTop: 20,
-    backgroundColor: '#2ecc71'
+    paddingTop: 15,
+    backgroundColor: '#2ecc71',
+    flexDirection: 'column'
   },
   titleContainer: {
     padding: 10
@@ -117,7 +138,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 35,
     marginTop: 20,
-    marginBottom: 20
+    marginBottom: 15,
+    alignSelf: 'center'
   },
   field: {
     borderRadius: 5,
@@ -142,6 +164,9 @@ const styles = StyleSheet.create({
   },
   formError: {
     color: 'red'
+  },
+  swiped: {
+    flex: 4
   }
 });
 
