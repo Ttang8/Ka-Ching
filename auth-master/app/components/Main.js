@@ -44,7 +44,7 @@ var styles = StyleSheet.create({
 var Main = React.createClass({
   render: function () {
     return (
-      <Swiper style={styles.wrapper} index={2} showsPagination={false} loop={false} showsButtons={false}>
+      <Swiper style={styles.wrapper} index={1} showsPagination={false} loop={false} showsButtons={false}>
         <View style={styles.slide1}>
           <UserProfile />
         </View>
