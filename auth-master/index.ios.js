@@ -9,14 +9,14 @@ import {
   AppRegistry
 } from 'react-native';
 
-import App from './app/components/App';
+import AppContainer from './app/components/AppContainer';
 import {configureStore} from './app/store';
 
 export default class todoListAuth2 extends Component {
   render() {
     return (
       <Provider store={configureStore()}>
-        <App />
+        <AppContainer />
       </Provider>
     );
   }

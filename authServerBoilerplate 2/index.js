@@ -16,11 +16,11 @@ routes(app);
 app.use("/v1", router);
 
 app.use((err, req, res, next) => {
-  res.status(422).send( {error: err.message});
+  res.status(422).send( {errors: err.message});
 });
 
 app.use((err, req, res, next) => {
-  res.status(422).send({error: err.message});
+  res.status(422).send({errors: err.message});
 });
 
 const PORT = process.env.PORT || 3000;

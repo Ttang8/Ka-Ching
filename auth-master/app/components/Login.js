@@ -9,51 +9,60 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import {loginUser, signupUser , addAlert} from '../actions';
+
 import Swiper from 'react-native-swiper';
 import Greeting from './Greeting';
 import Greeting2 from './Greeting2';
 import Greeting3 from './Greeting3';
 
+class Login extends Component{
+  constructor(props) {
+    super(props);
+    console.log('props',this.props);
 
-var Login = React.createClass({
-  getInitialState: function() {
-    return {
-      loading: false
+    this.state = {
+      loading: false,
+      email: "",
+      password: ""
     };
-  },
-  onSignIn: function(){
-    var {dispatch, fields: {email, password}} = this.props;
+    this.onSignIn = this.onSignIn.bind(this);
+    this.onSignUp = this.onSignUp.bind(this);
+  }
+
+  componentWillMount() {
+    console.log('mount');
+    this.props.clearErrors();
+  }
+
+  onSignIn() {
+    // let {dispatch, fields: {email, password}} = this.props;
+    let email = this.state.email;
+    let password = this.state.password;
     this.setState({
       loading: true
     });
-    dispatch(loginUser(email.value, password.value)).then(()=>{
+    this.props.loginUser(email, password).then(()=>{
       this.setState({
         loading: false
       });
     });
-  },
-  onSignUp: function(){
-    var {dispatch, fields: {email, password}} = this.props;
+  }
+
+  onSignUp() {
+    // let {dispatch, fields: {email, password}} = this.props;
+    let email = this.state.email;
+    let password = this.state.password;
     this.setState({
       loading: true
     });
-    dispatch(signupUser(email.value, password.value)).then(()=>{
+    this.props.signupUser(email, password).then(()=>{
       this.setState({
         loading: false
       });
     });
-  },
+  }
+
   render() {
-    var {fields: {email, password}} = this.props;
-    var renderError = (field) => {
-      if (field.touched && field.error){
-        return (
-          <Text style={styles.formError}>{field.error}</Text>
-        );
-      }
-    };
-
     if (this.state.loading){
       return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -87,21 +96,21 @@ var Login = React.createClass({
 
         <View style={styles.field}>
           <TextInput
-            {...email}
+            value={this.state.email}
+            onChangeText={(email) => this.setState({email})}
             placeholder="Email"
             style={styles.textInput}/>
           <View>
-            {renderError(email)}
           </View>
         </View>
         <View style={styles.field}>
           <TextInput
             secureTextEntry
-            {...password}
+            value={this.state.password}
+            onChangeText={(password) => this.setState({password})}
             placeholder="Password"
             style={styles.textInput}/>
             <View>
-              {renderError(password)}
             </View>
         </View>
         <View style={styles.buttonContainer}>
@@ -120,9 +129,9 @@ var Login = React.createClass({
       );
     }
   }
-});
+}
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 2,
     justifyContent: 'center',
@@ -168,21 +177,6 @@ const styles = StyleSheet.create({
   swiped: {
     flex: 4
   }
-});
-
-var validate = (formProps) => {
-  var errors = {};
-  if (!formProps.email){
-    errors.email = "Please enter an email.";
-  }
-  if (!formProps.password){
-    errors.password = "Please enter a password.";
-  }
-  return errors;
 };
 
-module.exports = reduxForm({
-  form: 'login',
-  fields: ['email','password'],
-  validate: validate
-}, null, null)(Login);
+export default Login;
