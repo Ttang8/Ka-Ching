@@ -32,6 +32,6 @@ exports.signup = function(req, res, next) {
       return res.status(422).json({ error: "Email taken" });
     }
 
-    User.create(userProps).then(user => res.send(user)).catch(next);
+    User.create(userProps).then(user => res.send({ token: tokenForUser(user), user_id: user._id})).catch(next);
   });
 };

@@ -21,11 +21,11 @@ const userSchema = new Schema({
   },
   username: {
     type: String,
-    required: [true, "Username is required"],
-    validate: {
-      validator: (username) => username.length > 2,
-      message: 'Username must be longer than 2 characters'
-    }
+    // required: [true, "Username is required"],
+    // validate: {
+    //   validator: (username) => username.length > 2,
+    //   message: 'Username must be longer than 2 characters'
+    // }
   },
   firstName: {
     type: String
