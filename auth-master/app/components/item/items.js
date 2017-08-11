@@ -38,6 +38,7 @@ class Items extends Component {
   }
 
   render() {
+    console.log("ANDREW", this.props);
     return (
       <View style={styles.container}>
         {/* left this part so that we can implement in our user profile page  */}
