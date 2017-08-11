@@ -27,7 +27,15 @@ export default class Map extends Component {
         <MapView
           region={this.state.region}
           onRegionChange={this.onRegionChange}
-        />
+          style={styles.map}
+        >
+          <MapView.Marker
+            coordinate={{
+              latitude: this.state.region.latitude,
+              longitude: this.state.region.longitude
+            }}
+          />
+        </MapView>
       </View>
     );
   }
@@ -42,7 +50,7 @@ const styles = StyleSheet.create({
   map: {
     position: "absolute",
     flex: 1,
-    alignSelf: 'stretch',
-    height: null
+    width: 300,
+    height: 300
   }
 });

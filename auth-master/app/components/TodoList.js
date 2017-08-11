@@ -13,7 +13,7 @@ import {
 
 import { unauthUser } from "../actions";
 import NewTodo from "./NewTodo";
-import MapView from "react-native-maps";
+import ItemMap from "./map/map";
 
 var TodoItem = React.createClass({
   render() {
@@ -45,7 +45,6 @@ var TodoList = React.createClass({
   },
   onRefresh() {},
   render() {
-    
     var renderTodos = () => {
       return this.props.todos.map(todo => {
         return <TodoItem key={todo._id} text={todo.text} id={todo._id} />;
@@ -75,15 +74,7 @@ var TodoList = React.createClass({
           {renderTodos()}
         </ScrollView>
         <ScrollView>
-          <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421
-            }}
-          />
+          <ItemMap />
         </ScrollView>
       </View>
     );
@@ -118,8 +109,9 @@ const styles = StyleSheet.create({
   },
   map: {
     position: "absolute",
+    alignItems: "stretch",
     width: 300,
-    height: 300
+    height: 600
   }
 });
 
