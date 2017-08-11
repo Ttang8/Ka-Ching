@@ -8,7 +8,18 @@ module.exports = {
   getUser(req, res, next) {
     const userId = req.params.id;
 
-    User.findOne({ _id: userId }).then(user => res.send(user)).catch(next);
+    User.findOne({ _id: userId })
+      .then(user =>
+        res.send({
+          id: user._id,
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          sell: user.sell,
+          buy: user.buy
+        })
+      )
+      .catch(next);
   },
 
   updateUser(req, res, next) {
@@ -17,15 +28,24 @@ module.exports = {
 
     User.findByIdAndUpdate({ _id: userId }, userProps)
       .then(() => User.findById({ _id: userId }))
-      .then(user => res.send(user))
+      .then(user =>
+        res.send({
+          id: user._id,
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          sell: user.sell,
+          buy: user.buy
+        })
+      )
       .catch(next);
   },
 
   deleteUser(req, res, next) {
     const userId = req.params.id;
 
-    User.findByIdAndRemove({_id: userId})
-    .then(user => res.status(402).send(user))
-    .catch(next);
+    User.findByIdAndRemove({ _id: userId })
+      .then(user => res.status(402).send(user))
+      .catch(next);
   }
 };
