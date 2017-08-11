@@ -1,13 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const PointSchema = new Schema({
-  type: { type: String, default: 'Point'},
-  coordinates: { type: [Number], index: '2dsphere'}
+  type: { type: String, default: "Point" },
+  coordinates: { type: [Number], index: "2dsphere" }
 });
-
-
 
 const ItemSchema = new Schema({
   title: {
@@ -18,19 +15,24 @@ const ItemSchema = new Schema({
   },
   images: {
     type: Schema.Types.ObjectId,
-    ref: 'image'
+    ref: "image"
+  },
+  category: {
+    type: String
   },
   price: {
     type: Number
   },
   seller: {
     type: Schema.Types.ObjectId,
-    ref: 'user'
+    ref: "user"
   },
-  buyer: [{
-    type: Schema.Types.ObjectId,
-    ref: 'user'
-  }],
+  buyer: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "user"
+    }
+  ],
   time: {
     type: String
   },
@@ -40,7 +42,7 @@ const ItemSchema = new Schema({
   geometry: PointSchema
 });
 
-ItemSchema.virtual('itemPending').get(function() {
+ItemSchema.virtual("itemPending").get(function() {
   if (this.buyer.length > 0) {
     return true;
   } else {
@@ -48,6 +50,6 @@ ItemSchema.virtual('itemPending').get(function() {
   }
 });
 
-const Item = mongoose.model('item', ItemSchema);
+const Item = mongoose.model("item", ItemSchema);
 
 module.exports = Item;

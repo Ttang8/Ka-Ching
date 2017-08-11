@@ -1,15 +1,15 @@
 import React from 'react';
 import {Text, View, Image} from 'react-native';
 
-const Greeting2 = () => {
+const Greeting3 = () => {
   const { textStyle, viewStyle, photo } = styles;
 
   return (
     <View style={viewStyle}>
-      <Text style={textStyle}>Sell your stuff, make new friends!</Text>
+      <Text style={textStyle}>Everything is within 5 miles!</Text>
       <Image
         style={photo}
-        source={require('../images/exchange.jpg')}
+        source={require('../../images/exchange.jpg')}
       />
     </View>
   );
@@ -42,4 +42,4 @@ const styles = {
   }
 };
 
-export default Greeting2;
+export default Greeting3;

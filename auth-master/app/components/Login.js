@@ -11,9 +11,9 @@ import {
 
 
 import Swiper from 'react-native-swiper';
-import Greeting from './Greeting';
-import Greeting2 from './Greeting2';
-import Greeting3 from './Greeting3';
+import Greeting from './greeting/Greeting';
+import Greeting2 from './greeting/Greeting2';
+import Greeting3 from './greeting/Greeting3';
 
 class Login extends Component{
   constructor(props) {
@@ -91,7 +91,7 @@ class Login extends Component{
           </Text>
         </View>
         <View style={styles.swiped}>
-          <Swiper style={styles.wrapper} index={0} loop={false} activeDotColor={'white'} showsButtons={false}>
+          <Swiper style={styles.wrapper} index={1} loop={false} activeDotColor={'white'} showsButtons={false}>
             <View style={styles.slide1}>
               <Greeting/>
             </View>

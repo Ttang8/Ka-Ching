@@ -5,7 +5,6 @@ import reducer from '../reducer';
 import thunk from 'redux-thunk';
 
 var defaultState = {
-  // todos: []
 };
 
 exports.configureStore = (initialState=defaultState) => {

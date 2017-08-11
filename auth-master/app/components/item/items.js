@@ -1,47 +1,43 @@
-import React, {Component} from 'react';
-import {connect } from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchItem } from '../../actions/itemActions'
 import {
   StyleSheet,
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableWithoutFeedback
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Octicons';
+import UserProfile from '../user/userProfile';
 
-import FontAwesome, {Icons} from 'react-native-fontawesome'
+import FontAwesome, { Icons } from 'react-native-fontawesome'
 
-var Items = React.createClass({
-  // onLogout: function() {
-  //   this.props.dispatch(unauthUser);
-  // },
-  toUserProfile: function () {
-    console.log('render user profile component');
-  },
+class Items extends Component {
+  componentDidMount(){
+  }
 
-  toUserInterest: function () {
+  toUserProfile() {
+
+  }
+
+  toUserInterest() {
     console.log('render user interest component');
-  },
+  }
 
-  addToInterest: function () {
-    console.log('create association with user and interest table')
-  },
+  addToInterest() {
+  }
 
-  next: function () {
+  next() {
     console.log('next iteration through list of items')
-  },
+  }
 
-  showDetail: function(){
+  showDetail() {
     console.log('render show page for item')
-  },
+  }
 
   render() {
-    const tempItem = {
-      image_url: {},
-      price: "$10.00",
-      title: "Dallas",
-      location: "San Francisco",
-      description: "smart as f***"
-    }
     return (
       <View style={styles.container}>
         {/* left this part so that we can implement in our user profile page  */}
@@ -51,58 +47,74 @@ var Items = React.createClass({
           </Text> */}
         {/* </TouchableOpacity> */}
         <View style={styles.navContainer}>
-          <View>
-            <TouchableOpacity onPress={this.toUserProfile}>
+
+          <TouchableWithoutFeedback onPress={this.toUserProfile.bind(this)}>
+            <View>
               <Text>
-                user
-            </Text>
-            </TouchableOpacity>
-          </View>
+                <Icon name='person' size={30} color='grey' />
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
+
           <View>
             <Text>
               kaching
             </Text>
           </View>
-          <View>
-            <TouchableOpacity onPress={this.toUserInterest}>
+
+          <TouchableWithoutFeedback onPress={this.toUserInterest.bind(this)}>
+            <View>
               <Text>
                 interest
             </Text>
-            </TouchableOpacity>
-          </View>
+            </View>
+          </TouchableWithoutFeedback>
+
         </View>
+
         <Image source={require('../../images/dallas.jpg')} style={styles.itemImage} resizeMode={Image.resizeMode.cover}>
-          <TouchableOpacity onPress={this.showDetail}>
+
+          <TouchableOpacity onPress={this.showDetail.bind(this)}>
             <View style={styles.itemsContainer}>
+
               <View style={styles.itemsDetail}>
+
                 <Text style={styles.itemDescription}>
-                  {tempItem.title}
+                  no
                 </Text>
+
                 <Text style={styles.itemDescription}>
-                  {tempItem.description}
+                  no
                 </Text>
+
                 <Text style={styles.itemDescription}>
-                  {tempItem.price}
+                  no
                 </Text>
+
                 <Text style={styles.itemDescription}>
-                  {tempItem.location}
+                  no
                 </Text>
+
               </View>
+
               <View style={styles.more}>
                 <Text style={styles.itemDescription}>
                   details
                 </Text>
               </View>
+
             </View>
           </TouchableOpacity>
+
         </Image>
+
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.addToInterest}>
+          <TouchableOpacity onPress={this.addToInterest.bind(this)}>
             <Text>
               yes
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.next}>
+          <TouchableOpacity onPress={this.next.bind(this)}>
             <Text>
               no
             </Text>
@@ -112,7 +124,8 @@ var Items = React.createClass({
       </View>
     );
   }
-});
+}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -173,4 +186,10 @@ const styles = StyleSheet.create({
   }
 });
 
-module.exports = connect()(Items);
+const mapStateToProps = state => {
+  return {
+    item: state.item,
+  }
+}
+
+module.exports = connect(mapStateToProps)(Items);
