@@ -7,11 +7,12 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback
 } from 'react-native';
-import { connect } from 'react-redux'
-import Icon from 'react-native-vector-icons/Octicons'
+import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/Octicons';
 import Swiper from 'react-native-swiper';
 import axios from 'axios';
 import {createItem} from '../../actions/itemActions';
+import UserGreeting from '../UserGreeting';
 
 // import {createItem} from '../../api/api_util_items';
 
@@ -27,64 +28,68 @@ class UserProfile extends React.Component {
       "description": "i want to cry",
       "price": 50,
       "seller": "598cba08d17f5164b5ba71a2",
-    })
+    });
   }
 
   render() {
     const tempUser = {
       name: "dallas",
       age: 30
-    }
+    };
 
     return (
       <View style={styles.container}>
+        <View style={styles.topBar}>
 
-        <View style={styles.navContainer}>
-
+          <TouchableOpacity onPress={this.onLogout}>
+            <Icon name='x' size={20} color='white'/>
+          </TouchableOpacity>
           <View style={styles.whitespace}>
           </View>
 
-          <View style={styles.userIcon}>
-            <Text>
-              <Icon name='person' size={30} color='grey' />
-            </Text>
-          </View>
+          <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
+            <Icon name='device-mobile' size={20} color='white'/>
+          </TouchableOpacity>
 
-          <TouchableWithoutFeedback onPress={this.handlePress}>
-            <View style={styles.kachingIcon}>
-              <Text>
-                kaching
-              </Text>
-            </View>
-          </TouchableWithoutFeedback>
         </View>
         <View style={styles.userInfoContainer}>
+          <Text style={styles.title}>Profile</Text>
           <View style={styles.user}>
             <Image source={require('../../images/dallas.jpg')} style={styles.userImage} />
-            <Text>
+            <Text style={styles.nameStyles}>
               {tempUser.name}, {tempUser.age}
             </Text>
           </View>
-          <View style={styles.buttonsContainer}>
-            <View>
-              <TouchableOpacity>
-                <Text>
-                  Setting
-                </Text>
-              </TouchableOpacity>
-            </View>
-            <View>
-              <TouchableOpacity>
-                <Text>
-                  Edit
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-
         </View>
-        <View style={styles.functionContainer}>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.icons}>
+            <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
+              <Icon name='gear' size={20} color='white'/>
+              <Text style={styles.title}>Settings</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.icons}>
+            <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
+              <Icon name='pencil' size={20} color='white'/>
+              <Text style={styles.title}>Edit</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
 
+        <View style={styles.functionContainer}>
+          <View style={styles.swiped}>
+            <Swiper style={styles.wrapper} index={0} loop={false} activeDotColor={'white'} showsButtons={false}>
+              <View style={styles.slide1}>
+                <UserGreeting/>
+              </View>
+              <View style={styles.slide2}>
+                <UserGreeting/>
+              </View>
+              <View style={styles.slide3}>
+                <UserGreeting/>
+              </View>
+            </Swiper>
+          </View>
         </View>
       </View>
     );
@@ -92,62 +97,75 @@ class UserProfile extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 16,
-    paddingBottom: 10,
-    flex: 1,
-    flexDirection: 'column',
+  topBar: {
+    padding: 16,
+    paddingTop: 28,
+    paddingBottom: 8,
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: '#2ecc71'
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
+    backgroundColor: '#2ecc71'
   },
   navContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#2ecc71',
     paddingTop: 10,
     paddingBottom: 8,
     alignSelf: 'stretch',
     flexDirection: 'row',
     alignItems: 'center'
   },
-  whitespace: {
-    flex: 1,
-    backgroundColor: 'green'
-  },
-  userIcon: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  kachingIcon: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   userInfoContainer: {
     flex: 11,
     alignSelf: 'stretch',
     overflow: 'hidden',
-    backgroundColor: 'white',
+    backgroundColor: '#2ecc71',
     flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingBottom: 50,
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   },
   userImage: {
     width: 150,
     height: 150,
-    borderRadius: 75
+    borderRadius: 75,
+    borderWidth: 4,
+    borderColor: 'white'
+  },
+  nameStyles: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    fontSize: 27,
+    paddingTop: 10,
+    fontWeight: '500',
+    color: 'white'
   },
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
+    height: 100,
+    alignItems: 'center',
+    backgroundColor: '#25A35A'
   },
   functionContainer: {
     flex: 8,
     backgroundColor: 'lightgrey',
     alignSelf: 'stretch'
+  },
+  title:{
+    color: 'white',
+    fontSize: 20,
+    padding: 10
+  },
+  icons: {
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
