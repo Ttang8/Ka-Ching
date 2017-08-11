@@ -16,11 +16,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React Native!"
 
-@interface todoListAuth2Tests : XCTestCase
+@interface KaChingTests : XCTestCase
 
 @end
 
-@implementation todoListAuth2Tests
+@implementation KaChingTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {
