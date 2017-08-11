@@ -47,7 +47,7 @@ class UserProfile extends React.Component {
           <View style={styles.whitespace}>
           </View>
 
-          <TouchableOpacity style={styles.icons} onPress={this.goEdit}>
+          <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
             <Icon name='device-mobile' size={20} color='white'/>
           </TouchableOpacity>
 
@@ -77,7 +77,6 @@ class UserProfile extends React.Component {
         </View>
 
         <View style={styles.functionContainer}>
-          <View style={styles.swiped}>
             <Swiper style={styles.wrapper} index={0} loop={false} activeDotColor={'white'} showsButtons={false}>
               <View style={styles.slide1}>
                 <UserGreeting/>
@@ -89,7 +88,6 @@ class UserProfile extends React.Component {
                 <UserGreeting/>
               </View>
             </Swiper>
-          </View>
         </View>
       </View>
     );
