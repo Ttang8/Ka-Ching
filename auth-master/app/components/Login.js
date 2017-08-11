@@ -72,7 +72,7 @@ var Login = React.createClass({
         </View>
 
         <View style={styles.swiped}>
-          <Swiper style={styles.wrapper} index={0} loop={false} activeDotColor={'white'} showsButtons={false}>
+          <Swiper style={styles.wrapper} index={1} loop={false} activeDotColor={'white'} showsButtons={false}>
             <View style={styles.slide1}>
               <Greeting/>
             </View>

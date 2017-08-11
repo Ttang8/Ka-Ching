@@ -15,6 +15,7 @@ import FontAwesome, { Icons } from "react-native-fontawesome";
 import { unauthUser } from "../actions";
 import Items from "./item/items";
 import UserProfile from "./user/userProfile";
+import EditUser from './user/EditUser';
 
 import Swiper from "react-native-swiper";
 

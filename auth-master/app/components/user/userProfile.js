@@ -47,7 +47,7 @@ class UserProfile extends React.Component {
           <View style={styles.whitespace}>
           </View>
 
-          <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
+          <TouchableOpacity style={styles.icons} onPress={this.goEdit}>
             <Icon name='device-mobile' size={20} color='white'/>
           </TouchableOpacity>
 
