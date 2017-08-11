@@ -76,6 +76,13 @@ class UserProfile extends React.Component {
             <View>
               <TouchableOpacity>
                 <Text>
+                  POST ITEM
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <Text>
                   Edit
                 </Text>
               </TouchableOpacity>

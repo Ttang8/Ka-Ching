@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   AppRegistry,
   StyleSheet,
@@ -8,43 +8,48 @@ import {
   Image,
   TouchableOpacity,
   NavigatorIOS
-} from 'react-native';
+} from "react-native";
 
-import TodoList from './TodoList';
-import FontAwesome, { Icons } from 'react-native-fontawesome';
-import { unauthUser } from '../actions';
-import Items from './item/items';
-import UserProfile from './user/userProfile';
+import TodoList from "./TodoList";
+import FontAwesome, { Icons } from "react-native-fontawesome";
+import { unauthUser } from "../actions";
+import Items from "./item/items";
+import UserProfile from "./user/userProfile";
 
-import Swiper from 'react-native-swiper';
+import Swiper from "react-native-swiper";
 
 var styles = StyleSheet.create({
-  wrapper: {
-  },
+  wrapper: {},
   slide1: {
     flex: 1,
-    alignSelf: 'stretch'
+    alignSelf: "stretch"
   },
   slide2: {
-    flex:1,
-    alignSelf: 'stretch'
+    flex: 1,
+    alignSelf: "stretch"
   },
   slide3: {
     flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: 'white'
+    alignSelf: "stretch",
+    backgroundColor: "white"
   },
   text: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 30,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   }
 });
 
 var Main = React.createClass({
-  render: function () {
+  render: function() {
     return (
-      <Swiper style={styles.wrapper} index={1} showsPagination={false} loop={false} showsButtons={false}>
+      <Swiper
+        style={styles.wrapper}
+        index={1}
+        showsPagination={false}
+        loop={false}
+        showsButtons={false}
+      >
         <View style={styles.slide1}>
           <UserProfile />
         </View>
@@ -52,13 +57,11 @@ var Main = React.createClass({
           <Items />
         </View>
         <View style={styles.slide3}>
-          <TodoList/>
+          <TodoList />
         </View>
       </Swiper>
     );
   }
 });
-
-
 
 module.exports = connect()(Main);
