@@ -9,7 +9,7 @@ const Greeting2 = () => {
       <Text style={textStyle}>Sell your stuff, make new friends!</Text>
       <Image
         style={photo}
-        source={require('../images/exchange.jpg')}
+        source={require('../../images/exchange.jpg')}
       />
     </View>
   );

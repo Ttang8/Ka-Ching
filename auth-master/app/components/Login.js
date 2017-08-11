@@ -11,9 +11,9 @@ import {
 
 import {loginUser, signupUser , addAlert} from '../actions';
 import Swiper from 'react-native-swiper';
-import Greeting from './Greeting';
-import Greeting2 from './Greeting2';
-import Greeting3 from './Greeting3';
+import Greeting from './greeting/Greeting';
+import Greeting2 from './greeting/Greeting2';
+import Greeting3 from './greeting/Greeting3';
 
 
 var Login = React.createClass({

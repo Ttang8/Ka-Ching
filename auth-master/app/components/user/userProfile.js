@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/Octicons';
 import Swiper from 'react-native-swiper';
 import axios from 'axios';
 import {createItem} from '../../actions/itemActions';
-import UserGreeting from '../UserGreeting';
+import UserGreeting from '../greeting/UserGreeting';
 
 // import {createItem} from '../../api/api_util_items';
 
