@@ -190,7 +190,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     item: state.item,
-  }
-}
+    auth: state.auth
+  };
+};
 
 module.exports = connect(mapStateToProps)(Items);
