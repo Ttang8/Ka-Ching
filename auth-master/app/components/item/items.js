@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchItem, fetchItems } from '../../actions/itemActions'
+import { fetchItem } from '../../actions/itemActions'
 import {
   StyleSheet,
   Text,
@@ -10,17 +10,16 @@ import {
   TouchableWithoutFeedback
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
+import UserProfile from '../user/userProfile';
 
 import FontAwesome, { Icons } from 'react-native-fontawesome'
 
 class Items extends Component {
   componentDidMount(){
-    this.props.fetchItem('598cc3e6d17f5164b5ba71a8');
-    this.props.fetchItems();
   }
 
   toUserProfile() {
-    console.log('render user profile component');
+
   }
 
   toUserInterest() {
@@ -28,8 +27,6 @@ class Items extends Component {
   }
 
   addToInterest() {
-    console.log('create association with user and interest table')
-    this.next();
   }
 
   next() {
@@ -41,7 +38,6 @@ class Items extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         {/* left this part so that we can implement in our user profile page  */}
@@ -193,11 +189,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     item: state.item,
-    items: state.items
   }
 }
 
-module.exports = connect(mapStateToProps, {
-  fetchItem,
-  fetchItems
-})(Items);
+module.exports = connect(mapStateToProps)(Items);

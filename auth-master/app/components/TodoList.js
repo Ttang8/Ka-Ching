@@ -45,7 +45,7 @@ var TodoList = React.createClass({
   },
   onRefresh() {},
   render() {
-    console.log("todos", this.props.todos);
+    
     var renderTodos = () => {
       return this.props.todos.map(todo => {
         return <TodoItem key={todo._id} text={todo.text} id={todo._id} />;
