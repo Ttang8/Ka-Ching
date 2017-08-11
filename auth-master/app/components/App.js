@@ -9,35 +9,39 @@ import {
 } from 'react-native';
 
 // import {} from '../actions';
-import Login from './Login';
+import LoginContainer from './LoginContainer';
 import Main from './Main';
 import AlertContainer from './alerts/AlertContainer';
 
-var App = React.createClass({
-  getInitialState(){
-    return {};
-  },
-  render() {
-    var renderMainView = () => {
-      if (this.props.user_id){
-        return (
-          <Main />
-        );
-      } else {
-      return (
-        <Login />
-      );
-     }
-    };
-   return (
-     <View style={{flex: 1}}>
-       <StatusBar barStyle="light-content"/>
-     {renderMainView()}
-     <AlertContainer/>
-     </View>
-   );
+class App extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {};
   }
-});
+
+  renderMainView(){
+    if (this.props.user_id){
+      return (
+        <Main />
+      );
+    } else {
+    return (
+      <LoginContainer />
+    );
+   }
+  }
+
+  render(){
+    return (
+       <View style={{flex: 1}}>
+         <StatusBar barStyle="light-content"/>
+         {this.renderMainView()}
+         <AlertContainer/>
+       </View>
+    );
+  }
+}
 
 // const styles = StyleSheet.create({
 //   container: {
@@ -49,10 +53,4 @@ var App = React.createClass({
 //   }
 // });
 
-var mapStateToProps = (state) => {
-  return{
-    user_id: state.auth.user_id
-  };
-};
-
-module.exports = connect(mapStateToProps)(App);
+export default App;
