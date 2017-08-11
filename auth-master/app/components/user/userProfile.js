@@ -13,7 +13,6 @@ import Swiper from 'react-native-swiper';
 import axios from 'axios';
 import {createItem} from '../../actions/itemActions';
 
-// import {createItem} from '../../api/api_util_items';
 
 class UserProfile extends React.Component {
   constructor(props) {
