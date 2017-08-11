@@ -1,4 +1,3 @@
-import axios from 'axios'
 import * as APIUtil from '../api/api_util_items';
 
 export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';
@@ -25,9 +24,9 @@ export const receiveErrors = errors => ({
 
 export const fetchItems = () => dispatch => (
   APIUtil.fetchItems()
-    .then(items => (
-      dispatch(receiveItems(items))
-    )
+    .then(items => {
+      return dispatch(receiveItems(items))
+    }
   )
 );
 
@@ -47,6 +46,8 @@ export const createItem = item => dispatch => (
   )
 );
 
+
+// once we have fetchItems working, update itemsreducer to have  case to handle deleteItem
 export const deleteItem = id => dispatch => (
   APIUtil.deleteItem(id)
     .then(() => (
