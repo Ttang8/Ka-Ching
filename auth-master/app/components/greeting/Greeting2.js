@@ -6,10 +6,10 @@ const Greeting2 = () => {
 
   return (
     <View style={viewStyle}>
-      <Text style={textStyle}>Sell your stuff, make new friends!</Text>
+      <Text style={textStyle}>Items populate based on your location!</Text>
       <Image
         style={photo}
-        source={require('../../images/exchange.jpg')}
+        source={require('../../images/map.jpg')}
       />
     </View>
   );

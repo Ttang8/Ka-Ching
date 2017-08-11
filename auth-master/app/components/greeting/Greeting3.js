@@ -6,10 +6,10 @@ const Greeting3 = () => {
 
   return (
     <View style={viewStyle}>
-      <Text style={textStyle}>Everything is within 5 miles!</Text>
+      <Text style={textStyle}>Find and sell anything you want!</Text>
       <Image
         style={photo}
-        source={require('../../images/exchange.jpg')}
+        source={require('../../images/sony.jpg')}
       />
     </View>
   );
