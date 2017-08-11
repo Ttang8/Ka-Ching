@@ -6,12 +6,12 @@ import thunk from "redux-thunk";
 
 var defaultState = {};
 
-exports.configureStore = (initialState = defaultState) => {
-  var store = createStore(
-    reducer,
-    initialState,
-    compose(applyMiddleware(thunk), autoRehydrate())
-  );
-  persistStore(store, { storage: AsyncStorage });
+exports.configureStore = (initialState=defaultState) => {
+  var store = createStore(reducer, initialState, compose(
+    applyMiddleware(thunk),
+    autoRehydrate()
+  ));
+  persistStore(store, {storage: AsyncStorage});
+
   return store;
 };
