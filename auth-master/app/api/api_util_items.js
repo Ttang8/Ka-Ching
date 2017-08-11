@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export const fetchItems = () => (
   axios({
@@ -18,7 +18,7 @@ export const createItem = item => (
   axios({
     method: 'POST',
     url: 'http://localhost:3000/api/items',
-    data: item 
+    data: item
   })
 );
 
@@ -35,4 +35,4 @@ export const editItem = item => (
     url: `http://localhost:3000/api/items/${item.id}`,
     data: item
   })
-)
+);

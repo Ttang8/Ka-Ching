@@ -12,10 +12,10 @@ const defaultState = {
 const itemReducer = (state = defaultState, action) => {
   switch (action.type) {
     case RECEIVE_ITEM:
-      return Object.assign({}, action.item.data)
+      return Object.assign({}, action.item.data);
     default:
       return state;
   }
-}
+};
 
 export default itemReducer;

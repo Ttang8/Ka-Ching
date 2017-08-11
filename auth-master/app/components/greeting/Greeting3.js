@@ -9,7 +9,7 @@ const Greeting3 = () => {
       <Text style={textStyle}>Everything is within 5 miles!</Text>
       <Image
         style={photo}
-        source={require('../images/exchange.jpg')}
+        source={require('../../images/exchange.jpg')}
       />
     </View>
   );

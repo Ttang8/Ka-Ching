@@ -86,7 +86,7 @@ class Items extends Component {
                 <Text style={styles.itemDescription}>
                   no
                 </Text>
-                
+
                 <Text style={styles.itemDescription}>
                   no
                 </Text>
