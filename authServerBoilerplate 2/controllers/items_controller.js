@@ -22,7 +22,6 @@ module.exports = {
 
   categorizeItem(req, res, next) {
     const itemCategory = req.params.category;
-    console.log("hiasdfasdfasfd")
 
     Item.find({category: itemCategory})
       .then(items => res.send(items))
