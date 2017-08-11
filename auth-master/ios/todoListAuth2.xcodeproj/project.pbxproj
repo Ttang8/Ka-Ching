@@ -48,6 +48,7 @@
 		EED6AC9454C24DD79473C0D5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA1C51B8E7DB4688AAC0802A /* SimpleLineIcons.ttf */; };
 		FB54D7BE541544E39FD3D6E1 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22EA2C7FC89348C9B6D760A0 /* Foundation.ttf */; };
 		B2E8C606235045CAAEF123F8 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92749E0249534CD09EF3EB60 /* libAirMaps.a */; };
+		82AE194311A04301BD43B938 /* libRNPhotosFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB037B3158D34EA48FE828EB /* libRNPhotosFramework.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,6 +326,8 @@
 		FFF9A43233C047B38AD4010D /* libRCTCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTCamera.a; sourceTree = "<group>"; };
 		46E3C34ED42045B394990E26 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		92749E0249534CD09EF3EB60 /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		1F15EC3BFB7E48288660329D /* RNPhotosFramework.xcodeproj */ = {isa = PBXFileReference; name = "RNPhotosFramework.xcodeproj"; path = "../node_modules/react-native-photos-framework/ios/RNPhotosFramework.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		AB037B3158D34EA48FE828EB /* libRNPhotosFramework.a */ = {isa = PBXFileReference; name = "libRNPhotosFramework.a"; path = "libRNPhotosFramework.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +357,7 @@
 				A252925690F84C668985920B /* libRNVectorIcons.a in Frameworks */,
 				8E2AC0A70B394B1EBA9B1206 /* libRCTCamera.a in Frameworks */,
 				B2E8C606235045CAAEF123F8 /* libAirMaps.a in Frameworks */,
+				82AE194311A04301BD43B938 /* libRNPhotosFramework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +564,7 @@
 				B8BB1E329E454086A0CC533D /* RNVectorIcons.xcodeproj */,
 				4848D7DD6D944E6BA79C60DE /* RCTCamera.xcodeproj */,
 				46E3C34ED42045B394990E26 /* AirMaps.xcodeproj */,
+				1F15EC3BFB7E48288660329D /* RNPhotosFramework.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1142,12 +1147,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-photos-framework/ios/RNPhotosFramework/**",
 				);
 				INFOPLIST_FILE = todoListAuth2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1171,12 +1178,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-photos-framework/ios/RNPhotosFramework/**",
 				);
 				INFOPLIST_FILE = todoListAuth2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1201,6 +1210,7 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-photos-framework/ios/RNPhotosFramework/**",
 				);
 				INFOPLIST_FILE = todoListAuth2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1224,6 +1234,7 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-photos-framework/ios/RNPhotosFramework/**",
 				);
 				INFOPLIST_FILE = todoListAuth2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1254,11 +1265,13 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-photos-framework/ios/RNPhotosFramework/**",
 				);
 				INFOPLIST_FILE = "todoListAuth2-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1292,11 +1305,13 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-photos-framework/ios/RNPhotosFramework/**",
 				);
 				INFOPLIST_FILE = "todoListAuth2-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1331,6 +1346,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.todoListAuth2-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1355,6 +1371,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
