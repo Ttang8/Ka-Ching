@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchItem } from '../../actions/itemActions'
+import { fetchItem, fetchItems } from '../../actions/itemActions'
 import {
   StyleSheet,
   Text,
@@ -16,6 +16,7 @@ import FontAwesome, { Icons } from 'react-native-fontawesome'
 class Items extends Component {
   componentDidMount(){
     this.props.fetchItem('598cc3e6d17f5164b5ba71a8');
+    this.props.fetchItems();
   }
 
   toUserProfile() {
@@ -191,10 +192,12 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    item: state.item
+    item: state.item,
+    items: state.items
   }
 }
 
 module.exports = connect(mapStateToProps, {
-  fetchItem
+  fetchItem,
+  fetchItems
 })(Items);
