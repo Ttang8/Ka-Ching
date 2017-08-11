@@ -38,7 +38,7 @@ class Items extends Component {
   }
 
   render() {
-    console.log("ANDREW", this.props);
+    console.log("ANDREW", this.props.auth);
     return (
       <View style={styles.container}>
         {/* left this part so that we can implement in our user profile page  */}
@@ -121,7 +121,6 @@ class Items extends Component {
             </Text>
           </TouchableOpacity>
         </View>
-
       </View>
     );
   }
@@ -190,6 +189,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     item: state.item,
+    auth: state.auth
   }
 }
 
