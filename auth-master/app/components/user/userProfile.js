@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -21,12 +21,12 @@ class UserProfile extends React.Component {
     this.handlePress = this.handlePress.bind(this);
   }
 
-  handlePress(){
+  handlePress() {
     this.props.createItem({
-      "title": "items",
-      "description": "i want to cry",
-      "price": 50,
-      "seller": "598cba08d17f5164b5ba71a2",
+      title: "items",
+      description: "i want to cry",
+      price: 50,
+      seller: "598cba08d17f5164b5ba71a2"
     });
   }
 
@@ -38,6 +38,7 @@ class UserProfile extends React.Component {
 
     return (
       <View style={styles.container}>
+
         <View style={styles.topBar}>
 
           <TouchableOpacity onPress={this.onLogout}>
@@ -49,7 +50,6 @@ class UserProfile extends React.Component {
           <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
             <Icon name='device-mobile' size={20} color='white'/>
           </TouchableOpacity>
-
         </View>
         <View style={styles.userInfoContainer}>
           <Text style={styles.title}>Profile</Text>
@@ -90,6 +90,7 @@ class UserProfile extends React.Component {
             </Swiper>
           </View>
         </View>
+        <View style={styles.functionContainer} />
       </View>
     );
   }
@@ -116,9 +117,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#2ecc71',
     paddingTop: 10,
     paddingBottom: 8,
-    alignSelf: 'stretch',
-    flexDirection: 'row',
-    alignItems: 'center'
+    alignSelf: "stretch",
+    flexDirection: "row",
+    alignItems: "center"
   },
   userInfoContainer: {
     flex: 11,
