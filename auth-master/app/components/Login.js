@@ -18,7 +18,6 @@ import Greeting3 from './Greeting3';
 class Login extends Component{
   constructor(props) {
     super(props);
-    console.log('props',this.props);
 
     this.state = {
       loading: false,
@@ -29,7 +28,7 @@ class Login extends Component{
     this.onSignUp = this.onSignUp.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     console.log('mount');
     this.props.clearErrors();
   }
@@ -41,7 +40,8 @@ class Login extends Component{
     this.setState({
       loading: true
     });
-    this.props.loginUser(email, password).then(()=>{
+    this.props.loginUser(email, password)
+      .then(()=>{
       this.setState({
         loading: false
       });
@@ -55,11 +55,22 @@ class Login extends Component{
     this.setState({
       loading: true
     });
-    this.props.signupUser(email, password).then(()=>{
+    this.props.signupUser(email, password)
+      .then(()=>{
       this.setState({
         loading: false
       });
     });
+  }
+
+  renderErrors(){
+    let errors = this.props.errors.map((err) => {
+      return (
+        <Text style={styles.formError}>{err}</Text>
+      );
+    });
+
+    return errors;
   }
 
   render() {
@@ -79,7 +90,6 @@ class Login extends Component{
             Ka-Ching!
           </Text>
         </View>
-
         <View style={styles.swiped}>
           <Swiper style={styles.wrapper} index={0} loop={false} activeDotColor={'white'} showsButtons={false}>
             <View style={styles.slide1}>
@@ -93,15 +103,12 @@ class Login extends Component{
             </View>
           </Swiper>
         </View>
-
         <View style={styles.field}>
           <TextInput
             value={this.state.email}
             onChangeText={(email) => this.setState({email})}
             placeholder="Email"
             style={styles.textInput}/>
-          <View>
-          </View>
         </View>
         <View style={styles.field}>
           <TextInput
@@ -110,8 +117,9 @@ class Login extends Component{
             onChangeText={(password) => this.setState({password})}
             placeholder="Password"
             style={styles.textInput}/>
-            <View>
-            </View>
+        </View>
+        <View>
+          {this.renderErrors()}
         </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity  onPress={this.onSignIn}>
@@ -172,7 +180,10 @@ const styles = {
     color: 'white'
   },
   formError: {
-    color: 'red'
+    flexDirection: 'row',
+    color: 'red',
+    alignSelf: 'center',
+    fontSize: 15
   },
   swiped: {
     flex: 4

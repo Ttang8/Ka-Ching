@@ -27,13 +27,31 @@ export const clearErrors = () => ({
 //   };
 // };
 
-export const loginUser = (email, password) => dispatch => (
-  axios.post(SIGNIN_URL, {email, password}).then(response => console.log(response.data))
-);
+export const loginUser = (email, password) => dispatch => {
+  return axios.post(SIGNIN_URL, {email, password})
+    .then(function(response) {
+      let { user_id, token } = response.data;
+      dispatch(addAlert(token));
+      dispatch(authUser(user_id));
+  })
+    .catch(function (error) {
+      // dispatch(addAlert("Could not sign in."));
+      dispatch(receiveErrors("Authentication Failed"));
+    });
+};
 
-export const signupUser = (email, password) => dispatch => (
-  axios.post(SIGNUP_URL, {email, password}).then(response => console.log(response.data))
-);
+export const signupUser = (email, password) => dispatch => {
+  return axios.post(SIGNUP_URL, {email, password})
+  .then(function(response) {
+    let { user_id, token } = response.data;
+    // dispatch(addAlert(token));
+    dispatch(authUser(user_id));
+  })
+    .catch(function() {
+      // dispatch(addAlert("Could not sign up."));
+      dispatch(receiveErrors(arguments[0].response.data.errors));
+    });
+};
 
 // exports.signupUser = (email,password) => {
 //   return function(dispatch){

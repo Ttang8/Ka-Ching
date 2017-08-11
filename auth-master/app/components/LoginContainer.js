@@ -3,8 +3,8 @@ import Login from './Login';
 import { clearErrors } from '../actions/authActions';
 import {loginUser, signupUser , addAlert} from '../actions';
 
-const mapStateToProps = (state) => ({
-  state
+const mapStateToProps = ({ errors }) => ({
+  errors
 });
 
 const mapDispatchToProps = dispatch => ({

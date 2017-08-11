@@ -7,9 +7,10 @@ const errorsReducer = (state=nullErrors, action) => {
   switch(action.type) {
     case RECEIVE_ERRORS:
       const errors = action.errors;
-      return errors;
+      return [errors];
     case CLEAR_ERRORS:
-      return nullErrors;
+    console.log('errors reducer');
+      return [];
     default:
       return state;
   }

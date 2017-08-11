@@ -16,22 +16,31 @@ const tokenForUser = user => {
 exports.signin = function(req, res, next) {
   var user = req.user;
   res.send({ token: tokenForUser(user), user_id: user._id });
+  // .catch(next);
 };
 
-exports.signup = function(req, res, next) {
-  const email = req.body.email;
+exports.signup = (req, res, next) => {
+  const email = req.body.email.toLowerCase();
   const password = req.body.password;
   const userProps = req.body;
-
   //Check if user already exists, send error if they do
-  User.findOne({ email: email }, function(err, existingUser) {
-    if (err) {
-      return next(err);
-    }
-    if (existingUser) {
-      return res.status(422).json({ error: "Email taken" });
-    }
-
-    User.create(userProps).then(user => res.send({ token: tokenForUser(user), user_id: user._id})).catch(next);
-  });
+  User.findOne({ email })
+    .then(user => {
+      if (user) {
+        res.status(422).send({ errors: "Email taken" });
+      } else {
+        User.create(userProps).then(user => res.send({ token: tokenForUser(user), user_id: user._id})).catch(next);
+      }
+    });
+  //   function(err, existingUser) {
+  //   if (err) {
+  //     return next(err);
+  //   }
+  //   if (existingUser) {
+  //     return res.status(422).send({ error: "Email taken" });
+  //   } else {
+  //     User.create(userProps).then(user => res.send({ token: tokenForUser(user), user_id: user._id})).catch(next);
+  //   }
+  //
+  // });
 };
