@@ -2,6 +2,7 @@ const ItemsController = require('../controllers/items_controller');
 const UsersController = require('../controllers/users_controller');
 
 module.exports = (app) => {
+  app.get('/api/allitems', ItemsController.allItems);
   app.get('/api/items', ItemsController.indexItems);
   app.get('/api/items/:id', ItemsController.indexItem);
   app.get('/api/category/:category', ItemsController.categorizeItem);

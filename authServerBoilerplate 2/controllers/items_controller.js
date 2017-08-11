@@ -1,6 +1,12 @@
 const Item = require("../models/item");
 
 module.exports = {
+  allItems(req, res, next) {
+    Item.find({})
+      .then((items) => res.send(items))
+      .catch(next);
+  },
+
   indexItems(req, res, next) {
     const { lng, lat } = req.query;
 

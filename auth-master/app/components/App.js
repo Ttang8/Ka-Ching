@@ -12,6 +12,7 @@ import {
 import LoginContainer from './LoginContainer';
 import Main from './Main';
 import AlertContainer from './alerts/AlertContainer';
+import { Tabs } from '../config/router';
 
 class App extends Component{
   constructor(props) {
@@ -23,7 +24,7 @@ class App extends Component{
   renderMainView(){
     if (this.props.user_id){
       return (
-        <Main />
+        <Tabs />
       );
     } else {
     return (
