@@ -15,8 +15,17 @@ const tokenForUser = user => {
 
 exports.signin = function(req, res, next) {
   var user = req.user;
-  res.send({ token: tokenForUser(user), user_id: user._id });
-  // .catch(next);
+  res
+    .send({
+      token: tokenForUser(user),
+      id: user._id,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      sell: user.sell,
+      buy: user.buy
+    })
+    .catch(next);
 };
 
 exports.signup = (req, res, next) => {
@@ -24,14 +33,25 @@ exports.signup = (req, res, next) => {
   const password = req.body.password;
   const userProps = req.body;
   //Check if user already exists, send error if they do
-  User.findOne({ email })
-    .then(user => {
-      if (user) {
-        res.status(422).send({ errors: "Email taken" });
-      } else {
-        User.create(userProps).then(user => res.send({ token: tokenForUser(user), user_id: user._id})).catch(next);
-      }
-    });
+  User.findOne({ email }).then(user => {
+    if (user) {
+      res.status(422).send({ errors: "Email taken" });
+    } else {
+      User.create(userProps)
+        .then(user =>
+          res.send({
+            token: tokenForUser(user),
+            id: user._id,
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            sell: user.sell,
+            buy: user.buy
+          })
+        )
+        .catch(next);
+    }
+  });
   //   function(err, existingUser) {
   //   if (err) {
   //     return next(err);
