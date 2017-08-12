@@ -7,7 +7,7 @@ import {
   View,
   Image,
   TouchableOpacity,
-  NavigatorIOS
+  NavigatorIOS,
 } from "react-native";
 
 import TodoList from "./TodoList";
@@ -17,6 +17,7 @@ import Items from "./item/items";
 import UserProfile from "./user/userProfile";
 import EditUser from './user/EditUser';
 import Photo from './photo/photo';
+import Icon from 'react-native-vector-icons/Octicons';
 
 import Swiper from "react-native-swiper";
 
@@ -39,26 +40,85 @@ var styles = StyleSheet.create({
     color: "#fff",
     fontSize: 30,
     fontWeight: "bold"
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  iconsStyle: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
 var Main = React.createClass({
   render: function() {
     return (
-      <Swiper style={styles.wrapper} index={0} showsPagination={false} loop={false} showsButtons={false}>
-        <View style={styles.slide1}>
-          <Photo/>
-        </View>
-        <View style={styles.slide1}>
-          <UserProfile/>
-        </View>
-        <View style={styles.slide2}>
-          <Items/>
-        </View>
-        <View style={styles.slide3}>
-          <TodoList/>
-        </View>
-      </Swiper>
+        <Swiper
+          style={styles.wrapper}
+          index={1}
+          ref={(swiper) => {this.swiper = swiper;}}
+          showsPagination={false}
+          loop={false}
+          showsButtons={false}
+          >
+          <View style={styles.slide1}>
+            <Photo />
+          </View>
+          <View style={styles.slide1}>
+            <UserProfile />
+            <View style={styles.buttons}>
+              <TouchableOpacity style={styles.iconsStyle} onPress={() => this.swiper.scrollBy(1)}>
+                <Icon name='list-unordered' size={35} color='black'/>
+                <Text>
+                  Items
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.iconsStyle} onPress={() => this.swiper.scrollBy(2)}>
+                <Icon name='credit-card' size={35} color='black'/>
+                <Text>
+                  Interests
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.slide2}>
+            <Items />
+            <View style={styles.buttons}>
+              <TouchableOpacity style={styles.iconsStyle} onPress={() => this.swiper.scrollBy(-1)}>
+                <Icon name='person' size={35} color='black'/>
+                <Text>
+                  Profile
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.iconsStyle} onPress={() => this.swiper.scrollBy(1)}>
+                <Icon name='credit-card' size={35} color='black'/>
+                <Text>
+                  Interests
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.slide3}>
+            <TodoList />
+            <View style={styles.buttons}>
+              <TouchableOpacity style={styles.iconsStyle} onPress={() => this.swiper.scrollBy(-2)}>
+                <Icon name='person' size={35} color='black'/>
+                <Text>
+                  Profile
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.iconsStyle} onPress={() => this.swiper.scrollBy(-1)}>
+                <Icon name='list-unordered' size={35} color='black'/>
+                <Text>
+                  Items
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Swiper>
+
     );
   }
 });
