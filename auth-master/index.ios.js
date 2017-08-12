@@ -12,7 +12,7 @@ import {
 import AppContainer from './app/components/AppContainer';
 import {configureStore} from './app/store';
 
-export default class todoListAuth2 extends Component {
+export default class KaChing extends Component {
   render() {
     return (
       <Provider store={configureStore()}>
@@ -22,4 +22,4 @@ export default class todoListAuth2 extends Component {
   }
 }
 
-AppRegistry.registerComponent('todoListAuth2', () => todoListAuth2);
+AppRegistry.registerComponent('KaChing', () => KaChing);

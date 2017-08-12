@@ -1,4 +1,4 @@
-package com.todolistauth2;
+package com.kaching;
 
 import android.app.Application;
 
