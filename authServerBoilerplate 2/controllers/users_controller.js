@@ -11,7 +11,7 @@ module.exports = {
     User.findOne({ _id: userId })
       .then(user =>
         res.send({
-          id: user._id,
+          user_id: user._id,
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
@@ -30,7 +30,7 @@ module.exports = {
       .then(() => User.findById({ _id: userId }))
       .then(user =>
         res.send({
-          id: user._id,
+          user_id: user._id,
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
