@@ -20,6 +20,12 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.handlePress = this.handlePress.bind(this);
+    this.goToSettings = this.goToSettings.bind(this);
+    console.log(this.props.navigation);
+  }
+
+  goToSettings() {
+    this.props.navigation.navigate('EditUser');
   }
 
   handlePress(){
@@ -63,7 +69,7 @@ class UserProfile extends React.Component {
         </View>
         <View style={styles.buttonsContainer}>
           <View style={styles.icons}>
-            <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
+            <TouchableOpacity style={styles.icons} onPress={this.goToSettings}>
               <Icon name='gear' size={20} color='white'/>
               <Text style={styles.title}>Settings</Text>
             </TouchableOpacity>

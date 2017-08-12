@@ -29,7 +29,6 @@ class Login extends Component{
   }
 
   componentDidMount() {
-    console.log('mount');
     this.props.clearErrors();
   }
 
