@@ -16,6 +16,7 @@ import { unauthUser } from "../actions";
 import Items from "./item/items";
 import UserProfile from "./user/userProfile";
 import EditUser from './user/EditUser';
+import Photo from './photo/photo';
 
 import Swiper from "react-native-swiper";
 
@@ -46,11 +47,14 @@ var Main = React.createClass({
     return (
       <Swiper
         style={styles.wrapper}
-        index={1}
+        index={0}
         showsPagination={false}
         loop={false}
         showsButtons={false}
       >
+        <View style={styles.slide1}>
+          <Photo />
+        </View>
         <View style={styles.slide1}>
           <UserProfile />
         </View>

@@ -15,6 +15,7 @@ const tokenForUser = user => {
 
 exports.signin = function(req, res, next) {
   var user = req.user;
+  
   res.send({
     token: tokenForUser(user),
     user_id: user._id,
@@ -24,7 +25,7 @@ exports.signin = function(req, res, next) {
     sell: user.sell,
     buy: user.buy
   });
-  // .catch(next);
+  .catch(next);
 };
 
 exports.signup = (req, res, next) => {
