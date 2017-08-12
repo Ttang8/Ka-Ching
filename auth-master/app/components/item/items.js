@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchItems } from '../../actions/itemActions';
-import { editUser } from '../../actions/userActions';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {fetchItems} from '../../actions/itemActions';
+import {editUser} from '../../actions/userActions';
 import {
   StyleSheet,
   Text,
@@ -13,7 +13,7 @@ import {
 import Icon from 'react-native-vector-icons/Octicons';
 import UserProfile from '../user/userProfile';
 
-import FontAwesome, { Icons } from 'react-native-fontawesome';
+import FontAwesome, {Icons} from 'react-native-fontawesome';
 
 class Items extends Component {
   constructor(props) {
@@ -21,17 +21,15 @@ class Items extends Component {
     this.state = {
       user_id: this.props.auth.user_id,
       buy: this.props.auth.buy,
-      sell: this.props.auth.sell,
+      sell: this.props.auth.sell
     };
     this.counter = 0;
   }
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchItems();
   }
 
-  toUserProfile() {
-
-  }
+  toUserProfile() {}
 
   toUserInterest() {
     // console.log('render user interest component');
@@ -39,22 +37,19 @@ class Items extends Component {
 
   addToInterest() {
     const item = this.props.items[this.counter];
-    console.log(item);
     const buy = this.state.buy;
-    buy.push(item._id);
-    this.setState({
-      buy: buy
-    });
-    console.log(this.state);
-    this.props.editUser(this.state).then(()=> this.counter++);
+    if (!buy.includes(item._id)) {
+
+      buy.push(item._id);
+      this.setState({buy: buy});
+      this.props.editUser(this.state).then(() => this.counter++);
+    } else {
+      console.log('yo duplicate');
+    }
   }
 
   next() {
-<<<<<<< HEAD
-    // console.log('next iteration through list of items')
-=======
     this.counter++;
->>>>>>> fe0c2d86241fd178902d025cecbedf77bd3cf88d
   }
 
   showDetail() {
@@ -62,25 +57,14 @@ class Items extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-    // console.log("ANDREW", this.props.auth);
-=======
-    console.log(this.props);
->>>>>>> fe0c2d86241fd178902d025cecbedf77bd3cf88d
     return (
       <View style={styles.container}>
-        {/* left this part so that we can implement in our user profile page  */}
-        {/* <TouchableOpacity onPress={this.onLogout}> */}
-        {/* <Text>
-            Logout
-          </Text> */}
-        {/* </TouchableOpacity> */}
         <View style={styles.navContainer}>
 
           <TouchableWithoutFeedback onPress={this.toUserProfile.bind(this)}>
             <View>
               <Text>
-                <Icon name='person' size={30} color='grey' />
+                <Icon name='person' size={30} color='grey'/>
               </Text>
             </View>
           </TouchableWithoutFeedback>
@@ -95,7 +79,7 @@ class Items extends Component {
             <View>
               <Text>
                 interest
-            </Text>
+              </Text>
             </View>
           </TouchableWithoutFeedback>
 
@@ -154,7 +138,6 @@ class Items extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     paddingTop: 16,
@@ -165,8 +148,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-
+    backgroundColor: '#F5FCFF'
   },
   navContainer: {
     flexDirection: 'row',
@@ -184,7 +166,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     alignSelf: 'stretch',
-    borderRadius: 8,
+    borderRadius: 8
   },
   itemsContainer: {
     flexDirection: 'row',
@@ -198,9 +180,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch'
   },
-  itemsDetail: {
-
-  },
+  itemsDetail: {},
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -215,11 +195,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  return {
-    items: state.items,
-    item: state.item,
-    auth: state.auth
-  }
+  return {items: state.items, item: state.item, auth: state.auth}
 }
 
-module.exports = connect(mapStateToProps, {fetchItems, editUser })(Items);
+module.exports = connect(mapStateToProps, {fetchItems, editUser})(Items);
