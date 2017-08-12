@@ -15,17 +15,17 @@ const tokenForUser = user => {
 
 exports.signin = function(req, res, next) {
   var user = req.user;
-  res
-    .send({
-      token: tokenForUser(user),
-      id: user._id,
-      email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      sell: user.sell,
-      buy: user.buy
-    })
-    .catch(next);
+  
+  res.send({
+    token: tokenForUser(user),
+    user_id: user._id,
+    email: user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    sell: user.sell,
+    buy: user.buy
+  });
+  .catch(next);
 };
 
 exports.signup = (req, res, next) => {
@@ -41,7 +41,7 @@ exports.signup = (req, res, next) => {
         .then(user =>
           res.send({
             token: tokenForUser(user),
-            id: user._id,
+            user_id: user._id,
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
