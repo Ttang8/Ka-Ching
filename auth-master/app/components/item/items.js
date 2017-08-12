@@ -13,7 +13,7 @@ import {
 import Icon from 'react-native-vector-icons/Octicons';
 import UserProfile from '../user/userProfile';
 
-import FontAwesome, { Icons } from 'react-native-fontawesome'
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 class Items extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class Items extends Component {
   }
 
   toUserInterest() {
-    console.log('render user interest component');
+    // console.log('render user interest component');
   }
 
   addToInterest() {
@@ -50,15 +50,23 @@ class Items extends Component {
   }
 
   next() {
+<<<<<<< HEAD
+    // console.log('next iteration through list of items')
+=======
     this.counter++;
+>>>>>>> fe0c2d86241fd178902d025cecbedf77bd3cf88d
   }
 
   showDetail() {
-    console.log('render show page for item')
+    // console.log('render show page for item')
   }
 
   render() {
+<<<<<<< HEAD
+    // console.log("ANDREW", this.props.auth);
+=======
     console.log(this.props);
+>>>>>>> fe0c2d86241fd178902d025cecbedf77bd3cf88d
     return (
       <View style={styles.container}>
         {/* left this part so that we can implement in our user profile page  */}

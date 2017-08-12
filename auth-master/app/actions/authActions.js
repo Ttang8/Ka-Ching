@@ -30,9 +30,9 @@ export const clearErrors = () => ({
 export const loginUser = (email, password) => dispatch => {
   return axios.post(SIGNIN_URL, {email, password})
     .then(function(response) {
+
       let { token } = response.data;
       dispatch(addAlert(token));
-      console.log(response.data)
       dispatch(authUser(response.data));
   })
     .catch(function (error) {

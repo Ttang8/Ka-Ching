@@ -13,7 +13,11 @@ const tokenForUser = user => {
 exports.signin = function(req, res, next){
   var user = req.user;
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
   
+>>>>>>> fe0c2d86241fd178902d025cecbedf77bd3cf88d
   res.send({
     token: tokenForUser(user),
     user_id: user._id,
