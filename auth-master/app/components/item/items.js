@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchItem } from '../../actions/itemActions'
+import { fetchItems } from '../../actions/itemActions';
+import { editUser } from '../../actions/userActions';
 import {
   StyleSheet,
   Text,
@@ -15,7 +16,17 @@ import UserProfile from '../user/userProfile';
 import FontAwesome, { Icons } from 'react-native-fontawesome'
 
 class Items extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user_id: this.props.auth.user_id,
+      buy: this.props.auth.buy,
+      sell: this.props.auth.sell,
+    };
+    this.counter = 0;
+  }
   componentDidMount(){
+    this.props.fetchItems();
   }
 
   toUserProfile() {
@@ -27,10 +38,19 @@ class Items extends Component {
   }
 
   addToInterest() {
+    const item = this.props.items[this.counter];
+    console.log(item);
+    const buy = this.state.buy;
+    buy.push(item._id);
+    this.setState({
+      buy: buy
+    });
+    console.log(this.state);
+    this.props.editUser(this.state).then(()=> this.counter++);
   }
 
   next() {
-    console.log('next iteration through list of items')
+    this.counter++;
   }
 
   showDetail() {
@@ -38,7 +58,7 @@ class Items extends Component {
   }
 
   render() {
-    console.log("ANDREW", this.props.auth);
+    console.log(this.props);
     return (
       <View style={styles.container}>
         {/* left this part so that we can implement in our user profile page  */}
@@ -188,9 +208,10 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
+    items: state.items,
     item: state.item,
     auth: state.auth
   }
 }
 
-module.exports = connect(mapStateToProps)(Items);
+module.exports = connect(mapStateToProps, {fetchItems, editUser })(Items);

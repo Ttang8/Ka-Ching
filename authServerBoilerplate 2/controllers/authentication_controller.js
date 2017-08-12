@@ -12,7 +12,21 @@ const tokenForUser = user => {
 
 exports.signin = function(req, res, next){
   var user = req.user;
+<<<<<<< HEAD
+  
+  res.send({
+    token: tokenForUser(user),
+    user_id: user._id,
+    email: user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    sell: user.sell,
+    buy: user.buy
+  })
+  .catch(next);
+=======
   res.send({token: tokenForUser(user), user_id: user._id})
+>>>>>>> ba43e08217a9bbf649a1797efd6ef2aa74d6a2d0
 };
 
 exports.signup = function(req, res, next) {

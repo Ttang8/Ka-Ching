@@ -9,7 +9,6 @@ const errorsReducer = (state=nullErrors, action) => {
       const errors = action.errors;
       return [errors];
     case CLEAR_ERRORS:
-    console.log('errors reducer');
       return [];
     default:
       return state;
