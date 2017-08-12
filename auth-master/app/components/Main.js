@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {connect} from "react-redux";
 import {
   AppRegistry,
   StyleSheet,
@@ -11,8 +11,8 @@ import {
 } from "react-native";
 
 import TodoList from "./TodoList";
-import FontAwesome, { Icons } from "react-native-fontawesome";
-import { unauthUser } from "../actions";
+import FontAwesome, {Icons} from "react-native-fontawesome";
+import {unauthUser} from "../actions";
 import Items from "./item/items";
 import UserProfile from "./user/userProfile";
 import EditUser from './user/EditUser';
@@ -45,24 +45,18 @@ var styles = StyleSheet.create({
 var Main = React.createClass({
   render: function() {
     return (
-      <Swiper
-        style={styles.wrapper}
-        index={0}
-        showsPagination={false}
-        loop={false}
-        showsButtons={false}
-      >
+      <Swiper style={styles.wrapper} index={0} showsPagination={false} loop={false} showsButtons={false}>
         <View style={styles.slide1}>
-          <Photo />
+          <Photo/>
         </View>
         <View style={styles.slide1}>
-          <UserProfile />
+          <UserProfile/>
         </View>
         <View style={styles.slide2}>
-          <Items />
+          <Items/>
         </View>
         <View style={styles.slide3}>
-          <TodoList />
+          <TodoList/>
         </View>
       </Swiper>
     );
