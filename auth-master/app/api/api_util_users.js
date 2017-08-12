@@ -10,10 +10,11 @@ export const fetchUser = id => (
 export const editUser = user => (
   axios({
     method: 'PUT',
-    url: `http://localhost:3000/api/users/${user.id}`,
+    url: `http://localhost:3000/api/users/${user.user_id}`,
     data: user
   })
 );
+
 
 export const deleteUser = id => (
   axios({

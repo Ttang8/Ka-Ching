@@ -30,9 +30,10 @@ export const clearErrors = () => ({
 export const loginUser = (email, password) => dispatch => {
   return axios.post(SIGNIN_URL, {email, password})
     .then(function(response) {
-      let { user_id, token } = response.data;
+
+      let { token } = response.data;
       dispatch(addAlert(token));
-      dispatch(authUser(user_id));
+      dispatch(authUser(response.data));
   })
     .catch(function (error) {
       // dispatch(addAlert("Could not sign in."));
@@ -45,7 +46,7 @@ export const signupUser = (email, password) => dispatch => {
   .then(function(response) {
     let { user_id, token } = response.data;
     // dispatch(addAlert(token));
-    dispatch(authUser(user_id));
+    dispatch(authUser(response.data));
   })
     .catch(function() {
       // dispatch(addAlert("Could not sign up."));
@@ -65,10 +66,41 @@ export const signupUser = (email, password) => dispatch => {
 //   };
 // };
 
-let authUser = (user_id) => {
+import * as APIUtil from '../api/api_util_users';
+
+
+// async
+
+export const fetchUser = id => dispatch => (
+  APIUtil.fetchUser(id)
+    .then(user => (
+      dispatch(authUser(user))
+    )
+    )
+);
+
+export const deleteUser = id => dispatch => (
+  APIUtil.deleteUser(id)
+    .then(() => (
+      dispatch(deleteUser(id))
+    ))
+    .then(() => (
+      dispatch(authUser(null))
+    ))
+);
+
+export const editUser = user => dispatch => (
+  APIUtil.editUser(user)
+    .then(user => {
+      console.log(user);
+      return dispatch(authUser(user))
+    })
+)
+
+let authUser = (user) => {
   return {
     type: 'AUTH_USER',
-    user_id
+    user
   };
 };
 

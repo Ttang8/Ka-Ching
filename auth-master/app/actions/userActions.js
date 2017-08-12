@@ -1,4 +1,3 @@
-import * as APIUtil from '../api/api_util_users';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
@@ -9,6 +8,7 @@ export const receiveUser = user => ({
   type: RECEIVE_USER,
   user
 });
+import * as APIUtil from '../api/api_util_users';
 
 
 // async
@@ -33,7 +33,8 @@ export const deleteUser = id => dispatch => (
 
 export const editUser = user => dispatch => (
   APIUtil.editUser(user)
-    .then(user => (
-      dispatch(receiveUser(user))
-    ))
+    .then(user => {
+      console.log(user);
+      return dispatch(receiveUser(user))
+    })
 )

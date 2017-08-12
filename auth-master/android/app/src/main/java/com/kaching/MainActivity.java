@@ -1,4 +1,4 @@
-package com.todolistauth2;
+package com.kaching;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "todoListAuth2";
+        return "KaChing";
     }
 }
