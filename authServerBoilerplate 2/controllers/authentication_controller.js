@@ -24,7 +24,7 @@ exports.signin = function(req, res, next) {
     lastName: user.lastName,
     sell: user.sell,
     buy: user.buy
-  });
+  })
   .catch(next);
 };
 
