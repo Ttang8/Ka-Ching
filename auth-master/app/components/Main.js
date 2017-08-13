@@ -18,6 +18,7 @@ import UserProfile from "./user/userProfile";
 import EditUser from './user/EditUser';
 import Photo from './photo/photo';
 import Icon from 'react-native-vector-icons/Octicons';
+import {UserProfileStack} from '../config/router';
 
 import Swiper from "react-native-swiper";
 
@@ -64,10 +65,9 @@ var Main = React.createClass({
           showsButtons={false}
           >
           <View style={styles.slide1}>
-            <Photo />
           </View>
           <View style={styles.slide1}>
-            <UserProfile />
+            <UserProfileStack />
             <View style={styles.buttons}>
               <TouchableOpacity style={styles.iconsStyle} onPress={() => this.swiper.scrollBy(1)}>
                 <Icon name='list-unordered' size={35} color='black'/>

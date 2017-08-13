@@ -38,12 +38,24 @@ export const Tabs = TabNavigator({
   }
 });
 
-export const Root = StackNavigator({
+export const EditUserStack = StackNavigator({
+  EditUser:{
+    screen: EditUser,
+    navigationOptions: {
+      title: 'Edit'
+    }
+  }
+});
+
+export const UserProfileStack = StackNavigator({
   UserProfile: {
     screen: UserProfile
   },
 
   EditUser: {
-    screen: EditUser
+    screen: EditUserStack
   }
+}, {
+  mode: 'modal',
+  headerMode: 'none'
 });

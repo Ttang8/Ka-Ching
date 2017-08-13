@@ -32,7 +32,7 @@ class Items extends Component {
   toUserProfile() {}
 
   toUserInterest() {
-    // console.log('render user interest component');
+    //  ('render user interest component');
   }
 
   addToInterest() {
@@ -44,7 +44,7 @@ class Items extends Component {
       this.setState({buy: buy});
       this.props.editUser(this.state).then(() => this.counter++);
     } else {
-      console.log('yo duplicate');
+       ('yo duplicate');
     }
   }
 
@@ -53,7 +53,7 @@ class Items extends Component {
   }
 
   showDetail() {
-    // console.log('render show page for item')
+    //  ('render show page for item')
   }
 
   render() {

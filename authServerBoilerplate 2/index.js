@@ -22,5 +22,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "127.0.0.1";
 
-console.log("Listening on", HOST, PORT);
+ ("Listening on", HOST, PORT);
 app.listen(PORT, HOST);

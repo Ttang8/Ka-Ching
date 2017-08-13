@@ -92,7 +92,7 @@ export const deleteUser = id => dispatch => (
 export const editUser = user => dispatch => (
   APIUtil.editUser(user)
     .then(user => {
-      console.log(user);
+       (user);
       return dispatch(authUser(user))
     })
 )
