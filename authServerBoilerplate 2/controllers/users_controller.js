@@ -13,6 +13,7 @@ module.exports = {
         res.send({
           user_id: user._id,
           email: user.email,
+          username: user.username,
           firstName: user.firstName,
           lastName: user.lastName,
           sell: user.sell,
@@ -25,13 +26,13 @@ module.exports = {
   updateUser(req, res, next) {
     const userId = req.params.id;
     const userProps = req.body;
-
     User.findByIdAndUpdate({ _id: userId }, userProps)
       .then(() => User.findById({ _id: userId }))
       .then(user =>
         res.send({
           user_id: user._id,
           email: user.email,
+          username: user.username,
           firstName: user.firstName,
           lastName: user.lastName,
           sell: user.sell,

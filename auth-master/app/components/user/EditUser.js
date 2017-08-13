@@ -1,14 +1,59 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity
+} from 'react-native';
 
 class EditUser extends React.Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user_id: this.props.auth.user_id,
+      username: this.props.auth.username || "",
+      firstName: this.props.auth.firstName || "",
+      lastName: this.props.auth.lastName || ""
+    };
+    this.handleEditUser = this.handleEditUser.bind(this);
+  }
+
+  handleEditUser() {
+    let user = this.state;
+    this.props.editUser(user);
+  }
+
   render(){
     return(
       <View style={styles.container}>
-        <View style={styles.topBar}>
-          <Text style={styles.title}>
-            Edit User
-          </Text>
+        <View style={styles.field}>
+          <TextInput
+            value={this.state.username}
+            onChangeText={(username) => this.setState({username})}
+            placeholder="Username"
+            style={styles.textInput}/>
+        </View>
+        <View style={styles.field}>
+          <TextInput
+            value={this.state.firstName}
+            onChangeText={(firstName) => this.setState({firstName})}
+            placeholder="First Name"
+            style={styles.textInput}/>
+        </View>
+        <View style={styles.field}>
+          <TextInput
+            value={this.state.lastName}
+            onChangeText={(lastName) => this.setState({lastName})}
+            placeholder="Last Name"
+            style={styles.textInput}/>
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity  onPress={this.handleEditUser}>
+            <Text style={styles.button}>
+              Edit Profile
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -34,6 +79,27 @@ const styles = StyleSheet.create({
     fontSize: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    color: 'white'
+  },
+  field: {
+    borderRadius: 5,
+    padding: 5,
+    paddingLeft: 8,
+    margin: 7,
+    marginTop: 0,
+    backgroundColor: 'white'
+  },
+  textInput: {
+    height: 26
+  },
+  buttonContainer: {
+    padding: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  button: {
+    fontSize: 30,
     color: 'white'
   }
 });

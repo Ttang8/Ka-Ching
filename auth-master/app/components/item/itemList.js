@@ -19,7 +19,6 @@ class ItemList extends React.Component {
   }
 
   render(){
-    console.log(this.props);
     const { item } = this.props
     return (
       <Image source={require('../../images/dallas.jpg')} style={styles.itemImage} resizeMode={Image.resizeMode.cover}>
@@ -30,7 +29,7 @@ class ItemList extends React.Component {
             <View style={styles.itemsDetail}>
 
               <Text style={styles.itemDescription}>
-                {item.title}
+                {item._id}
               </Text>
 
               <Text style={styles.itemDescription}>

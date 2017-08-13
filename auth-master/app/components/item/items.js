@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchItems} from '../../actions/itemActions';
-import {editUser} from '../../actions/userActions';
+import {editUser, fetchUser} from '../../actions/userActions';
 import {
   StyleSheet,
   Text,
@@ -22,15 +22,16 @@ class Items extends Component {
     this.state = {
       items: this.props.items,
       user: {
-        user_id: this.props.auth.user_id,
-        buy: this.props.auth.buy,
-        sell: this.props.auth.sell
+        user_id: this.props.user.user_id,
+        buy: this.props.user.buy,
+        sell: this.props.user.sell
       }
     };
     this.renderItemList = this.renderItemList.bind(this);
   }
   componentDidMount() {
     this.props.fetchItems();
+    this.props.fetchUser(this.props.auth.user_id);
   }
 
   addToInterest() {
@@ -41,13 +42,13 @@ class Items extends Component {
       buy.push(item._id);
       this.setState({
         user: {
-          buy: buy
+          user_id: this.props.user.user_id,
+          buy: buy,
+          sell: this.props.user.sell
         }
       });
-      console.log(this.state);
       this.props.editUser(this.state.user).then(() => {
         items.shift();
-        console.log(items);
         this.setState({
           items: items
         })
@@ -158,8 +159,9 @@ const mapStateToProps = state => {
   return {
     items: state.items,
     item: state.item,
-    auth: state.auth
+    auth: state.auth,
+    user: state.user
   }
 }
 
-module.exports = connect(mapStateToProps, {fetchItems, editUser})(Items);
+module.exports = connect(mapStateToProps, {fetchItems, editUser, fetchUser})(Items);
