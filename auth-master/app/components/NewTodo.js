@@ -21,7 +21,7 @@ var TodoList = React.createClass({
   addNewTodo(){
     var {newTodoText} = this.state;
     if (newTodoText && newTodoText !== ""){
-      // console.log(this.state.newTodoText);
+      //  (this.state.newTodoText);
 
     }
   },

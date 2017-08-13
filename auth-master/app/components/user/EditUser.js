@@ -7,7 +7,7 @@ class EditUser extends React.Component{
       <View style={styles.container}>
         <View style={styles.topBar}>
           <Text style={styles.title}>
-            Edit User
+        
           </Text>
         </View>
       </View>

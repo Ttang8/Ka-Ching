@@ -10,7 +10,7 @@ class CameraComp extends React.Component {
   takePicture() {
     this.camera
       .capture()
-      .then(data => console.log(data))
+      .then(data =>  (data))
       .catch(err => console.error(err));
   }
 

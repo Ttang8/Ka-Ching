@@ -21,10 +21,14 @@ class UserProfile extends React.Component {
     super(props);
     this.handlePress = this.handlePress.bind(this);
     this.goToSettings = this.goToSettings.bind(this);
-    console.log(this.props.navigation);
+    this.goToEditUser = this.goToEditUser.bind(this);
   }
 
   goToSettings() {
+    this.props.navigation.navigate('EditUser');
+  }
+
+  goToEditUser() {
     this.props.navigation.navigate('EditUser');
   }
 
@@ -75,7 +79,7 @@ class UserProfile extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={styles.icons}>
-            <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
+            <TouchableOpacity style={styles.icons} onPress={this.goToEditUser}>
               <Icon name='pencil' size={20} color='white'/>
               <Text style={styles.title}>Edit</Text>
             </TouchableOpacity>
