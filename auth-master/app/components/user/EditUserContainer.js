@@ -3,8 +3,9 @@ import EditUser from './EditUser';
 import { clearErrors } from '../../actions/authActions';
 import { editUser } from '../../actions/userActions';
 
-const mapStateToProps = ({auth}) => ({
-  auth
+const mapStateToProps = ({auth, user}) => ({
+  auth,
+  user
 });
 
 const mapDispatchToProps = dispatch => ({

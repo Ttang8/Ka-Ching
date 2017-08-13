@@ -11,17 +11,18 @@ class EditUser extends React.Component{
     super(props);
 
     this.state = {
-      user_id: this.props.auth.user_id,
-      username: this.props.auth.username || "",
-      firstName: this.props.auth.firstName || "",
-      lastName: this.props.auth.lastName || ""
+      user_id: this.props.user.user_id,
+      username: this.props.user.username || "",
+      firstName: this.props.user.firstName || "",
+      lastName: this.props.user.lastName || ""
     };
     this.handleEditUser = this.handleEditUser.bind(this);
   }
 
   handleEditUser() {
     let user = this.state;
-    this.props.editUser(user);
+    this.props.editUser(user)
+      .then(() => this.props.navigation.navigate('UserProfile'));
   }
 
   render(){
