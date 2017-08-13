@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import UserProfile from '../user/userProfile';
+import ItemList from './itemList';
 
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 
@@ -19,107 +20,81 @@ class Items extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: this.props.auth.user_id,
-      buy: this.props.auth.buy,
-      sell: this.props.auth.sell
+      items: this.props.items,
+      user: {
+        user_id: this.props.auth.user_id,
+        buy: this.props.auth.buy,
+        sell: this.props.auth.sell
+      }
     };
-    this.counter = 0;
+    this.renderItemList = this.renderItemList.bind(this);
   }
   componentDidMount() {
     this.props.fetchItems();
   }
 
-  toUserProfile() {}
-
-  toUserInterest() {
-    // console.log('render user interest component');
-  }
-
   addToInterest() {
-    const item = this.props.items[this.counter];
-    const buy = this.state.buy;
+    const items = [].concat(this.state.items);
+    const item = items[0];
+    const buy = this.state.user.buy;
     if (!buy.includes(item._id)) {
-
       buy.push(item._id);
-      this.setState({buy: buy});
-      this.props.editUser(this.state).then(() => this.counter++);
+      this.setState({
+        user: {
+          buy: buy
+        }
+      });
+      console.log(this.state);
+      this.props.editUser(this.state.user).then(() => {
+        items.shift();
+        console.log(items);
+        this.setState({
+          items: items
+        })
+      });
     } else {
       console.log('yo duplicate');
+      items.shift();
+      this.setState({
+        items: items
+      })
     }
   }
 
   next() {
-    this.counter++;
+    const items = [].concat(this.state.items);
+    items.push(items.shift());
+    this.setState({
+      items: items
+    });
   }
 
-  showDetail() {
-    // console.log('render show page for item')
+  renderItemList(){
+    if(this.state.items[0] === undefined) {
+      return (
+        <View>
+          <Text>
+            empty
+          </Text>
+        </View>
+      )
+    } else {
+      return <ItemList item={this.state.items[0]} />
+    }
   }
+
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.navContainer}>
 
-          <TouchableWithoutFeedback onPress={this.toUserProfile.bind(this)}>
-            <View>
-              <Text>
-                <Icon name='person' size={30} color='grey'/>
-              </Text>
-            </View>
-          </TouchableWithoutFeedback>
-
-          <View>
             <Text>
-              kaching
+              kachingLogo
             </Text>
-          </View>
-
-          <TouchableWithoutFeedback onPress={this.toUserInterest.bind(this)}>
-            <View>
-              <Text>
-                interest
-              </Text>
-            </View>
-          </TouchableWithoutFeedback>
-
         </View>
 
-        <Image source={require('../../images/dallas.jpg')} style={styles.itemImage} resizeMode={Image.resizeMode.cover}>
-
-          <TouchableOpacity onPress={this.showDetail.bind(this)}>
-            <View style={styles.itemsContainer}>
-
-              <View style={styles.itemsDetail}>
-
-                <Text style={styles.itemDescription}>
-                  no
-                </Text>
-
-                <Text style={styles.itemDescription}>
-                  no
-                </Text>
-
-                <Text style={styles.itemDescription}>
-                  no
-                </Text>
-
-                <Text style={styles.itemDescription}>
-                  no
-                </Text>
-
-              </View>
-
-              <View style={styles.more}>
-                <Text style={styles.itemDescription}>
-                  details
-                </Text>
-              </View>
-
-            </View>
-          </TouchableOpacity>
-
-        </Image>
+        {this.renderItemList()}
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={this.addToInterest.bind(this)}>
@@ -168,36 +143,23 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     borderRadius: 8
   },
-  itemsContainer: {
-    flexDirection: 'row',
-    alignSelf: 'stretch',
-    backgroundColor: 'transparent',
-    padding: 10
-  },
-  more: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    alignSelf: 'stretch'
-  },
-  itemsDetail: {},
+
+
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     alignSelf: 'stretch'
-  },
-  itemDescription: {
-    color: 'white',
-    fontWeight: 'bold'
   }
 });
 
 const mapStateToProps = state => {
-
-  return {items: state.items, item: state.item, auth: state.auth}
+  return {
+    items: state.items,
+    item: state.item,
+    auth: state.auth
+  }
 }
-
 
 module.exports = connect(mapStateToProps, {fetchItems, editUser})(Items);
