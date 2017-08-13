@@ -79,6 +79,8 @@ class Items extends Component {
   }
 
   render() {
+    console.log(this.props);
+    console.log(this.state);
     if (this.state.items === undefined) {
       return (
         <View style={styles.container}>

@@ -3,7 +3,7 @@ import axios from 'axios';
 export const fetchItems = () => (
   axios({
     method: 'GET',
-    url: 'http://localhost:3000/api/items'
+    url: 'http://localhost:3000/api/allitems'
   })
 );
 
