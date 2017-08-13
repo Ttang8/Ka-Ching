@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Octicons';
 import {connect} from 'react-redux';
 import {
@@ -13,47 +13,37 @@ import {
 } from 'react-native';
 
 var TodoList = React.createClass({
-  getInitialState(){
-    return {
-      newTodoText: undefined
-    };
+  getInitialState() {
+    return {newTodoText: undefined};
   },
-  addNewTodo(){
+  addNewTodo() {
     var {newTodoText} = this.state;
-    if (newTodoText && newTodoText !== ""){
-      // console.log(this.state.newTodoText);
-
-    }
+    if (newTodoText && newTodoText !== "") {}
   },
-  onBack(){
+  onBack() {
     this.props.navigator.pop();
   },
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.topBar}>
-            <TouchableOpacity onPress={this.onBack}>
-              <Icon name='chevron-left' size={20} color='white'/>
-            </TouchableOpacity>
-            <Text style={styles.title}>
-          New Todo
+          <TouchableOpacity onPress={this.onBack}>
+            <Icon name='chevron-left' size={20} color='white'/>
+          </TouchableOpacity>
+          <Text style={styles.title}>
+            New Todo
           </Text>
           <TouchableOpacity onPress={this.addNewTodo}>
             <Icon name='check' size={20} color='white'/>
           </TouchableOpacity>
         </View>
-        <ScrollView
-          automaticallyAdjustContentInsets={false}
-          contentContainerStyle={styles.scrollViewContainer}>
+        <ScrollView automaticallyAdjustContentInsets={false} contentContainerStyle={styles.scrollViewContainer}>
           <View style={styles.inputContainer}>
-            <TextInput
-              onChangeText={(newTodoText) => {
-                this.setState({newTodoText});
-              }}
-              placeholder="New To-Do Text"
-              style={styles.input}/>
+            <TextInput onChangeText={(newTodoText) => {
+              this.setState({newTodoText});
+            }} placeholder="New To-Do Text" style={styles.input}/>
           </View>
-          </ScrollView>
+        </ScrollView>
       </View>
     );
   }
@@ -63,7 +53,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'stretch',
+    alignItems: 'stretch'
   },
   topBar: {
     padding: 16,
@@ -74,11 +64,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#2ecc71'
   },
-  title:{
+  title: {
     color: 'white',
     fontSize: 20
   },
-  inputContainer:{
+  inputContainer: {
     padding: 5,
     paddingLeft: 10,
     margin: 10,
@@ -90,9 +80,7 @@ const styles = StyleSheet.create({
 });
 
 var mapStateToProps = (state) => {
-  return {
-    todos: state.todos
-  };
+  return {todos: state.todos};
 };
 
 module.exports = connect(mapStateToProps)(TodoList);
