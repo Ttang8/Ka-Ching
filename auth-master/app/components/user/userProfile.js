@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback
 } from 'react-native';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Icon from 'react-native-vector-icons/Octicons';
 import Swiper from 'react-native-swiper';
 import axios from 'axios';
@@ -21,20 +21,19 @@ class UserProfile extends React.Component {
     super(props);
     this.handlePress = this.handlePress.bind(this);
     this.goToSettings = this.goToSettings.bind(this);
-    console.log(this.props.navigation);
+    this.goToEditUser = this.goToEditUser.bind(this);
   }
 
   goToSettings() {
     this.props.navigation.navigate('EditUser');
   }
 
-  handlePress(){
-    this.props.createItem({
-      "title": "items",
-      "description": "i want to cry",
-      "price": 50,
-      "seller": "598cba08d17f5164b5ba71a2",
-    });
+  goToEditUser() {
+    this.props.navigation.navigate('EditUser');
+  }
+
+  handlePress() {
+    this.props.createItem({"title": "items", "description": "i want to cry", "price": 50, "seller": "598cba08d17f5164b5ba71a2"});
   }
 
   render() {
@@ -50,8 +49,7 @@ class UserProfile extends React.Component {
           <TouchableOpacity onPress={this.onLogout}>
             <Icon name='x' size={20} color='white'/>
           </TouchableOpacity>
-          <View style={styles.whitespace}>
-          </View>
+          <View style={styles.whitespace}></View>
 
           <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
             <Icon name='device-mobile' size={20} color='white'/>
@@ -61,7 +59,7 @@ class UserProfile extends React.Component {
         <View style={styles.userInfoContainer}>
           <Text style={styles.title}>Profile</Text>
           <View style={styles.user}>
-            <Image source={require('../../images/dallas.jpg')} style={styles.userImage} />
+            <Image source={require('../../images/dallas.jpg')} style={styles.userImage}/>
             <Text style={styles.nameStyles}>
               {tempUser.name}, {tempUser.age}
             </Text>
@@ -75,7 +73,7 @@ class UserProfile extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={styles.icons}>
-            <TouchableOpacity style={styles.icons} onPress={this.onLogout}>
+            <TouchableOpacity style={styles.icons} onPress={this.goToEditUser}>
               <Icon name='pencil' size={20} color='white'/>
               <Text style={styles.title}>Edit</Text>
             </TouchableOpacity>
@@ -83,17 +81,17 @@ class UserProfile extends React.Component {
         </View>
 
         <View style={styles.functionContainer}>
-            <Swiper style={styles.wrapper} index={0} loop={false} activeDotColor={'white'} showsButtons={false}>
-              <View style={styles.slide1}>
-                <UserGreeting/>
-              </View>
-              <View style={styles.slide2}>
-                <UserGreeting/>
-              </View>
-              <View style={styles.slide3}>
-                <UserGreeting/>
-              </View>
-            </Swiper>
+          <Swiper style={styles.wrapper} index={0} loop={false} activeDotColor={'white'} showsButtons={false}>
+            <View style={styles.slide1}>
+              <UserGreeting/>
+            </View>
+            <View style={styles.slide2}>
+              <UserGreeting/>
+            </View>
+            <View style={styles.slide3}>
+              <UserGreeting/>
+            </View>
+          </Swiper>
         </View>
       </View>
     );
@@ -162,7 +160,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgrey',
     alignSelf: 'stretch'
   },
-  title:{
+  title: {
     color: 'white',
     fontSize: 20,
     padding: 10
@@ -173,4 +171,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(null, { createItem })(UserProfile);
+export default connect(null, {createItem})(UserProfile);
