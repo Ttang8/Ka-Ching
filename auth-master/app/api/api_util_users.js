@@ -21,4 +21,4 @@ export const deleteUser = id => (
     method: 'DELETE',
     url: `http://localhost:3000/api/users/${id}`
   })
-)
+);

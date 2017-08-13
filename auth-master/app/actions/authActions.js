@@ -1,12 +1,7 @@
 import axios from 'axios';
 
-import {
-  SIGNIN_URL,
-  SIGNUP_URL
-} from '../api';
-import {
-  addAlert
-} from './alertsActions';
+import {SIGNIN_URL, SIGNUP_URL} from '../api';
+import {addAlert} from './alertsActions';
 
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
@@ -33,37 +28,26 @@ export const clearErrors = () => ({
 // };
 
 export const loginUser = (email, password) => dispatch => {
-  return axios.post(SIGNIN_URL, {
-      email,
-      password
-    })
+  return axios.post(SIGNIN_URL, {email, password})
     .then(function(response) {
-
-      let {
-        token
-      } = response.data;
+      console.log(response.data);
+      let { token } = response.data;
       dispatch(addAlert(token));
       dispatch(authUser(response.data));
-    })
-    .catch(function(error) {
+  })
+    .catch(function (error) {
       // dispatch(addAlert("Could not sign in."));
       dispatch(receiveErrors("Authentication Failed"));
     });
 };
 
 export const signupUser = (email, password) => dispatch => {
-  return axios.post(SIGNUP_URL, {
-      email,
-      password
-    })
-    .then(function(response) {
-      let {
-        user_id,
-        token
-      } = response.data;
-      // dispatch(addAlert(token));
-      dispatch(authUser(response.data));
-    })
+  return axios.post(SIGNUP_URL, {email, password})
+  .then(function(response) {
+    let { user_id, token } = response.data;
+    // dispatch(addAlert(token));
+    dispatch(authUser(response.data));
+  })
     .catch(function() {
       // dispatch(addAlert("Could not sign up."));
       dispatch(receiveErrors(arguments[0].response.data.errors));
@@ -89,26 +73,28 @@ import * as APIUtil from '../api/api_util_users';
 
 export const fetchUser = id => dispatch => (
   APIUtil.fetchUser(id)
-  .then(user => (
-    dispatch(authUser(user))
-  ))
+    .then(user => (
+      dispatch(authUser(user))
+    )
+    )
 );
 
 export const deleteUser = id => dispatch => (
   APIUtil.deleteUser(id)
-  .then(() => (
-    dispatch(deleteUser(id))
-  ))
-  .then(() => (
-    dispatch(authUser(null))
-  ))
+    .then(() => (
+      dispatch(deleteUser(id))
+    ))
+    .then(() => (
+      dispatch(authUser(null))
+    ))
 );
 
 export const editUser = user => dispatch => (
   APIUtil.editUser(user)
-  .then(user => {
-    return dispatch(authUser(user))
-  })
+    .then(user => {
+       (user);
+      return dispatch(authUser(user))
+    })
 )
 
 let authUser = (user) => {
