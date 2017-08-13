@@ -83,7 +83,7 @@ export const UploadItemStack = StackNavigator({
   Photo: {
     screen: Photo
   },
-  
+
   ItemSubmitForm: {
     screen: ItemSubmitForm
   }
@@ -98,9 +98,10 @@ export const Root = StackNavigator({
   UploadItemStack: {
     screen: UploadItemStack
 
+
+  },
   ItemShow: {
     screen: ItemShowStack
-
   },
 
   EditUserSettingContainer: {
