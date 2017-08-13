@@ -21,7 +21,7 @@ export const fetchUser = id => dispatch => (
 export const deleteUser = id => dispatch => (
   APIUtil.deleteUser(id)
     .then(()=> (
-      dispatch(deleteUser(id))
+      dispatch(delveteUser(id))
     ))
     .then(()=> (
       dispatch(receiveUser(null))

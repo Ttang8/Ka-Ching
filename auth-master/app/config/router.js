@@ -12,6 +12,7 @@ import Items from '../components/item/items';
 import TodoList from '../components/TodoList';
 import EditUserContainer from '../components/user/EditUserContainer';
 import EditUserSettingContainer from '../components/user/EditUserSettingContainer';
+import ItemShow from '../components/item/itemShow';
 
 export const Tabs = TabNavigator({
   UserProfile: {
@@ -48,6 +49,12 @@ export const EditUserContainerStack = StackNavigator({
   }
 });
 
+export const ItemShowStack = StackNavigator({
+  ItemShow: {
+    screen: ItemShow,
+  }
+});
+
 export const EditUserSettingContainerStack = StackNavigator({
   EditUserSettingContainer:{
     screen: EditUserSettingContainer,
@@ -60,6 +67,10 @@ export const EditUserSettingContainerStack = StackNavigator({
 export const Root = StackNavigator({
   Tabs: {
     screen: Tabs
+  },
+
+  ItemShow: {
+    screen: ItemShowStack
   },
 
   EditUserSettingContainer: {
