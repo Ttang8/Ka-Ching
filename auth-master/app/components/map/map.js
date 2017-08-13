@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import React, {Component} from "react";
+import {StyleSheet, Text, View, TouchableOpacity} from "react-native";
 
 import MapView from "react-native-maps";
 
@@ -12,34 +12,30 @@ export default class Map extends Component {
         longitude: -122.4324,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421
-      }
+      },
+      itemInfo: this.props.navigation.state.params.itemInfo.itemInfo
     };
     this.onRegionChange = this.onRegionChange.bind(this);
     this.handleItemSubmitForm = this.handleItemSubmitForm.bind(this);
   }
 
   onRegionChange(region) {
-    this.setState({ region });
+    this.setState({region});
   }
 
   handleItemSubmitForm() {
-    this.props.navigation.navigate('ItemSubmitForm');
+    this.props.navigation.navigate('ItemSubmitForm', {itemInfo: this.state});
   }
 
   render() {
+    console.log("README", this.state);
     return (
       <View style={styles.container}>
-        <MapView
-          region={this.state.region}
-          onRegionChange={this.onRegionChange}
-          style={styles.map}
-        >
-          <MapView.Marker
-            coordinate={{
-              latitude: this.state.region.latitude,
-              longitude: this.state.region.longitude
-            }}
-          />
+        <MapView region={this.state.region} onRegionChange={this.onRegionChange} style={styles.map} showsUserLocation={true} loadingEnabled={true}>
+          <MapView.Marker coordinate={{
+            latitude: this.state.region.latitude,
+            longitude: this.state.region.longitude
+          }}/>
         </MapView>
         <TouchableOpacity onPress={this.handleItemSubmitForm}>
           <Text>

@@ -49,29 +49,23 @@ class Items extends Component {
       });
       this.props.editUser(this.state.user).then(() => {
         items.shift();
-        this.setState({
-          items: items
-        });
+        this.setState({items: items});
       });
     } else {
       console.log('yo duplicate');
       items.shift();
-      this.setState({
-        items: items
-      });
+      this.setState({items: items});
     }
   }
 
   next() {
     const items = [].concat(this.state.items);
     items.push(items.shift());
-    this.setState({
-      items: items
-    });
+    this.setState({items: items});
   }
 
-  renderItemList(){
-    if(this.state.items[0] === undefined) {
+  renderItemList() {
+    if (this.state.items === undefined) {
       return (
         <View>
           <Text>
@@ -80,52 +74,48 @@ class Items extends Component {
         </View>
       );
     } else {
-      return <ItemList navigation={this.props.navigation} item={this.state.items[0]} />
+      return <ItemList navigation={this.props.navigation} item={this.state.items[0]}/>
     }
   }
 
-
   render() {
-    if(this.state.items[0] === undefined) {
+    if (this.state.items === undefined) {
       return (
         <View style={styles.container}>
           <View style={styles.navContainer}>
-
-              <Text>
-                kachingLogo
-              </Text>
+            <Text>
+              kachingLogo
+            </Text>
           </View>
-
           {this.renderItemList()}
-
-          <View style={styles.buttonContainer}>
-          </View>
+          <View style={styles.buttonContainer}></View>
         </View>
       );
     } else {
-    return (
-      <View style={styles.container}>
-        <View style={styles.topBar}>
+      return (
+        <View style={styles.container}>
+          <View style={styles.topBar}>
             <Text style={styles.title}>
               Ka-Ching!
             </Text>
-        </View>
-        <View style={styles.middle}>
-        {this.renderItemList()}
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.middle} onPress={this.addToInterest.bind(this)}>
+          </View>
+          <View style={styles.middle}>
+            {this.renderItemList()}
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.middle} onPress={this.addToInterest.bind(this)}>
               <Icon name='plus' size={20} color='white'/>
               <Text style={styles.button}>
                 Add to Interest
               </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.middle} onPress={this.next.bind(this)}>
-            <Icon name='x' size={20} color='white'/>
-            <Text style={styles.button}>
-              Pass
-            </Text>
-          </TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.middle} onPress={this.next.bind(this)}>
+              <Icon name='x' size={20} color='white'/>
+              <Text style={styles.button}>
+                Pass
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       );
     }
@@ -171,10 +161,10 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     backgroundColor: '#25A35A'
   },
-  middle:{
+  middle: {
     justifyContent: 'center',
     alignItems: 'center'
-    },
+  },
   topBar: {
     padding: 16,
     paddingTop: 28,
@@ -184,19 +174,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#2ecc71"
   },
-  title:{
+  title: {
     fontSize: 30,
     color: 'white'
   }
 });
 
 const mapStateToProps = state => {
-  return {
-    items: state.items.data,
-    item: state.item,
-    auth: state.auth,
-    user: state.user
-  };
+  return {items: state.items.data, item: state.item, auth: state.auth, user: state.user};
 };
 
 module.exports = connect(mapStateToProps, {fetchItems, editUser, fetchUser})(Items);
