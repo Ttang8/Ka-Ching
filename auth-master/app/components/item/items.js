@@ -80,12 +80,29 @@ class Items extends Component {
         </View>
       );
     } else {
-      return <ItemList item={this.state.items[0]} />;
+      return <ItemList navigation={this.props.navigation} item={this.state.items[0]} />
     }
   }
 
 
   render() {
+    if(this.state.items[0] === undefined) {
+      return (
+        <View style={styles.container}>
+          <View style={styles.navContainer}>
+
+              <Text>
+                kachingLogo
+              </Text>
+          </View>
+
+          {this.renderItemList()}
+
+          <View style={styles.buttonContainer}>
+          </View>
+        </View>
+      );
+    } else {
     return (
       <View style={styles.container}>
         <View style={styles.topBar}>
@@ -110,8 +127,9 @@ class Items extends Component {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
-    );
+      );
+    }
+
   }
 }
 

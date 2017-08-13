@@ -15,11 +15,14 @@ class ItemList extends React.Component {
   }
 
   showDetail(){
-    console.log('hi');
+    this.props.navigation.navigate('ItemShow', {
+      item: this.props.item
+    });
   }
 
   render(){
     const { item } = this.props;
+
     return (
       <Image source={require('../../images/dallas.jpg')} style={styles.itemImage}>
 
@@ -29,6 +32,7 @@ class ItemList extends React.Component {
                 <Text style={styles.itemDescription}>
                   Title:&nbsp;{item.title}
                 </Text>
+
 
                 <Text style={styles.itemDescription}>
                   Description:&nbsp;{item.description}

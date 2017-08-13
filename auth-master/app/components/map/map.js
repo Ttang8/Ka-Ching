@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import MapView from "react-native-maps";
 
@@ -15,10 +15,15 @@ export default class Map extends Component {
       }
     };
     this.onRegionChange = this.onRegionChange.bind(this);
+    this.handleItemSubmitForm = this.handleItemSubmitForm.bind(this);
   }
 
   onRegionChange(region) {
     this.setState({ region });
+  }
+
+  handleItemSubmitForm() {
+    this.props.navigation.navigate('ItemSubmitForm');
   }
 
   render() {
@@ -36,6 +41,11 @@ export default class Map extends Component {
             }}
           />
         </MapView>
+        <TouchableOpacity onPress={this.handleItemSubmitForm}>
+          <Text>
+            Next
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
