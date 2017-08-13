@@ -25,7 +25,7 @@ class UserProfile extends React.Component {
   }
 
   goToSettings() {
-    this.props.navigation.navigate('EditUserSettingContainer');
+    this.props.navigation.navigate('UploadItemStack');
   }
 
   goToEditUser() {
