@@ -86,31 +86,50 @@ class Items extends Component {
 
 
   render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.navContainer}>
+    if(this.state.items[0] === undefined) {
+      return (
+        <View style={styles.container}>
+          <View style={styles.navContainer}>
 
-            <Text>
-              kachingLogo
-            </Text>
+              <Text>
+                kachingLogo
+              </Text>
+          </View>
+
+          {this.renderItemList()}
+
+          <View style={styles.buttonContainer}>
+          </View>
         </View>
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <View style={styles.navContainer}>
 
-        {this.renderItemList()}
+              <Text>
+                kachingLogo
+              </Text>
+          </View>
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.addToInterest.bind(this)}>
-            <Text>
-              yes
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.next.bind(this)}>
-            <Text>
-              no
-            </Text>
-          </TouchableOpacity>
+          {this.renderItemList()}
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={this.addToInterest.bind(this)}>
+              <Text>
+                yes
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.next.bind(this)}>
+              <Text>
+                no
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    );
+      );
+    }
+
   }
 }
 
