@@ -8,6 +8,8 @@ import todosReducer from './todosReducer';
 import errorsReducer from './errorsReducer';
 import itemsReducer from './itemsReducer';
 import itemReducer from './itemReducer';
+import userReducer from './userReducer';
+
 
 
 module.exports = combineReducers({
@@ -17,5 +19,6 @@ module.exports = combineReducers({
   todos: todosReducer,
   errors: errorsReducer,
   items: itemsReducer,
-  item: itemReducer
+  item: itemReducer,
+  user: userReducer
 });

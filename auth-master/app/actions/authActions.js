@@ -30,7 +30,6 @@ export const clearErrors = () => ({
 export const loginUser = (email, password) => dispatch => {
   return axios.post(SIGNIN_URL, {email, password})
     .then(function(response) {
-      console.log(response.data);
       let { token } = response.data;
       dispatch(addAlert(token));
       dispatch(authUser(response.data));
@@ -65,37 +64,6 @@ export const signupUser = (email, password) => dispatch => {
 //     });
 //   };
 // };
-
-import * as APIUtil from '../api/api_util_users';
-
-
-// async
-
-export const fetchUser = id => dispatch => (
-  APIUtil.fetchUser(id)
-    .then(user => (
-      dispatch(authUser(user))
-    )
-    )
-);
-
-export const deleteUser = id => dispatch => (
-  APIUtil.deleteUser(id)
-    .then(() => (
-      dispatch(deleteUser(id))
-    ))
-    .then(() => (
-      dispatch(authUser(null))
-    ))
-);
-
-export const editUser = user => dispatch => (
-  APIUtil.editUser(user)
-    .then(user => {
-       (user);
-      return dispatch(authUser(user))
-    })
-)
 
 let authUser = (user) => {
   return {

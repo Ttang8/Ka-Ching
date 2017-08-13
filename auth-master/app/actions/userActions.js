@@ -1,8 +1,6 @@
 import * as APIUtil from '../api/api_util_users';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
-export const RECEIVE_USERS = 'RECEIVE_USERS';
-
 // sync
 
 export const receiveUser = user => ({
@@ -10,13 +8,12 @@ export const receiveUser = user => ({
   user
 });
 
-
 // async
 
 export const fetchUser = id => dispatch => (
   APIUtil.fetchUser(id)
     .then(user => (
-      dispatch(receiveUser(user))
+      dispatch(receiveUser(user.data))
     )
   )
 );
@@ -34,6 +31,6 @@ export const deleteUser = id => dispatch => (
 export const editUser = user => dispatch => (
   APIUtil.editUser(user)
     .then(user => {
-      return dispatch(receiveUser(user));
+      return dispatch(receiveUser(user.data));
     })
 );
