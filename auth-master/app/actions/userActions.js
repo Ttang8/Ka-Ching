@@ -4,7 +4,7 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 // sync
 
 export const receiveUser = user => ({
-  type: RECEIVE_USER
+  type: RECEIVE_USER,
   user
 });
 
