@@ -15,10 +15,13 @@ class ItemList extends React.Component {
   }
 
   showDetail(){
-    console.log('hi');
+    this.props.navigation.navigate('ItemShow', {
+      item: this.props.item
+    });
   }
 
   render(){
+    console.log(this.props);
     const { item } = this.props
     return (
       <Image source={require('../../images/dallas.jpg')} style={styles.itemImage} resizeMode={Image.resizeMode.cover}>
@@ -29,7 +32,7 @@ class ItemList extends React.Component {
             <View style={styles.itemsDetail}>
 
               <Text style={styles.itemDescription}>
-                {item._id}
+                {item.title}
               </Text>
 
               <Text style={styles.itemDescription}>
