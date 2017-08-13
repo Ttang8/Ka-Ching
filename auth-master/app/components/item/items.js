@@ -195,7 +195,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
+
   return {items: state.items, item: state.item, auth: state.auth}
 }
+
 
 module.exports = connect(mapStateToProps, {fetchItems, editUser})(Items);
