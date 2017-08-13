@@ -19,65 +19,66 @@ class ItemList extends React.Component {
   }
 
   render(){
-    const { item } = this.props
+    const { item } = this.props;
     return (
-      <Image source={require('../../images/dallas.jpg')} style={styles.itemImage} resizeMode={Image.resizeMode.cover}>
+      <Image source={require('../../images/dallas.jpg')} style={styles.itemImage}>
 
-        <TouchableOpacity onPress={this.showDetail.bind(this)}>
-          <View style={styles.itemsContainer}>
+          <View style={styles.container}>
+              <View style={styles.items}>
 
-            <View style={styles.itemsDetail}>
+                <Text style={styles.itemDescription}>
+                  Title:&nbsp;{item.title}
+                </Text>
 
-              <Text style={styles.itemDescription}>
-                {item._id}
-              </Text>
+                <Text style={styles.itemDescription}>
+                  Description:&nbsp;{item.description}
+                </Text>
 
-              <Text style={styles.itemDescription}>
-                {item.description}
-              </Text>
+                <Text style={styles.itemDescription}>
+                  Price:&nbsp;${item.price}
+                </Text>
 
-              <Text style={styles.itemDescription}>
-                {item.price}
-              </Text>
+                <Text style={styles.itemDescription}>
+                  {item.category}
+                </Text>
 
-              <Text style={styles.itemDescription}>
-                {item.category}
-              </Text>
 
+              <View>
+                <TouchableOpacity onPress={this.showDetail.bind(this)}>
+                  <Text style={styles.itemDescription}>
+                    Details
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-
-            <View style={styles.more}>
-              <Text style={styles.itemDescription}>
-                details
-              </Text>
-            </View>
-
           </View>
-        </TouchableOpacity>
+
 
       </Image>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
-  itemsContainer: {
-    flexDirection: 'row',
+  itemImage: {
     alignSelf: 'stretch',
-    backgroundColor: 'transparent',
-    padding: 10
-  },
-  more: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    alignSelf: 'stretch'
+    backgroundColor: 'transparent'
+
   },
   itemDescription: {
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    padding: 5,
+    fontSize: 15
   },
-})
+  container:{
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start'
+  },
+  items:{
+    justifyContent: 'flex-end'
+  }
+});
 
 
 export default connect()(ItemList);

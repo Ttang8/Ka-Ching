@@ -13,6 +13,7 @@ import Swiper from 'react-native-swiper';
 import axios from 'axios';
 import {createItem} from '../../actions/itemActions';
 import UserGreeting from '../greeting/UserGreeting';
+import {unauthUser} from '../../actions';
 
 // import {createItem} from '../../api/api_util_items';
 
@@ -22,6 +23,10 @@ class UserProfile extends React.Component {
     this.handlePress = this.handlePress.bind(this);
     this.goToSettings = this.goToSettings.bind(this);
     this.goToEditUser = this.goToEditUser.bind(this);
+    this.onLogout = this.onLogout.bind(this);
+  }
+  onLogout() {
+    this.props.dispatch(unauthUser);
   }
 
   goToSettings() {
@@ -177,4 +182,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(null, { createItem })(UserProfile);
+var mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
+};
+
+export default connect(mapStateToProps, { createItem })(UserProfile);

@@ -51,14 +51,14 @@ class Items extends Component {
         items.shift();
         this.setState({
           items: items
-        })
+        });
       });
     } else {
       console.log('yo duplicate');
       items.shift();
       this.setState({
         items: items
-      })
+      });
     }
   }
 
@@ -78,9 +78,9 @@ class Items extends Component {
             empty
           </Text>
         </View>
-      )
+      );
     } else {
-      return <ItemList item={this.state.items[0]} />
+      return <ItemList item={this.state.items[0]} />;
     }
   }
 
@@ -88,24 +88,25 @@ class Items extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.navContainer}>
-
-            <Text>
-              kachingLogo
+        <View style={styles.topBar}>
+            <Text style={styles.title}>
+              Ka-Ching!
             </Text>
         </View>
-
+        <View style={styles.middle}>
         {this.renderItemList()}
-
+        </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.addToInterest.bind(this)}>
-            <Text>
-              yes
-            </Text>
+          <TouchableOpacity style={styles.middle} onPress={this.addToInterest.bind(this)}>
+              <Icon name='plus' size={20} color='white'/>
+              <Text style={styles.button}>
+                Add to Interest
+              </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.next.bind(this)}>
-            <Text>
-              no
+          <TouchableOpacity style={styles.middle} onPress={this.next.bind(this)}>
+            <Icon name='x' size={20} color='white'/>
+            <Text style={styles.button}>
+              Pass
             </Text>
           </TouchableOpacity>
         </View>
@@ -116,15 +117,9 @@ class Items extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 16,
-    paddingBottom: 10,
-    paddingLeft: 6,
-    paddingRight: 6,
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    justifyContent: "flex-start",
+    alignItems: "stretch"
   },
   navContainer: {
     flexDirection: 'row',
@@ -144,24 +139,46 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     borderRadius: 8
   },
-
-
+  button: {
+    padding: 10,
+    backgroundColor: 'transparent',
+    fontSize: 20,
+    color: 'white'
+  },
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
+    backgroundColor: '#25A35A'
+  },
+  middle:{
+    justifyContent: 'center',
+    alignItems: 'center'
+    },
+  topBar: {
+    padding: 16,
+    paddingTop: 28,
+    paddingBottom: 8,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#2ecc71"
+  },
+  title:{
+    fontSize: 30,
+    color: 'white'
   }
 });
 
 const mapStateToProps = state => {
   return {
-    items: state.items,
+    items: state.items.data,
     item: state.item,
     auth: state.auth,
     user: state.user
-  }
-}
+  };
+};
 
 module.exports = connect(mapStateToProps, {fetchItems, editUser, fetchUser})(Items);
