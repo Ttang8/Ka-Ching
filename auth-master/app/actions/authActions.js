@@ -65,7 +65,6 @@ export const signupUser = (email, password) => dispatch => {
 //   };
 // };
 
-
 let authUser = (user) => {
   return {
     type: 'AUTH_USER',
