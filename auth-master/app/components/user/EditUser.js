@@ -27,33 +27,41 @@ class EditUser extends React.Component{
   render(){
     return(
       <View style={styles.container}>
-        <View style={styles.field}>
-          <TextInput
-            value={this.state.username}
-            onChangeText={(username) => this.setState({username})}
-            placeholder="Username"
-            style={styles.textInput}/>
+        <View style={styles.buttonLocation}>
+            <TouchableOpacity  onPress={this.handleEditUser}>
+              <Text style={styles.button}>
+                Edit Profile
+              </Text>
+            </TouchableOpacity>
+         </View>
+        <View style={styles.padding}>
+          <View style={styles.field}>
+            <TextInput
+              value={this.state.username}
+              onChangeText={(username) => this.setState({username})}
+              placeholder="Username"
+              style={styles.textInput}/>
+          </View>
         </View>
-        <View style={styles.field}>
-          <TextInput
-            value={this.state.firstName}
-            onChangeText={(firstName) => this.setState({firstName})}
-            placeholder="First Name"
-            style={styles.textInput}/>
+        <View style={styles.padding}>
+          <View style={styles.field}>
+            <TextInput
+              value={this.state.firstName}
+              onChangeText={(firstName) => this.setState({firstName})}
+              placeholder="First Name"
+              style={styles.textInput}/>
+          </View>
         </View>
-        <View style={styles.field}>
-          <TextInput
-            value={this.state.lastName}
-            onChangeText={(lastName) => this.setState({lastName})}
-            placeholder="Last Name"
-            style={styles.textInput}/>
+        <View style={styles.padding}>
+          <View style={styles.field}>
+            <TextInput
+              value={this.state.lastName}
+              onChangeText={(lastName) => this.setState({lastName})}
+              placeholder="Last Name"
+              style={styles.textInput}/>
+          </View>
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity  onPress={this.handleEditUser}>
-            <Text style={styles.button}>
-              Edit Profile
-            </Text>
-          </TouchableOpacity>
         </View>
       </View>
     );
@@ -64,7 +72,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "flex-start",
-    alignItems: "stretch"
+    alignItems: "stretch",
+    backgroundColor: '#2ecc71'
   },
   topBar: {
     padding: 16,
@@ -73,7 +82,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#2ecc71"
+    backgroundColor: '#2ecc71'
   },
   title: {
     fontSize: 20,
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
   },
   field: {
     borderRadius: 5,
-    padding: 5,
+    padding: 10,
     paddingLeft: 8,
     margin: 7,
     marginTop: 0,
@@ -99,8 +108,18 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   button: {
+    justifyContent: 'center',
+    alignItems: 'center',
     fontSize: 30,
     color: 'white'
+  },
+  buttonLocation: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10
+  },
+  padding: {
+    padding: 10
   }
 });
 
