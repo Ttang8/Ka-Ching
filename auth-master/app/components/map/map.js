@@ -24,7 +24,7 @@ export default class Map extends Component {
   }
 
   handleItemSubmitForm() {
-    this.props.navigation.navigate('ItemSubmitForm', {itemInfo: this.state});
+    this.props.navigation.navigate('ItemSubmitFormContainer', {itemInfo: this.state});
   }
 
   render() {
