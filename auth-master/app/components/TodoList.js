@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Icon from "react-native-vector-icons/Octicons";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import {
   AppRegistry,
   StyleSheet,
@@ -11,9 +11,8 @@ import {
   RefreshControl
 } from "react-native";
 
-import { unauthUser } from "../actions";
+import {unauthUser} from "../actions";
 import NewTodo from "./NewTodo";
-import ItemMap from "./map/map";
 
 var TodoItem = React.createClass({
   render() {
@@ -29,52 +28,39 @@ var TodoItem = React.createClass({
 
 var TodoList = React.createClass({
   getInitialState() {
-    return {
-      refreshing: false
-    };
+    return {refreshing: false};
   },
   onLogout() {
     this.props.dispatch(unauthUser);
   },
   addNewTodo() {
-    this.props.navigator.push({
-      component: NewTodo,
-      title: "New Todo",
-      navigationBarHidden: true
-    });
+    this.props.navigator.push({component: NewTodo, title: "New Todo", navigationBarHidden: true});
   },
   onRefresh() {},
   render() {
     var renderTodos = () => {
       return this.props.todos.map(todo => {
-        return <TodoItem key={todo._id} text={todo.text} id={todo._id} />;
+        return <TodoItem key={todo._id} text={todo.text} id={todo._id}/>;
       });
     };
     return (
       <View style={styles.container}>
         <View style={styles.topBar}>
           <TouchableOpacity onPress={this.onLogout}>
-            <Icon name="x" size={20} color="white" />
+            <Icon name="x" size={20} color="white"/>
           </TouchableOpacity>
           <Text style={styles.title}>Interests</Text>
           <TouchableOpacity onPress={this.addNewTodo}>
-            <Icon name="plus" size={20} color="white" />
+            <Icon name="plus" size={20} color="white"/>
           </TouchableOpacity>
         </View>
-        <ScrollView
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.onRefresh}
-            />
-          }
-          automaticallyAdjustContentInsets={false}
-          contentContainerStyle={styles.scrollViewContainer}
-        >
+        <ScrollView refreshControl={< RefreshControl refreshing = {
+          this.state.refreshing
+        }
+        onRefresh = {
+          this.onRefresh
+        } />} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.scrollViewContainer}>
           {renderTodos()}
-        </ScrollView>
-        <ScrollView>
-          <ItemMap />
         </ScrollView>
       </View>
     );
@@ -116,9 +102,7 @@ const styles = StyleSheet.create({
 });
 
 var mapStateToProps = state => {
-  return {
-    todos: state.todos
-  };
+  return {todos: state.todos};
 };
 
 module.exports = connect(mapStateToProps)(TodoList);
