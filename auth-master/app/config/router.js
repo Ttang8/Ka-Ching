@@ -14,7 +14,7 @@ import EditUserContainer from '../components/user/EditUserContainer';
 import EditUserSettingContainer from '../components/user/EditUserSettingContainer';
 
 import Map from '../components/map/map';
-import ItemSubmitForm from '../components/photo/ItemSubmitForm';
+import ItemSubmitFormContainer from '../components/photo/ItemSubmitFormContainer';
 import Photo from '../components/photo/photo';
 import UploadItem from '../components/photo/UploadItem';
 
@@ -93,8 +93,8 @@ export const UploadItemStack = StackNavigator({
     }
   },
 
-  ItemSubmitForm: {
-    screen: ItemSubmitForm,
+  ItemSubmitFormContainer: {
+    screen: ItemSubmitFormContainer,
     navigationOptions: {
       title: 'Submit'
     }

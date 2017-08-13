@@ -9,16 +9,24 @@ class ItemSubmitForm extends Component {
     this.state = {
       itemInfo: this.props.navigation.state.params.itemInfo.itemInfo
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(this.props);
   }
 
   handleSubmit() {
-    this.props.navigation.navigate('UserProfile');
+    let newItem = {
+      title: this.state.itemInfo.title,
+      description:this.state.itemInfo.description,
+      price:this.state.itemInfo.price,
+      geometry: { type: 'Point', coordinates: [this.props.navigation.state.params.itemInfo.region.longitude, this.props.navigation.state.params.itemInfo.region.latitude]}
+    };
+    this.props.createItem(newItem)
+      .then(()=> this.props.navigation.navigate('UserProfile'));
   }
 
   render() {
     const {title, description, price} = this.state.itemInfo;
-    console.log(title);
 
     return (
       <View>

@@ -37,7 +37,9 @@ module.exports = {
   createItem(req, res, next) {
     const itemProps = req.body;
 
-    Item.create(itemProps).then(item => res.send(item)).catch(next);
+    Item.create(itemProps)
+      .then(item => res.send(item))
+      .catch(next);
   },
 
   editItem(req, res, next) {
