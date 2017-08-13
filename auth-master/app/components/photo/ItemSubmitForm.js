@@ -17,9 +17,10 @@ class ItemSubmitForm extends Component {
   handleSubmit() {
     let newItem = {
       title: this.state.itemInfo.title,
-      description:this.state.itemInfo.description,
-      price:this.state.itemInfo.price,
-      geometry: { type: 'Point', coordinates: [this.props.navigation.state.params.itemInfo.region.longitude, this.props.navigation.state.params.itemInfo.region.latitude]}
+      description: this.state.itemInfo.description,
+      price: this.state.itemInfo.price,
+      geometry: { type: 'Point', coordinates: [this.props.navigation.state.params.itemInfo.region.longitude, this.props.navigation.state.params.itemInfo.region.latitude]},
+      seller: this.props.user.user_id
     };
     this.props.createItem(newItem)
       .then(()=> this.props.navigation.navigate('UserProfile'));
