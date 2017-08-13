@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import EditUserSetting from './EditUser';
+import EditUserSetting from './EditUserSetting';
 import { clearErrors } from '../../actions/authActions';
 import { editUser } from '../../actions/userActions';
 
