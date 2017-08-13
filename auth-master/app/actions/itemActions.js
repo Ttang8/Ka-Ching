@@ -25,14 +25,14 @@ export const receiveErrors = errors => ({
 export const fetchItems = () => dispatch => (
   APIUtil.fetchItems()
     .then(items => {
-      return dispatch(receiveItems(items))
+      return dispatch(receiveItems(items));
     }
   )
 );
 
 export const fetchItem = (id) => dispatch => (
   APIUtil.fetchItem(id)
-    .then(item => (
+    .then((item) => (
       dispatch(receiveItem(item))
     )
   )
@@ -40,8 +40,8 @@ export const fetchItem = (id) => dispatch => (
 
 export const createItem = item => dispatch => (
   APIUtil.createItem(item)
-    .then(item => (
-      dispatch(receiveItem(item))
+    .then( () => (
+      dispatch(fetchItems())
     )
   )
 );
