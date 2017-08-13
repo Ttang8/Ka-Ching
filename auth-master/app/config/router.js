@@ -1,5 +1,5 @@
 import React from 'react';
-import {TabNavigator, StackNavigator} from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Octicons';
 
 import Main from '../components/Main';
@@ -10,7 +10,7 @@ import UserSwipe from '../components/swiper_components/user_profile';
 import UserProfile from '../components/user/userProfile';
 import Items from '../components/item/items';
 import TodoList from '../components/TodoList';
-import EditUser from '../components/user/EditUser';
+import EditUserContainer from '../components/user/EditUserContainer';
 
 export const Tabs = TabNavigator({
   UserSwipe: {
@@ -38,9 +38,9 @@ export const Tabs = TabNavigator({
   }
 });
 
-export const EditUserStack = StackNavigator({
-  EditUser: {
-    screen: EditUser,
+export const EditUserContainerStack = StackNavigator({
+  EditUserContainer:{
+    screen: EditUserContainer,
     navigationOptions: {
       title: 'Edit'
     }
@@ -52,8 +52,8 @@ export const UserProfileStack = StackNavigator({
     screen: UserProfile
   },
 
-  EditUser: {
-    screen: EditUserStack
+  EditUserContainer: {
+    screen: EditUserContainerStack
   }
 }, {
   mode: 'modal',
