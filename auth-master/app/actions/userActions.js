@@ -4,7 +4,7 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 // sync
 
 export const receiveUser = user => ({
-  type: 'AUTH_USER',
+  type: RECEIVE_USER
   user
 });
 
@@ -21,7 +21,7 @@ export const fetchUser = id => dispatch => (
 export const deleteUser = id => dispatch => (
   APIUtil.deleteUser(id)
     .then(()=> (
-      dispatch(delveteUser(id))
+      dispatch(deleteUser(id))
     ))
     .then(()=> (
       dispatch(receiveUser(null))
