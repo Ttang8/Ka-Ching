@@ -13,27 +13,27 @@ import TodoList from '../components/TodoList';
 import EditUserContainer from '../components/user/EditUserContainer';
 
 export const Tabs = TabNavigator({
-  UserSwipe: {
-    screen: UserSwipe,
+  UserProfile: {
+    screen: UserProfile,
     navigationOptions: {
       tabBarLabel: 'Profile',
-      tabBarIcon: () => <Icon name='device-mobile' size={35} color='black'/>
+      tabBarIcon: () => <Icon name='person' size={35} color='black'/>
     }
   },
 
-  ItemSwipe: {
-    screen: ItemSwipe,
+  Items: {
+    screen: Items,
     navigationOptions: {
       tabBarLabel: 'Items',
-      tabBarIcon: () => <Icon name='device-mobile' size={35} color='black'/>
+      tabBarIcon: () => <Icon name='list-unordered' size={35} color='black'/>
     }
   },
 
-  InterestSwipe: {
-    screen: InterestSwipe,
+  Interests: {
+    screen: TodoList,
     navigationOptions: {
       tabBarLabel: 'Interests',
-      tabBarIcon: () => <Icon name='device-mobile' size={35} color='black'/>
+      tabBarIcon: () => <Icon name='credit-card' size={35} color='black'/>
     }
   }
 });
@@ -47,9 +47,13 @@ export const EditUserContainerStack = StackNavigator({
   }
 });
 
-export const UserProfileStack = StackNavigator({
-  UserProfile: {
-    screen: UserProfile
+export const Root = StackNavigator({
+  Tabs: {
+    screen: Tabs
+  },
+
+  EditUserSettingContainer: {
+    screen: EditUserSettingContainer
   },
 
   EditUserContainer: {
