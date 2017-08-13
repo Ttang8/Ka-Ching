@@ -24,7 +24,7 @@ class App extends Component{
   renderMainView(){
     if (this.props.user_id){
       return (
-          <Main />
+          <Root />
       );
     } else {
     return (
