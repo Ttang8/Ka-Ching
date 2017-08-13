@@ -37,16 +37,18 @@ class Items extends Component {
 
   addToInterest() {
     const item = this.props.items[this.counter];
-    console.log(item);
     const buy = this.state.buy;
-    buy.push(item._id);
-    this.setState({buy: buy});
-    console.log(this.state);
-    this.props.editUser(this.state).then(() => this.counter++);
+    if (!buy.includes(item._id)) {
+
+      buy.push(item._id);
+      this.setState({buy: buy});
+      this.props.editUser(this.state).then(() => this.counter++);
+    } else {
+      console.log('yo duplicate');
+    }
   }
 
   next() {
-
     this.counter++;
   }
 
@@ -193,7 +195,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  return {items: state.items, item: state.item, auth: state.auth};
-};
+
+  return {items: state.items, item: state.item, auth: state.auth}
+}
+
 
 module.exports = connect(mapStateToProps, {fetchItems, editUser})(Items);

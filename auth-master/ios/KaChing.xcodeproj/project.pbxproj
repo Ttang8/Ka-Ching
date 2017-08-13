@@ -229,6 +229,27 @@
 			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
 			remoteInfo = "RCTAnimation-tvOS";
 		};
+		775D94271F3FAE500016226D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46E3C34ED42045B394990E26 /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
+		775D94491F3FAE500016226D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F15EC3BFB7E48288660329D /* RNPhotosFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 632F8C131DB758E7007E83E1;
+			remoteInfo = RNPhotosFramework;
+		};
+		775D944B1F3FAE500016226D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F15EC3BFB7E48288660329D /* RNPhotosFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 632D5ED01DF19458006A862C;
+			remoteInfo = RNPhotosFrameworkTests;
+		};
 		77AA2E9A1F3D826A0035B25B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4848D7DD6D944E6BA79C60DE /* RCTCamera.xcodeproj */;
@@ -554,6 +575,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		775D94221F3FAE4F0016226D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				775D94281F3FAE500016226D /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		775D94241F3FAE4F0016226D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				775D944A1F3FAE500016226D /* libRNPhotosFramework.a */,
+				775D944C1F3FAE500016226D /* RNPhotosFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		775D94541F3FB46F0016226D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				775D94551F3FB46F0016226D /* libRCTCameraRoll.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		77AA2E921F3D82690035B25B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +690,7 @@
 				00E356EF1AD99517003FC87E /* KaChingTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				521274DC8B264498ACF9BC34 /* Resources */,
+				775D94541F3FB46F0016226D /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1006,6 +1053,27 @@
 			fileType = archive.ar;
 			path = libRCTAnimation.a;
 			remoteRef = 5E9157341DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		775D94281F3FAE500016226D /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = 775D94271F3FAE500016226D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		775D944A1F3FAE500016226D /* libRNPhotosFramework.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNPhotosFramework.a;
+			remoteRef = 775D94491F3FAE500016226D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		775D944C1F3FAE500016226D /* RNPhotosFrameworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RNPhotosFrameworkTests.xctest;
+			remoteRef = 775D944B1F3FAE500016226D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		77AA2E9B1F3D826A0035B25B /* libRCTCamera.a */ = {

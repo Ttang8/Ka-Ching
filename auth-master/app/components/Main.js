@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {connect} from "react-redux";
 import {
   AppRegistry,
   StyleSheet,
@@ -11,8 +11,8 @@ import {
 } from "react-native";
 
 import TodoList from "./TodoList";
-import FontAwesome, { Icons } from "react-native-fontawesome";
-import { unauthUser } from "../actions";
+import FontAwesome, {Icons} from "react-native-fontawesome";
+import {unauthUser} from "../actions";
 import Items from "./item/items";
 import UserProfile from "./user/userProfile";
 import EditUser from './user/EditUser';
@@ -118,6 +118,7 @@ var Main = React.createClass({
             </View>
           </View>
         </Swiper>
+
     );
   }
 });
