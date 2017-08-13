@@ -12,10 +12,14 @@ import Items from '../components/item/items';
 import TodoList from '../components/TodoList';
 import EditUserContainer from '../components/user/EditUserContainer';
 import EditUserSettingContainer from '../components/user/EditUserSettingContainer';
+
 import Map from '../components/map/map';
 import ItemSubmitForm from '../components/photo/ItemSubmitForm';
 import Photo from '../components/photo/photo';
 import UploadItem from '../components/photo/UploadItem';
+
+import ItemShow from '../components/item/itemShow';
+
 
 export const Tabs = TabNavigator({
   UserProfile: {
@@ -52,6 +56,12 @@ export const EditUserContainerStack = StackNavigator({
   }
 });
 
+export const ItemShowStack = StackNavigator({
+  ItemShow: {
+    screen: ItemShow,
+  }
+});
+
 export const EditUserSettingContainerStack = StackNavigator({
   EditUserSettingContainer:{
     screen: EditUserSettingContainer,
@@ -84,8 +94,13 @@ export const Root = StackNavigator({
     screen: Tabs
   },
 
+
   UploadItemStack: {
     screen: UploadItemStack
+
+  ItemShow: {
+    screen: ItemShowStack
+
   },
 
   EditUserSettingContainer: {
