@@ -73,19 +73,31 @@ export const EditUserSettingContainerStack = StackNavigator({
 
 export const UploadItemStack = StackNavigator({
   UploadItem: {
-    screen: UploadItem
+    screen: UploadItem,
+    navigationOptions: {
+      title: 'Enter Details'
+    }
   },
 
   Map: {
-    screen: Map
+    screen: Map,
+    navigationOptions: {
+      title: 'Choose Location'
+    }
   },
 
   Photo: {
-    screen: Photo
+    screen: Photo,
+    navigationOptions: {
+      title: 'Choose Photos'
+    }
   },
 
   ItemSubmitForm: {
-    screen: ItemSubmitForm
+    screen: ItemSubmitForm,
+    navigationOptions: {
+      title: 'Submit'
+    }
   }
 });
 
@@ -94,12 +106,10 @@ export const Root = StackNavigator({
     screen: Tabs
   },
 
-
   UploadItemStack: {
     screen: UploadItemStack
-
-
   },
+
   ItemShow: {
     screen: ItemShowStack
   },
