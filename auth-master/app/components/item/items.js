@@ -14,6 +14,7 @@ import {
 import Icon from 'react-native-vector-icons/Octicons';
 import UserProfile from '../user/userProfile';
 import ItemList from './itemList';
+import SwipeCards from './SwipeCards';
 
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 
@@ -35,8 +36,8 @@ class Items extends Component {
       .then(response => {
         this.setState({
           items: response.items.data
-        })
-      })
+        });
+      });
     this.props.fetchUser(this.props.auth.user_id);
   }
 
@@ -62,11 +63,11 @@ class Items extends Component {
         this.setState({items: items});
         const buyItems = {
           buyItems: response.user.buy
-        }
+        };
         this.props.fetchInterests(buyItems);
       });
     } else {
-      alert('that item is already in your interest')
+      alert('that item is already in your interest');
       items.shift();
       this.setState({items: items});
     }
@@ -78,7 +79,7 @@ class Items extends Component {
       items.push(items.shift());
       this.setState({items: items});
     } else {
-      alert('there are no more items in your area')
+      alert('there are no more items in your area');
     }
   }
 
@@ -98,8 +99,6 @@ class Items extends Component {
   }
 
   render() {
-    console.log('props', this.props);
-    console.log('state', this.state);
     if (this.state.items === undefined) {
       return (
         <View style={styles.container}>
@@ -120,17 +119,21 @@ class Items extends Component {
               Ka-Ching!
             </Text>
           </View>
+        <SwipeCards style={styles.cards}>
           <View style={styles.middle}>
             {this.renderItemList()}
           </View>
+        </SwipeCards>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.middle} onPress={this.addToInterest.bind(this)}>
+            <TouchableOpacity style={styles.middle}
+              onPress={this.addToInterest.bind(this)}>
               <Icon name='plus' size={20} color='white'/>
               <Text style={styles.button}>
                 Add to Interest
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.middle} onPress={this.next.bind(this)}>
+            <TouchableOpacity style={styles.middle}
+              onPress={this.next.bind(this)}>
               <Icon name='x' size={20} color='white'/>
               <Text style={styles.button}>
                 Pass
@@ -202,7 +205,14 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  return {items: state.items.data, item: state.item, auth: state.auth, user: state.user};
+  return {items: state.items.data,
+    item: state.item,
+    auth: state.auth,
+    user: state.user};
 };
 
-module.exports = connect(mapStateToProps, {fetchItems, editUser, fetchUser, fetchInterests})(Items);
+module.exports = connect(mapStateToProps,
+  {fetchItems,
+    editUser,
+    fetchUser,
+    fetchInterests})(Items);

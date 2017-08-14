@@ -7,6 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import {connect } from 'react-redux';
+import SwipeCards from './SwipeCards';
 
 class ItemList extends React.Component {
   constructor(props){
@@ -24,8 +25,6 @@ class ItemList extends React.Component {
     const { item } = this.props;
 
     return (
-      <Image source={require('../../images/dallas.jpg')} style={styles.itemImage}>
-
           <View style={styles.container}>
               <View style={styles.items}>
 
@@ -46,7 +45,6 @@ class ItemList extends React.Component {
                   {item.category}
                 </Text>
 
-
               <View>
                 <TouchableOpacity onPress={this.showDetail.bind(this)}>
                   <Text style={styles.itemDescription}>
@@ -55,15 +53,17 @@ class ItemList extends React.Component {
                 </TouchableOpacity>
               </View>
             </View>
+
           </View>
-
-
-      </Image>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  cards:{
+    width: 100,
+    height: 100
+  },
   itemImage: {
     alignSelf: 'stretch',
     backgroundColor: 'transparent'
