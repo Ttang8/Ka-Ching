@@ -96,7 +96,7 @@ Users can add items from the index to interests page to buy later.
 
 
 ### React Navigation
-Using React Navigation, Ka-Ching can offer seamless navigation between its components.
+Using React Navigation, Ka-Ching can offer seamless navigation between its components. This proved difficult because React Navigation requires a lot of planning to set up the component routes. It also requires that you configure the stacks needed for navigation. 
 ```ruby
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
