@@ -31,7 +31,12 @@ class Items extends Component {
     this.renderItemList = this.renderItemList.bind(this);
   }
   componentDidMount() {
-    this.props.fetchItems();
+    this.props.fetchItems()
+      .then(response => {
+        this.setState({
+          items: response.items.data
+        })
+      })
     this.props.fetchUser(this.props.auth.user_id);
   }
 
@@ -73,7 +78,7 @@ class Items extends Component {
       items.push(items.shift());
       this.setState({items: items});
     } else {
-      alert('there are no items in your area')
+      alert('there are no more items in your area')
     }
   }
 
@@ -93,6 +98,8 @@ class Items extends Component {
   }
 
   render() {
+    console.log('props', this.props);
+    console.log('state', this.state);
     if (this.state.items === undefined) {
       return (
         <View style={styles.container}>
