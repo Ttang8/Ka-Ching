@@ -10,6 +10,7 @@ class ItemSubmitForm extends Component {
       itemInfo: this.props.navigation.state.params.itemInfo.itemInfo
     };
 
+    this.userPosition = this.props.navigation.state.params;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,7 +22,11 @@ class ItemSubmitForm extends Component {
       geometry: { type: 'Point', coordinates: [this.props.navigation.state.params.itemInfo.region.longitude, this.props.navigation.state.params.itemInfo.region.latitude]},
       seller: this.props.user.user_id
     };
-    this.props.createItem(newItem)
+
+    let position = this.userPosition;
+    this.props.createItem(newItem, position)
+      .then(this.props.fetchItems(this.userPosition))
+
       .then(()=> this.props.navigation.navigate('UserProfileContainer'));
   }
 

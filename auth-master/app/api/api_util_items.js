@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-export const fetchItems = () => (
-  axios({
+export const fetchItems = (userPosition) => {
+  console.log('fetch',userPosition);
+  return axios({
     method: 'GET',
-    url: 'http://localhost:3000/api/allitems'
-  })
-);
+    url: `http://localhost:3000/api/items?lat=${userPosition.lat}&lng=${userPosition.lng}`
+  });
+};
 
 export const fetchInterests = (buyItems) => (
   axios({
@@ -13,7 +14,7 @@ export const fetchInterests = (buyItems) => (
     url: 'http://localhost:3000/api/interestitems',
     data: buyItems
   })
-)
+);
 
 export const fetchItem = id => (
   axios({

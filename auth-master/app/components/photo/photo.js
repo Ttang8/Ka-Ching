@@ -10,11 +10,13 @@ export default class Photo extends Component {
       selected: [],
       itemInfo: this.props.navigation.state.params.itemInfo
     };
+
+    this.userPosition = this.props.navigation.state.params.userPosition;
     this.handleChoosLocation = this.handleChoosLocation.bind(this);
   }
 
   handleChoosLocation() {
-    this.props.navigation.navigate('Map', {itemInfo: this.state});
+    this.props.navigation.navigate('Map', {itemInfo: this.state, userPosition: this.userPosition});
   }
 
   getSelectedImages(images, current) {

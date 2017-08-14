@@ -24,8 +24,8 @@ export const receiveErrors = errors => ({
 
 
 
-export const fetchItems = () => dispatch => (
-  APIUtil.fetchItems()
+export const fetchItems = (userPosition) => dispatch => (
+  APIUtil.fetchItems(userPosition)
     .then(items => {
       return dispatch(receiveItems(items));
     }
@@ -40,11 +40,11 @@ export const fetchItem = (id) => dispatch => (
   )
 );
 
-export const createItem = item => dispatch => (
+export const createItem = (item) => (dispatch) => (
   APIUtil.createItem(item)
-    .then( () => (
-      dispatch(fetchItems())
-    )
+    .then((item) => {
+      return dispatch(receiveItem(item));
+    }
   )
 );
 
