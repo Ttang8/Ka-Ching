@@ -9,10 +9,10 @@ This project was blueprinted and created with a 7 day deadline using React Nativ
 
 Ka-Ching is a collaborative project created by:
 
-Howard Feger - [Github Link][Howard Feger]  
-Joey Jirasevijinda - [Github Link][Joey Jirasevijinda]  
-Geewon Lee - [Github Link][Geewon Lee]  
-Terrence Tang - [Github Link][Terrence Tang]  
+Howard Feger - [Github Link](https://github.com/hfeger4)  
+Joey Jirasevijinda - [Github Link](https://github.com/joeyjira)  
+Geewon Lee - [Github Link](https://github.com/gwlee1991)  
+Terrence Tang - [Github Link](https://github.com/Ttang8)  
 
 ## Technology
 
