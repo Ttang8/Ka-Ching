@@ -99,7 +99,7 @@ class Items extends Component {
   }
 
   renderItemList() {
-    if (this.state.items === undefined || this.state.items.length === 0) {
+    if (this.state.items[0] === undefined || this.state.items.length === 0) {
       return (
         <View>
           <Text>

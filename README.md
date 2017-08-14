@@ -26,6 +26,75 @@ Ka-Ching was built using the industry standard MERN stack(MongoDB/Express/React/
 - Click items to see item details.
 - Explore what other users are posting in an index page.
 
+### Secure Login / Edit User
+
+Login/Signup with email and password. Password is not stored and user to kept tracked of with a token.
+
+![login_gif](./docs/img/Login_gif.gif)
+
+![edit_profile](./docs/img/edit_profile.gif)
+
+
+### Selling Items / Items Index
+
+Items are posted and saved with geolocation so that only users near the area can see the posted items.
+
+```JavaScript
+//UploadItem.js
+
+navigator.geolocation.getCurrentPosition((pos)=>{
+ this.latitude = pos.coords.latitude;
+ this.longitude = pos.coords.longitude;
+});
+
+//ItemSubmitForm.js
+
+handleSubmit() {
+  let newItem = {
+    title: this.state.itemInfo.title,
+    description: this.state.itemInfo.description,
+    price: this.state.itemInfo.price,
+    geometry: { type: 'Point', coordinates: [this.props.navigation.state.params.itemInfo.region.longitude, this.props.navigation.state.params.itemInfo.region.latitude]},
+    seller: this.props.user.user_id
+  };
+
+  let position = this.userPosition;
+  this.props.createItem(newItem, position)
+    .then(this.props.fetchItems(this.userPosition))
+
+    .then(()=> this.props.navigation.navigate('UserProfileContainer'));
+}
+
+//items.js
+
+navigator.geolocation.getCurrentPosition((pos)=>{
+  this.latitude = pos.coords.latitude;
+  this.longitude = pos.coords.longitude;
+  this.userPosition = {
+    lat: this.latitude,
+    lng: this.longitude
+  };
+
+  this.props.fetchItems(this.userPosition)
+  .then(response => {
+    this.setState({
+      items: response.items.data
+    });
+  });
+});
+this.props.fetchUser(this.props.auth.user_id);
+
+```
+
+![sellItems](./docs/img/sell_item_gif.gif)
+
+### Add Interests
+
+Users can add items from the index to interests page to buy later.
+
+![interest](./docs/img/addinterest_gif.gif)
+
+
 ### React Navigation
 Using React Navigation, Ka-Ching can offer seamless navigation between its components.
 ```ruby
@@ -51,7 +120,6 @@ import UploadItem from '../components/photo/UploadItem';
 
 import ItemShow from '../components/item/itemShow';
 
-
 export const Tabs = TabNavigator({
   UserProfileContainer: {
     screen: UserProfileContainer,
@@ -61,6 +129,8 @@ export const Tabs = TabNavigator({
     }
   },
 ```
+
+![navigation](./docs/img/navigate_gif.gif)
 
 ### React Swiper
 React Swiper detects and triggers touch events for swiping left and right rendering several components on a single page.
@@ -77,6 +147,8 @@ React Swiper detects and triggers touch events for swiping left and right render
   </View>
 </Swiper>
 ```
+
+![swiper](./docs/img/swiper.gif)
 
 ### React Native Maps
 React Native Maps allows items to be put up for sale based on their geo-location.

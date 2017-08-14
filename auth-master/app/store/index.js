@@ -10,11 +10,11 @@ exports.configureStore = (initialState = defaultState) => {
   var store = createStore(
     reducer,
     initialState,
-    compose(applyMiddleware(thunk), 
+    compose(applyMiddleware(thunk),
     autoRehydrate()
   )
   );
   persistStore(store, { storage: AsyncStorage });
-
+  console.disableYellowBox = true;
   return store;
 };
