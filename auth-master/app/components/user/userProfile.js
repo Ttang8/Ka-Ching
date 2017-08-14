@@ -79,8 +79,8 @@ class UserProfile extends React.Component {
         <View style={styles.buttonsContainer}>
           <View style={styles.icons}>
             <TouchableOpacity style={styles.icons} onPress={this.goToSettings}>
-              <Icon name='gear' size={20} color='white'/>
-              <Text style={styles.title}>Settings</Text>
+              <Icon name='gift' size={20} color='white'/>
+              <Text style={styles.title}>Sell Item</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.icons}>
