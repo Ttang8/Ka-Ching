@@ -23,14 +23,26 @@ class UploadItem extends Component {
         <View style={styles.padding}>
 
         </View>
+        <Text style={styles.title}>&nbsp;&nbsp;Title:</Text>
         <View style={styles.field}>
-          <TextInput value={this.state.title} onChangeText={(title) => this.setState({title})} placeholder="Title" style={styles.textInput}/>
+          <TextInput value={this.state.title}
+            onChangeText={(title) => this.setState({title})}
+            placeholder="ex: Chair"
+            style={styles.textInput}/>
         </View>
+        <Text style={styles.title}>&nbsp;&nbsp;Description:</Text>
         <View style={styles.field}>
-          <TextInput value={this.state.description} onChangeText={(description) => this.setState({description})} placeholder="Description" style={styles.textInput}/>
+          <TextInput value={this.state.description}
+            onChangeText={(description) => this.setState({description})}
+            placeholder="ex: Sturdy, green"
+            style={styles.textInput}/>
         </View>
+        <Text style={styles.title}>&nbsp;&nbsp;Price:</Text>
         <View style={styles.field}>
-          <TextInput keyboardType={'numeric'} onChangeText={(price) => this.setState({price})} placeholder="Price" style={styles.textInput}/>
+          <TextInput keyboardType={'numeric'}
+            onChangeText={(price) => this.setState({price})}
+            placeholder="ex: 599"
+            style={styles.textInput}/>
         </View>
         <TouchableOpacity onPress={this.handleChooseImage}>
           <View style={styles.center}>

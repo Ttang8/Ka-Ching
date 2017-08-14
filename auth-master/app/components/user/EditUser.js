@@ -41,7 +41,7 @@ class EditUser extends React.Component{
             <TextInput
               value={this.state.username}
               onChangeText={(username) => this.setState({username})}
-              placeholder="Username"
+              placeholder="ex: KaChingUser99"
               style={styles.textInput}/>
           </View>
         </View>
@@ -51,7 +51,7 @@ class EditUser extends React.Component{
             <TextInput
               value={this.state.firstName}
               onChangeText={(firstName) => this.setState({firstName})}
-              placeholder="First Name"
+              placeholder="ex: Andrew"
               style={styles.textInput}/>
           </View>
         </View>
@@ -61,7 +61,7 @@ class EditUser extends React.Component{
             <TextInput
               value={this.state.lastName}
               onChangeText={(lastName) => this.setState({lastName})}
-              placeholder="Last Name"
+              placeholder="ex: Lee"
               style={styles.textInput}/>
           </View>
         </View>
