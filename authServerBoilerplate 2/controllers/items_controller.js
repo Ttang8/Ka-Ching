@@ -58,5 +58,12 @@ module.exports = {
     Item.findByIdAndRemove({ _id: itemId })
       .then(item => res.status(204).send(item))
       .catch(next);
+  },
+
+  interestItems(req, res, next) {
+    const buyArr = req.body.buyItems;
+    Item.find({ _id: { $in: buyArr} })
+      .then(items => res.send(items))
+      .catch(next);
   }
 };
