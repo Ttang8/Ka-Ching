@@ -8,7 +8,7 @@ var defaultState = {
 module.exports = (state=defaultState,action) => {
   switch(action.type){
     case 'AUTH_USER':
-      return Object.assign({}, action.user)
+      return Object.assign({}, action.user);
     case 'UNAUTH_USER':
       return {
         user_id: undefined

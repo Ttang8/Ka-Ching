@@ -72,6 +72,6 @@ let authUser = (user) => {
   };
 };
 
-exports.unauthUser = {
+export const unauthUser = () => ({
   type: 'UNAUTH_USER'
-};
+});
