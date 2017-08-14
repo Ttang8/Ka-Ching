@@ -28,7 +28,7 @@ class UserProfile extends React.Component {
     this.onLogout = this.onLogout.bind(this);
   }
   onLogout() {
-    this.props.dispatch(unauthUser);
+    this.props.unauthUser();
   }
 
   goToSettings() {
@@ -49,6 +49,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     const tempUser = {
       name: "Dallas",
       age: 30
@@ -190,4 +191,4 @@ var mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { createItem })(UserProfile);
+export default UserProfile;

@@ -65,7 +65,7 @@ class Items extends Component {
   }
 
   renderItemList() {
-    if (this.state.items === undefined) {
+    if (this.state.items === undefined || this.state.items.length === 0) {
       return (
         <View>
           <Text>
@@ -74,13 +74,12 @@ class Items extends Component {
         </View>
       );
     } else {
-      return <ItemList navigation={this.props.navigation} item={this.state.items[0]}/>
+      return <ItemList navigation={this.props.navigation}
+                       item={this.state.items[0]}/>;
     }
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
     if (this.state.items === undefined) {
       return (
         <View style={styles.container}>
