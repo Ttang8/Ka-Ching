@@ -28,7 +28,7 @@ Ka-Ching was built using the industry standard MERN stack(MongoDB/Express/React/
 
 ### Secure Login / Edit User
 
-Login/Signup with email and password. Password is not stored and user to kept tracked of with a token.
+Login/Signup with email and password. Password is not stored and user is tracked via token.
 
 ![login_gif](./docs/img/Login_gif.gif)
 
@@ -96,7 +96,7 @@ Users can add items from the index to interests page to buy later.
 
 
 ### React Navigation
-Using React Navigation, Ka-Ching can offer seamless navigation between its components.
+Using React Navigation, Ka-Ching can offer seamless navigation between its components. This proved difficult because React Navigation requires a lot of planning to set up the component routes. It also requires that you configure the stacks needed for navigation. 
 ```ruby
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
@@ -163,7 +163,7 @@ React Native Maps allows items to be put up for sale based on their geo-location
     longitude: this.state.region.longitude
   }}/>
 ```
-<img src="./auth-master/pictures/location.png" width="600">
+<img src="./auth-master/pictures/location.png" width="375">
 
 ### Future Direction for Project
 In the future we plan to implement notifications of new items, categories to search items, chat between seller and buyer, a cart to purchase items, the ability to add photos to items, and the ability to search for items.

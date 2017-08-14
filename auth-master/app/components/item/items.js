@@ -102,8 +102,8 @@ class Items extends Component {
     if (this.state.items[0] === undefined || this.state.items.length === 0) {
       return (
         <View>
-          <Text>
-            empty
+          <Text style={styles.none}>
+            No Items
           </Text>
         </View>
       );
@@ -165,6 +165,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "stretch"
+  },
+  none: {
+    fontSize: 30
   },
   navContainer: {
     flexDirection: 'row',
