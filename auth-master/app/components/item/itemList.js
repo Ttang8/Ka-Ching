@@ -22,8 +22,9 @@ class ItemList extends React.Component {
 
   render(){
     const { item } = this.props;
-
+      console.log(this.props);
     return (
+
           <View style={styles.container}>
               <View style={styles.items}>
 
