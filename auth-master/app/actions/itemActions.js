@@ -22,6 +22,8 @@ export const receiveErrors = errors => ({
 
 // async
 
+
+
 export const fetchItems = () => dispatch => (
   APIUtil.fetchItems()
     .then(items => {

@@ -9,7 +9,7 @@ import UserSwipe from '../components/swiper_components/user_profile';
 
 import UserProfileContainer from '../components/user/UserProfileContainer';
 import Items from '../components/item/items';
-import TodoList from '../components/TodoList';
+import InterestContainer from '../components/interest/Interest_container';
 import EditUserContainer from '../components/user/EditUserContainer';
 import EditUserSettingContainer from '../components/user/EditUserSettingContainer';
 
@@ -39,7 +39,7 @@ export const Tabs = TabNavigator({
   },
 
   Interests: {
-    screen: TodoList,
+    screen: InterestContainer,
     navigationOptions: {
       tabBarLabel: 'Interests',
       tabBarIcon: () => <Icon name='credit-card' size={35} color='black'/>

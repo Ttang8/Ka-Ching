@@ -9,6 +9,7 @@ import errorsReducer from './errorsReducer';
 import itemsReducer from './itemsReducer';
 import itemReducer from './itemReducer';
 import userReducer from './userReducer';
+import interestReducer from './interestReducer';
 
 
 
@@ -20,5 +21,6 @@ module.exports = combineReducers({
   errors: errorsReducer,
   items: itemsReducer,
   item: itemReducer,
-  user: userReducer
+  user: userReducer,
+  interests: interestReducer
 });

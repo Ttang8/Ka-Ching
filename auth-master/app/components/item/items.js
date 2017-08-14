@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchItems} from '../../actions/itemActions';
 import {editUser, fetchUser} from '../../actions/userActions';
+import {fetchInterests} from '../../actions/interestActions';
 import {
   StyleSheet,
   Text,
@@ -38,6 +39,10 @@ class Items extends Component {
     const items = [].concat(this.state.items);
     const item = items[0];
     const buy = this.state.user.buy;
+    if (this.state.items.length === 0) {
+      return alert('there is no more items in your area');
+    }
+
     if (!buy.includes(item._id)) {
       buy.push(item._id);
       this.setState({
@@ -47,21 +52,29 @@ class Items extends Component {
           sell: this.props.user.sell
         }
       });
-      this.props.editUser(this.state.user).then(() => {
+      this.props.editUser(this.state.user).then((response) => {
         items.shift();
         this.setState({items: items});
+        const buyItems = {
+          buyItems: response.user.buy
+        }
+        this.props.fetchInterests(buyItems);
       });
     } else {
-      console.log('yo duplicate');
+      alert('that item is already in your interest')
       items.shift();
       this.setState({items: items});
     }
   }
 
   next() {
-    const items = [].concat(this.state.items);
-    items.push(items.shift());
-    this.setState({items: items});
+    if (this.state.items.length > 0 ){
+      const items = [].concat(this.state.items);
+      items.push(items.shift());
+      this.setState({items: items});
+    } else {
+      alert('there are no items in your area')
+    }
   }
 
   renderItemList() {
@@ -185,4 +198,4 @@ const mapStateToProps = state => {
   return {items: state.items.data, item: state.item, auth: state.auth, user: state.user};
 };
 
-module.exports = connect(mapStateToProps, {fetchItems, editUser, fetchUser})(Items);
+module.exports = connect(mapStateToProps, {fetchItems, editUser, fetchUser, fetchInterests})(Items);
