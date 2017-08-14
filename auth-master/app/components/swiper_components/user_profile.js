@@ -10,7 +10,6 @@ import {
   NavigatorIOS
 } from "react-native";
 
-import TodoList from "../TodoList";
 import FontAwesome, { Icons } from "react-native-fontawesome";
 import { unauthUser } from "../../actions";
 import Items from "../item/items";
@@ -59,7 +58,6 @@ class UserSwipe extends Component {
           <Items />
         </View>
         <View style={styles.slide3}>
-          <TodoList />
         </View>
       </Swiper>
     );

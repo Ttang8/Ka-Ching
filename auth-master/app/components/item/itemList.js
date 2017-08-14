@@ -45,11 +45,6 @@ class ItemList extends React.Component {
                 </Text>
 
               <View>
-                <TouchableOpacity onPress={this.showDetail.bind(this)}>
-                  <Text style={styles.itemDescription}>
-                    Details
-                  </Text>
-                </TouchableOpacity>
               </View>
             </View>
 

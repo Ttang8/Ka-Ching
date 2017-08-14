@@ -26,6 +26,7 @@ class ItemSubmitForm extends Component {
     let position = this.userPosition;
     this.props.createItem(newItem, position)
       .then(this.props.fetchItems(this.userPosition))
+
       .then(()=> this.props.navigation.navigate('UserProfileContainer'));
   }
 

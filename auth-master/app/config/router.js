@@ -2,7 +2,6 @@ import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Octicons';
 
-import Main from '../components/Main';
 import InterestSwipe from '../components/swiper_components/interests';
 import ItemSwipe from '../components/swiper_components/items';
 import UserSwipe from '../components/swiper_components/user_profile';

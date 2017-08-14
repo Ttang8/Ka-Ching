@@ -22,33 +22,31 @@ class Interest extends Component {
       .then(response => {
         const buyItems = {
           buyItems: response.user.buy
-        }
+        };
         this.props.fetchInterests(buyItems);
-      })
+      });
   }
-
-
-
 
   renderItems() {
     if (this.props.user.buy.length > 0) {
       const { interests } = this.props;
       return (
+      <View>
         <View>
           {interests.map(interest => (
-            <TouchableOpacity>
+            <TouchableOpacity key={(Math.random(100000))}>
               <Card>
                 <CardSection>
                   <Text>
-                    {interest.title}
-                    {interest.price}
+                    {interest.title}:&nbsp;${interest.price}
                   </Text>
                 </CardSection>
               </Card>
             </TouchableOpacity>
           ))}
         </View>
-      )
+      </View>
+      );
     } else {
       return (
         <View>
@@ -56,16 +54,15 @@ class Interest extends Component {
             empty
           </Text>
         </View>
-      )
+      );
     }
   }
 
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
-        <View>
-          <Text>
+        <View style={styles.center}>
+          <Text style={styles.title}>
             Interest
           </Text>
         </View>
@@ -75,7 +72,7 @@ class Interest extends Component {
           {this.renderItems()}
         </ScrollView>
       </View>
-    )
+    );
   }
 }
 
@@ -84,7 +81,76 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignSelf: 'stretch',
-    paddingTop: 20
+    paddingTop: 20,
+    backgroundColor: '#2ecc71'
+  },
+  topBar: {
+    padding: 16,
+    paddingTop: 28,
+    paddingBottom: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#2ecc71'
+  },
+  navContainer: {
+    flex: 1,
+    backgroundColor: '#2ecc71',
+    paddingTop: 10,
+    paddingBottom: 8,
+    alignSelf: 'stretch',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  userInfoContainer: {
+    flex: 11,
+    alignSelf: 'stretch',
+    overflow: 'hidden',
+    backgroundColor: '#2ecc71',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
+  userImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    borderWidth: 4,
+    borderColor: 'white'
+  },
+  nameStyles: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    fontSize: 27,
+    paddingTop: 10,
+    fontWeight: '500',
+    color: 'white'
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignSelf: 'stretch',
+    height: 100,
+    alignItems: 'center',
+    backgroundColor: '#25A35A'
+  },
+  functionContainer: {
+    flex: 8,
+    backgroundColor: 'lightgrey',
+    alignSelf: 'stretch'
+  },
+  title:{
+    color: 'white',
+    fontSize: 30,
+    padding: 10
+  },
+  center:{
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  icons: {
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
