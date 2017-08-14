@@ -9,6 +9,7 @@ module.exports = (app) => {
   app.post('/api/items', ItemsController.createItem);
   app.put('/api/items/:id', ItemsController.editItem);
   app.delete('/api/items/:id', ItemsController.deleteItem);
+  app.post('/api/interestitems', ItemsController.interestItems);
 
   app.get('/api/users', UsersController.getUsers);
   app.get('/api/users/:id', UsersController.getUser);
