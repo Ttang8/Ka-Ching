@@ -7,6 +7,14 @@ export const fetchItems = () => (
   })
 );
 
+export const fetchInterests = (buyItems) => (
+  axios({
+    method: 'POST',
+    url: 'http://localhost:3000/api/interestitems',
+    data: buyItems
+  })
+)
+
 export const fetchItem = id => (
   axios({
     method: 'GET',

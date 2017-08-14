@@ -22,6 +22,8 @@ export const receiveErrors = errors => ({
 
 // async
 
+
+
 export const fetchItems = () => dispatch => (
   APIUtil.fetchItems()
     .then(items => {
@@ -40,8 +42,8 @@ export const fetchItem = (id) => dispatch => (
 
 export const createItem = item => dispatch => (
   APIUtil.createItem(item)
-    .then(item => (
-      dispatch(receiveItem(item))
+    .then(() => (
+      dispatch(fetchItems())
     )
   )
 );
