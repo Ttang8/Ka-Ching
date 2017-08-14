@@ -58,9 +58,9 @@ class Items extends Component {
 
   addToInterest() {
     const items = [].concat(this.state.items);
-    const item = items[0];
+    const item = items[0].obj;
     const buy = this.state.user.buy;
-    if (this.state.items.obj.length === 0) {
+    if (this.state.items.length === 0) {
       return alert('there is no more items in your area');
     }
 
