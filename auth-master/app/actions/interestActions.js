@@ -10,7 +10,6 @@ export const receiveInterest = buyItems => ({
 export const fetchInterests = buyItems => dispatch => (
   APIUtil.fetchInterests(buyItems)
     .then(interestItems => {
-      console.log('actions',interestItems)
       return dispatch(receiveInterest(interestItems.data))
     }
   )
