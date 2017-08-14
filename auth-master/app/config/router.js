@@ -7,7 +7,7 @@ import InterestSwipe from '../components/swiper_components/interests';
 import ItemSwipe from '../components/swiper_components/items';
 import UserSwipe from '../components/swiper_components/user_profile';
 
-import UserProfile from '../components/user/userProfile';
+import UserProfileContainer from '../components/user/UserProfileContainer';
 import Items from '../components/item/items';
 import InterestContainer from '../components/interest/Interest_container';
 import EditUserContainer from '../components/user/EditUserContainer';
@@ -22,8 +22,8 @@ import ItemShow from '../components/item/itemShow';
 
 
 export const Tabs = TabNavigator({
-  UserProfile: {
-    screen: UserProfile,
+  UserProfileContainer: {
+    screen: UserProfileContainer,
     navigationOptions: {
       tabBarLabel: 'Profile',
       tabBarIcon: () => <Icon name='person' size={35} color='black'/>

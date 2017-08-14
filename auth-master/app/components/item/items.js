@@ -87,7 +87,8 @@ class Items extends Component {
         </View>
       );
     } else {
-      return <ItemList navigation={this.props.navigation} item={this.state.items[0]}/>
+      return <ItemList navigation={this.props.navigation}
+                       item={this.state.items[0]}/>;
     }
   }
 
