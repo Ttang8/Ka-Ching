@@ -13,6 +13,8 @@ import Swiper from 'react-native-swiper';
 import axios from 'axios';
 import {createItem} from '../../actions/itemActions';
 import UserGreeting from '../greeting/UserGreeting';
+import UserGreeting2 from '../greeting/UserGreeting2';
+import UserGreeting3 from '../greeting/UserGreeting3';
 import {unauthUser} from '../../actions';
 
 // import {createItem} from '../../api/api_util_items';
@@ -48,7 +50,7 @@ class UserProfile extends React.Component {
 
   render() {
     const tempUser = {
-      name: "dallas",
+      name: "Dallas",
       age: 30
     };
 
@@ -79,8 +81,8 @@ class UserProfile extends React.Component {
         <View style={styles.buttonsContainer}>
           <View style={styles.icons}>
             <TouchableOpacity style={styles.icons} onPress={this.goToSettings}>
-              <Icon name='gear' size={20} color='white'/>
-              <Text style={styles.title}>Settings</Text>
+              <Icon name='gift' size={20} color='white'/>
+              <Text style={styles.title}>Sell Item</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.icons}>
@@ -97,10 +99,10 @@ class UserProfile extends React.Component {
                 <UserGreeting/>
               </View>
               <View style={styles.slide2}>
-                <UserGreeting/>
+                <UserGreeting2/>
               </View>
               <View style={styles.slide3}>
-                <UserGreeting/>
+                <UserGreeting3/>
               </View>
             </Swiper>
         </View>

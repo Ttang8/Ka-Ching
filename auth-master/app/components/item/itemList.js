@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     padding: 5,
-    fontSize: 15
+    fontSize: 20
   },
   container:{
     justifyContent: 'flex-end',

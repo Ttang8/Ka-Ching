@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, View, Image} from 'react-native';
 
-const UserGreeting = () => {
+const UserGreeting3 = () => {
   const { textStyle, viewStyle, photo } = styles;
 
   return (
     <View style={viewStyle}>
-      <Text style={textStyle}>Sell items from your profile page!</Text>
+      <Text style={textStyle}>Items populate from your area!</Text>
     </View>
   );
 };
@@ -39,4 +39,4 @@ const styles = {
   }
 };
 
-export default UserGreeting;
+export default UserGreeting3;

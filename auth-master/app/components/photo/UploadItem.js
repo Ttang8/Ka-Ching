@@ -19,12 +19,10 @@ class UploadItem extends Component {
 
   render() {
     return (
-      <View>
-        <TouchableOpacity onPress={this.handleChooseImage}>
-          <Text>
-            Next
-          </Text>
-        </TouchableOpacity>
+      <View style={styles.container}>
+        <View style={styles.padding}>
+
+        </View>
         <View style={styles.field}>
           <TextInput value={this.state.title} onChangeText={(title) => this.setState({title})} placeholder="Title" style={styles.textInput}/>
         </View>
@@ -34,6 +32,13 @@ class UploadItem extends Component {
         <View style={styles.field}>
           <TextInput keyboardType={'numeric'} onChangeText={(price) => this.setState({price})} placeholder="Price" style={styles.textInput}/>
         </View>
+        <TouchableOpacity onPress={this.handleChooseImage}>
+          <View style={styles.center}>
+          <Text style={styles.button}>
+            Next
+          </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -45,6 +50,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "stretch",
     backgroundColor: '#2ecc71'
+  },
+  center:{
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   topBar: {
     padding: 16,
@@ -66,7 +75,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 8,
     margin: 7,
-    marginTop: 0,
+    marginTop: 10,
     backgroundColor: 'white'
   },
   textInput: {
