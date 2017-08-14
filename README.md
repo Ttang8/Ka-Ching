@@ -91,7 +91,7 @@ React Native Maps allows items to be put up for sale based on their geo-location
     longitude: this.state.region.longitude
   }}/>
 ```
-<img src="./pictures/location.png" width="600">
+<img src="./auth-master/pictures/location.png" width="600">
 
 ### Future Direction for Project
 In the future we plan to implement notifications of new items, categories to search items, chat between seller and buyer, a cart to purchase items, the ability to add photos to items, and the ability to search for items.
