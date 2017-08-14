@@ -28,7 +28,6 @@ export default class Map extends Component {
   }
 
   render() {
-    console.log("README", this.state);
     return (
       <View style={styles.container}>
         <MapView region={this.state.region}

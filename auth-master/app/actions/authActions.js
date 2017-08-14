@@ -31,7 +31,7 @@ export const loginUser = (email, password) => dispatch => {
   return axios.post(SIGNIN_URL, {email, password})
     .then(function(response) {
       let { token } = response.data;
-      dispatch(addAlert(token));
+      // dispatch(addAlert(token));
       dispatch(authUser(response.data));
   })
     .catch(function (error) {

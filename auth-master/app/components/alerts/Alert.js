@@ -10,11 +10,11 @@ import {
 
 import {removeAlert} from '../../actions';
 
-var Alert = React.createClass({
+class Alert extends Component{
   onRemoveAlert(){
     var {dispatch, alert} = this.props;
     dispatch(removeAlert(alert.id));
-  },
+  }
   render() {
     return (
     <TouchableWithoutFeedback onPress={this.onRemoveAlert}>
@@ -26,7 +26,7 @@ var Alert = React.createClass({
       </TouchableWithoutFeedback>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -41,5 +41,4 @@ const styles = StyleSheet.create({
     color: '#a94442'
   }
 });
-
-module.exports = connect()(Alert);
+export default connect()(Alert);

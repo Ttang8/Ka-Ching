@@ -13,6 +13,6 @@ const mapDispatchToProps = dispatch => ({
   editUser: user => dispatch(editUser(user)),
   fetchInterests: buyItems => dispatch(fetchInterests(buyItems)),
   fetchUser: id => dispatch(fetchUser(id))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Interest);

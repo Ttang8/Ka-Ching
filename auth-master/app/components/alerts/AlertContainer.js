@@ -9,7 +9,7 @@ import {
 
 import Alert from './Alert';
 
-var AlertContainer = React.createClass({
+class AlertContainer extends Component{
   render() {
     var renderAlerts = () => {
       return this.props.alerts.map((alert) => {
@@ -24,7 +24,7 @@ var AlertContainer = React.createClass({
       </View>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -41,5 +41,4 @@ var mapStateToProps = (state) => {
     alerts: state.alerts
   };
 };
-
-module.exports = connect(mapStateToProps)(AlertContainer);
+export default connect(mapStateToProps)(AlertContainer);
