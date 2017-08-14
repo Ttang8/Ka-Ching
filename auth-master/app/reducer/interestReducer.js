@@ -10,3 +10,5 @@ const interestReducer = (state = defaultState, action) => {
       return state;
   }
 }
+
+export default interestReducer;

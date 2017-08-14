@@ -10,7 +10,7 @@ import {
   RefreshControl,
   TextInput
 } from 'react-native';
-import {Card, CardSection } from '../common';
+import { Card, CardSection } from '../common';
 
 class Interest extends Component {
   constructor(props) {
@@ -18,28 +18,36 @@ class Interest extends Component {
   }
 
   componentDidMount() {
-    const buyItems = {
-      buyItems: this.props.user.buy
-    }
-    this.props.fetchInterests(buyItems);
+    this.props.fetchUser(this.props.auth.user_id)
+      .then(response => {
+        const buyItems = {
+          buyItems: response.user.buy
+        }
+        this.props.fetchInterests(buyItems);
+      })
   }
 
 
 
 
-  renderItems(){
-    if (this.props.user.buy.length > 0 ) {
-        const {interests} = this.props;
-        interests.map(interest => (
-           <TouchableOpacity>
-            <Card>
-              <CardSection>
-                {interest.title}
-                {interest.price}
-              </CardSection>
-            </Card>
-          </TouchableOpacity>
-        )
+  renderItems() {
+    if (this.props.user.buy.length > 0) {
+      const { interests } = this.props;
+      return (
+        <View>
+          {interests.map(interest => (
+            <TouchableOpacity>
+              <Card>
+                <CardSection>
+                  <Text>
+                    {interest.title}
+                    {interest.price}
+                  </Text>
+                </CardSection>
+              </Card>
+            </TouchableOpacity>
+          ))}
+        </View>
       )
     } else {
       return (
@@ -52,60 +60,33 @@ class Interest extends Component {
     }
   }
 
-  render(){
+  render() {
     console.log(this.props);
     return (
-      <View>
-        <ScrollView 
+      <View style={styles.container}>
+        <View>
+          <Text>
+            Interest
+          </Text>
+        </View>
+        <ScrollView
           automaticallyAdjustContentInsets={false}
           contentContainerStyle={styles.scrollViewContainer}>
-          {/* {this.renderItems()} */}
+          {this.renderItems()}
         </ScrollView>
       </View>
     )
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignSelf: 'stretch',
+    paddingTop: 20
+  }
+});
+
 
 export default Interest;
-
-// var TodoList = React.createClass({
-//   getInitialState() {
-//     return { newTodoText: undefined };
-//   },
-//   addNewTodo() {
-//     var { newTodoText } = this.state;
-//     if (newTodoText && newTodoText !== "") { }
-//   },
-//   onBack() {
-//     this.props.navigator.pop();
-//   },
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <View style={styles.topBar}>
-//           <TouchableOpacity onPress={this.onBack}>
-//             <Icon name='chevron-left' size={20} color='white' />
-//           </TouchableOpacity>
-//           <Text style={styles.title}>
-//             New Todo
-//           </Text>
-//           <TouchableOpacity onPress={this.addNewTodo}>
-//             <Icon name='check' size={20} color='white' />
-//           </TouchableOpacity>
-//         </View>
-//         <ScrollView automaticallyAdjustContentInsets={false} contentContainerStyle={styles.scrollViewContainer}>
-//           <View style={styles.inputContainer}>
-//             <TextInput onChangeText={(newTodoText) => {
-//               this.setState({ newTodoText });
-//             }} placeholder="New To-Do Text" style={styles.input} />
-//           </View>
-//         </ScrollView>
-//       </View>
-//     );
-//   }
-// });
-
-const styles = StyleSheet.create({
-
-});

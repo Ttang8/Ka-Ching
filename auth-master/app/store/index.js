@@ -11,7 +11,7 @@ exports.configureStore = (initialState = defaultState) => {
     reducer,
     initialState,
     compose(applyMiddleware(thunk), 
-    // autoRehydrate()
+    autoRehydrate()
   )
   );
   persistStore(store, { storage: AsyncStorage });
