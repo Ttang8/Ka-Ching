@@ -20,6 +20,9 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 class Items extends Component {
   constructor(props) {
     super(props);
+
+
+
     this.state = {
       items: this.props.items,
       user: {
@@ -29,14 +32,29 @@ class Items extends Component {
       }
     };
     this.renderItemList = this.renderItemList.bind(this);
+    console.log(navigator);
+
+
   }
+
   componentDidMount() {
-    this.props.fetchItems()
+    navigator.geolocation.getCurrentPosition((pos)=>{
+      this.latitude = pos.coords.latitude;
+      this.longitude = pos.coords.longitude;
+      this.userPosition = {
+        lat: this.latitude,
+        lng: this.longitude
+      };
+
+      console.log('mount', this.userPosition);
+      this.props.fetchItems(this.userPosition)
       .then(response => {
+        console.log('response', response);
         this.setState({
           items: response.items.data
-        })
-      })
+        });
+      });
+    });
     this.props.fetchUser(this.props.auth.user_id);
   }
 
@@ -44,7 +62,7 @@ class Items extends Component {
     const items = [].concat(this.state.items);
     const item = items[0];
     const buy = this.state.user.buy;
-    if (this.state.items.length === 0) {
+    if (this.state.items.obj.length === 0) {
       return alert('there is no more items in your area');
     }
 
@@ -93,13 +111,12 @@ class Items extends Component {
       );
     } else {
       return <ItemList navigation={this.props.navigation}
-                       item={this.state.items[0]}/>;
+                       item={this.state.items[0].obj}/>;
     }
   }
 
   render() {
-    console.log('props', this.props);
-    console.log('state', this.state);
+    console.log('items',this.state.items);
     if (this.state.items === undefined) {
       return (
         <View style={styles.container}>

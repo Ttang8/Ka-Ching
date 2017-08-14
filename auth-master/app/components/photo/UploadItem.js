@@ -11,10 +11,19 @@ class UploadItem extends Component {
       price: 0
     };
     this.handleChooseImage = this.handleChooseImage.bind(this);
+
+    navigator.geolocation.getCurrentPosition((pos)=>{
+     this.latitude = pos.coords.latitude;
+     this.longitude = pos.coords.longitude;
+   });
   }
 
   handleChooseImage() {
-    this.props.navigation.navigate('Photo', {itemInfo: this.state});
+    this.userPosition = {
+      lat: this.latitude,
+      lng: this.longitude
+    };
+    this.props.navigation.navigate('Photo', {itemInfo: this.state, userPosition: this.userPosition});
   }
 
   render() {

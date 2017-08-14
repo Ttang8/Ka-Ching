@@ -15,6 +15,7 @@ export default class Map extends Component {
       },
       itemInfo: this.props.navigation.state.params.itemInfo.itemInfo
     };
+    this.userPosition = this.props.navigation.state.params.userPosition;
     this.onRegionChange = this.onRegionChange.bind(this);
     this.handleItemSubmitForm = this.handleItemSubmitForm.bind(this);
   }
@@ -24,7 +25,7 @@ export default class Map extends Component {
   }
 
   handleItemSubmitForm() {
-    this.props.navigation.navigate('ItemSubmitFormContainer', {itemInfo: this.state});
+    this.props.navigation.navigate('ItemSubmitFormContainer', {itemInfo: this.state, userPosition: this.userPosition});
   }
 
   render() {

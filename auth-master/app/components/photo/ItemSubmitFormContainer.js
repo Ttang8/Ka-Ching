@@ -1,13 +1,14 @@
 import {connect} from 'react-redux';
 import ItemSubmitForm from './ItemSubmitForm';
-import {createItem} from '../../actions/itemActions';
+import {createItem, fetchItems} from '../../actions/itemActions';
 
 const mapStateToProps = ({ user }) => ({
   user
 });
 
 const mapDispatchToProps = dispatch => ({
-  createItem: item => dispatch(createItem(item))
+  createItem: item => dispatch(createItem(item)),
+  fetchItems: userPosition => dispatch(fetchItems(userPosition))
 });
 
 export default connect(
