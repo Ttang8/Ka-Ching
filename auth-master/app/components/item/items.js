@@ -119,11 +119,9 @@ class Items extends Component {
               Ka-Ching!
             </Text>
           </View>
-        <SwipeCards style={styles.cards}>
           <View style={styles.middle}>
             {this.renderItemList()}
           </View>
-        </SwipeCards>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.middle}
               onPress={this.addToInterest.bind(this)}>

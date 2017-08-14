@@ -67,17 +67,18 @@ const styles = StyleSheet.create({
   itemImage: {
     alignSelf: 'stretch',
     backgroundColor: 'transparent'
-
   },
   itemDescription: {
-    color: 'white',
+    color: 'black',
     fontWeight: 'bold',
     padding: 5,
     fontSize: 20
   },
   container:{
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start'
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'black'
   },
   items:{
     justifyContent: 'flex-end'
