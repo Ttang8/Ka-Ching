@@ -7,7 +7,6 @@ import {
   TouchableOpacity
 } from 'react-native';
 import {connect } from 'react-redux';
-import SwipeCards from './SwipeCards';
 
 class ItemList extends React.Component {
   constructor(props){
