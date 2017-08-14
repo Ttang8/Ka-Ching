@@ -16,6 +16,7 @@
     "react-native-fontawesome": "^5.7.0",
     "react-native-maps": "^0.16.0",
     "react-native-router-flux": "^4.0.0-beta.17",
+    "react-native-swipe-cards": "^0.1.0",
     "react-native-swiper": "^1.5.5",
     "react-native-vector-icons": "^4.3.0",
     "react-navigation": "^1.0.0-beta.11",
