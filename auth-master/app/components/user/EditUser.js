@@ -35,6 +35,7 @@ class EditUser extends React.Component{
               </Text>
             </TouchableOpacity>
          </View>
+         <Text style={styles.title}>&nbsp;&nbsp;Username:</Text>
         <View style={styles.padding}>
           <View style={styles.field}>
             <TextInput
@@ -44,6 +45,7 @@ class EditUser extends React.Component{
               style={styles.textInput}/>
           </View>
         </View>
+        <Text style={styles.title}>&nbsp;&nbsp;Firstname:</Text>
         <View style={styles.padding}>
           <View style={styles.field}>
             <TextInput
@@ -53,6 +55,7 @@ class EditUser extends React.Component{
               style={styles.textInput}/>
           </View>
         </View>
+        <Text style={styles.title}>&nbsp;&nbsp;Lastname:</Text>
         <View style={styles.padding}>
           <View style={styles.field}>
             <TextInput
