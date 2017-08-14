@@ -96,7 +96,7 @@ Users can add items from the index to interests page to buy later.
 
 
 ### React Navigation
-Using React Navigation, Ka-Ching can offer seamless navigation between its components. This proved difficult because React Navigation requires a lot of planning to set up the component routes. It also requires that you configure the stacks needed for navigation. 
+Using React Navigation, Ka-Ching can offer seamless navigation between its components. This proved difficult because React Navigation requires a lot of planning to set up the component routes. It also requires that you configure the stacks needed for navigation.
 ```ruby
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
@@ -167,3 +167,5 @@ React Native Maps allows items to be put up for sale based on their geo-location
 
 ### Future Direction for Project
 In the future we plan to implement notifications of new items, categories to search items, chat between seller and buyer, a cart to purchase items, the ability to add photos to items, and the ability to search for items.
+
+[Ka-Ching]:https://ttang8.github.io/Ka-Ching/
