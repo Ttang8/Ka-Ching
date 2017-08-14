@@ -7,7 +7,6 @@ import {
   TouchableOpacity
 } from 'react-native';
 import {connect } from 'react-redux';
-import SwipeCards from './SwipeCards';
 
 class ItemList extends React.Component {
   constructor(props){
@@ -46,11 +45,6 @@ class ItemList extends React.Component {
                 </Text>
 
               <View>
-                <TouchableOpacity onPress={this.showDetail.bind(this)}>
-                  <Text style={styles.itemDescription}>
-                    Details
-                  </Text>
-                </TouchableOpacity>
               </View>
             </View>
 

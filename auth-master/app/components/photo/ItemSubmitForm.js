@@ -11,7 +11,6 @@ class ItemSubmitForm extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(this.props);
   }
 
   handleSubmit() {
@@ -23,7 +22,7 @@ class ItemSubmitForm extends Component {
       seller: this.props.user.user_id
     };
     this.props.createItem(newItem)
-      .then(()=> this.props.navigation.navigate('UserProfile'));
+      .then(()=> this.props.navigation.navigate('UserProfileContainer'));
   }
 
   render() {

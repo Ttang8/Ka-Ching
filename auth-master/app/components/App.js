@@ -10,7 +10,6 @@ import {
 
 // import {} from '../actions';
 import LoginContainer from './LoginContainer';
-import Main from './Main';
 import AlertContainer from './alerts/AlertContainer';
 import { Root } from '../config/router';
 

@@ -8,9 +8,7 @@ import {
 
 class ItemShow extends React.Component {
   render(){
-    console.log(this.props);
     const {title, description, price, location} = this.props.navigation.state.params.item;
-    console.log(title, description, price, location);
     return (
       <View>
         <View>

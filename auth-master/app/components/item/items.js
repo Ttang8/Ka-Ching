@@ -14,7 +14,6 @@ import {
 import Icon from 'react-native-vector-icons/Octicons';
 import UserProfile from '../user/userProfile';
 import ItemList from './itemList';
-import SwipeCards from './SwipeCards';
 
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 

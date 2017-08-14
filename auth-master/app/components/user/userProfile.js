@@ -49,7 +49,6 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const tempUser = {
       name: "Dallas",
       age: 30
