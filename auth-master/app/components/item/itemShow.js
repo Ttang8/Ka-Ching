@@ -26,7 +26,7 @@ class ItemShow extends React.Component {
           </Text>
         </View>
       </View>
-    )
+    );
   }
 }
 
@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
   itemImage: {
     alignSelf: 'stretch'
   }
-})
+});
 
 export default ItemShow;
