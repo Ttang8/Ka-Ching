@@ -10,10 +10,8 @@ const app = express();
 mongoose.Promise = global.Promise;
 if (process.env.NODE_ENV=='production') {
   mongoose.connect(process.env.MONGO_URL);
-
 } else {
   mongoose.connect("mongodb://localhost:introToAuth/introToAuth");
-
 }
 
 
