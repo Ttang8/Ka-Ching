@@ -26,10 +26,25 @@ class Login extends Component{
     };
     this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
+    this.handleLogIn = this.handleLogIn.bind(this);
   }
 
   componentDidMount() {
     this.props.clearErrors();
+  }
+
+  handleLogIn() {
+    let email = 'guest@gmail.com';
+    let password = 'password';
+    this.setState({
+      loading: true
+    });
+    this.props.loginUser(email, password)
+      .then(()=>{
+      this.setState({
+        loading: false
+      });
+    });
   }
 
   onSignIn() {
@@ -131,6 +146,11 @@ class Login extends Component{
               Sign Up
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={this.handleLogIn}>
+            <Text style={styles.button}>
+              Demo Login
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
       );
@@ -175,7 +195,7 @@ const styles = {
     alignItems: 'center'
   },
   button: {
-    fontSize: 30,
+    fontSize: 25,
     color: 'white'
   },
   formError: {
