@@ -3157,6 +3157,15 @@
 			color: #999999;
 		}
 
+		.emulator {
+			height: 820px;
+			width: 370px;
+		}
+
+		.emulator-div {
+			margin-bottom: 300px;
+		}
+
 			.wrapper.style2 input[type="submit"],
 			.wrapper.style2 input[type="reset"],
 			.wrapper.style2 input[type="button"],
