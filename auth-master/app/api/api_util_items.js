@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+export const fetchAllItems = () => {
+  return axios({
+    method: 'GET',
+    url: 'http://localhost:3000/api/allitems'
+  });
+};
+
 export const fetchItems = (userPosition) => {
-  console.log('fetch',userPosition);
   return axios({
     method: 'GET',
     url: `http://localhost:3000/api/items?lat=${userPosition.lat}&lng=${userPosition.lng}`
