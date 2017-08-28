@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchItems} from '../../actions/itemActions';
+import {fetchItems, fetchAllItems} from '../../actions/itemActions';
 import {editUser, fetchUser} from '../../actions/userActions';
 import {fetchInterests} from '../../actions/interestActions';
 import {
@@ -32,8 +32,6 @@ class Items extends Component {
       }
     };
     this.renderItemList = this.renderItemList.bind(this);
-    console.log(navigator);
-
 
   }
 
@@ -46,7 +44,8 @@ class Items extends Component {
         lng: this.longitude
       };
 
-      this.props.fetchItems(this.userPosition)
+      // this.props.fetchItems(this.userPosition)
+      this.props.fetchAllItems()
       .then(response => {
         this.setState({
           items: response.items.data
@@ -58,7 +57,7 @@ class Items extends Component {
 
   addToInterest() {
     const items = [].concat(this.state.items);
-    const item = items[0].obj;
+    const item = items[0];
     const buy = this.state.user.buy;
     if (this.state.items.length === 0) {
       return alert('there is no more items in your area');
@@ -99,7 +98,7 @@ class Items extends Component {
   }
 
   renderItemList() {
-    if (this.state.items[0] === undefined || this.state.items.length === 0) {
+    if (this.state.items === undefined || this.state.items.length === 0) {
       return (
         <View>
           <Text style={styles.none}>
@@ -109,7 +108,7 @@ class Items extends Component {
       );
     } else {
       return <ItemList navigation={this.props.navigation}
-                       item={this.state.items[0].obj}/>;
+                       item={this.state.items[0]}/>;
     }
   }
 
@@ -229,6 +228,7 @@ const mapStateToProps = state => {
 
 module.exports = connect(mapStateToProps,
   {fetchItems,
+    fetchAllItems,
     editUser,
     fetchUser,
     fetchInterests})(Items);

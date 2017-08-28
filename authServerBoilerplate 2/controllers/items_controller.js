@@ -3,7 +3,9 @@ const Item = require("../models/item");
 module.exports = {
   allItems(req, res, next) {
     Item.find({})
-      .then((items) => res.send(items))
+      .then((items) => {
+        res.send(items);
+      })
       .catch(next);
   },
 

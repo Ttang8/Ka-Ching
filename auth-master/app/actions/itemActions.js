@@ -18,11 +18,16 @@ export const receiveItem = item => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
-})
+});
 
 // async
 
-
+export const fetchAllItems = () => dispatch => (
+  APIUtil.fetchAllItems()
+    .then(items => {
+      return dispatch(receiveItems(items));
+    })
+);
 
 export const fetchItems = (userPosition) => dispatch => (
   APIUtil.fetchItems(userPosition)
